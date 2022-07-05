@@ -15,55 +15,55 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         }
          [FindsBy(How = How.XPath, Using = "//h6[text()='View All']")]
-        private IWebElement viewAll ;
+        private IWebElement _viewAllIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='fast food']")]
-        private IWebElement fastFood ;
+        private IWebElement _fastFoodIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='vegetarian']")]
-        private IWebElement vegetarian ;
+        private IWebElement _vegetarianIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='pizza']")]
-        private IWebElement pizza ;
+        private IWebElement _pizzaIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='sushi']")]
-        private IWebElement sushi ;
+        private IWebElement _sushiIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='pub']")]
-        private IWebElement pub ;
+        private IWebElement _pubIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='kebab']")]
-        private IWebElement kebab ;
+        private IWebElement _kebabIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='greel']")]
-        private IWebElement greel ;
+        private IWebElement _greelIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='burgers']")]
-        private IWebElement burgers ;
+        private IWebElement _burgersIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='beer']")]
-        private IWebElement beer ;
+        private IWebElement _beerIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='ukrainian cuisine']")]
-        private IWebElement ukrCuisine ;
+        private IWebElement _ukrCuisineIcon ;
         
         [FindsBy(How = How.XPath, Using = "//h6[text()='japanese cuisine']")]
-        private IWebElement japCuisine ;
+        private IWebElement _japCuisineIcon ;
         
         [FindsBy(How = How.XPath, Using = "//button[contains(@class, 'sliderBtnPrev')]")]
-        private IWebElement sliderPrev ;
+        private IWebElement _sliderPrevImg ;
         
         [FindsBy(How = How.XPath, Using = "//button[contains(@class, 'sliderBtnNext')]")]
-        private IWebElement sliderNext ;
+        private IWebElement _sliderNextImg ;
         
         [FindsBy(How = How.XPath, Using = "//img[contains(@alt, 'Some text 1')]")]
-        private IWebElement imgSnowman ;
+        private IWebElement _imgRelaxWithUs ;
         
         [FindsBy(How = How.XPath, Using = "//img[contains(@alt, 'Some text 2')]")]
-        private IWebElement imgPizza ;
+        private IWebElement _imgEnjoyYourMeals  ;
         
         [FindsBy(How = How.XPath, Using = "//img[contains(@alt, 'Some text 3')]")]
-        private IWebElement imgVegs ;
+        private IWebElement _imgYouAreWhatYouEat ;
 
        
     }
