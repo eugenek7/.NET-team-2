@@ -1,17 +1,21 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
-    class SignInPage : BasePage
+    public class HomePage : BasePage
     {
-        public SignInPage(IWebDriver driver) : base(driver)
+        public HomePage(IWebDriver driver) : base(driver)
         {
 
         }
+
+
     }
 }

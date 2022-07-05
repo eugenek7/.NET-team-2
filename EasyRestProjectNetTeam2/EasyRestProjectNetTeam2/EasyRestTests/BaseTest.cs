@@ -19,7 +19,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         static string pathToReport = Directory.GetParent(@"../../../").FullName
           + Path.DirectorySeparatorChar + "Reports"
           + Path.DirectorySeparatorChar + "Report_" + DateTime.Now.ToString("ddMMyyyy HHmmss")
-          + "\\index.html";
+          /*+ "\\index.html"*/;
         static ExtentReports extent;
         ExtentTest test;
        
@@ -73,6 +73,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             test.Log(logstatus, "Test complete with status: " + logstatus + stacktrace);
             extent.Flush();
             driver.Quit();
+            
 
         }
        
@@ -85,6 +86,16 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public HomePage GetHomePage()
         {
             return new HomePage(GetDriver());
+        }
+
+        public SignInPage GetSignInPage()
+        {
+            return new SignInPage(GetDriver());
+        }
+
+        public PersonalInfoPage GetPersonalInfoPage()
+        {
+            return new PersonalInfoPage(GetDriver());
         }
     }
 }
