@@ -8,14 +8,13 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
-    
+
     public class BaseTest 
     {
         static string pathToReport = Directory.GetParent(@"../../../").FullName
@@ -81,13 +80,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             extent.Flush();
             driver.Quit();
             
-
         }
 
         private void InitializeData()
         {
-            new DataReader().ReadData(out DataModel dataModelObject);
-            dataModel = dataModelObject;
+            dataModel =  new DataReader().ReadData();  
         }
         public IWebDriver GetDriver()
         {
@@ -98,15 +95,29 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             return new HomePage(GetDriver());
         }
-
         public SignInPage GetSignInPage()
         {
             return new SignInPage(GetDriver());
         }
-
         public PersonalInfoPage GetPersonalInfoPage()
         {
             return new PersonalInfoPage(GetDriver());
+        }
+        public CurrentOrdersPage GetCurrentOrdersPage()
+        {
+            return new CurrentOrdersPage(GetDriver());
+        }
+        public MenuPage GetMenuPage()
+        {
+            return new MenuPage(GetDriver());
+        }
+        public RestaurantsPage GetRestaurantsPage()
+        {
+            return new RestaurantsPage(GetDriver());
+        }
+        public SignUpPage GetSignUpPage()
+        {
+            return new SignUpPage(GetDriver());
         }
     }
 }

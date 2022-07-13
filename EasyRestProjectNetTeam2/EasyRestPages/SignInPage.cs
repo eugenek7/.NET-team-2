@@ -4,8 +4,6 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -16,6 +14,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
+
+        private const int TimeToWait = 20;
 
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
         private IWebElement _inputEmail;
@@ -35,19 +35,24 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[text()='Create account']/parent::a")]
         private IWebElement _createAccountButton;
 
-        public void SendKeysEmail(string email)
+        public void SendKeysToInputEmail(string email)
         {
             _inputEmail.SendKeys(email);
+            
+        }
+        public void WaitForLoginValidationWarningString()
+        {
+            WaitVisibilityOfElement(TimeToWait, _loginValidationWarningString);
         }
 
-        public void SendKeysPassword(string password)
+        public void SendKeysToInputPassword(string password)
         {
             _inputPassword.SendKeys(password);
         }
 
-        public IWebElement GetWarningWindow()
+        public void WaitForWarningWindow()
         {
-            return _warningWindow;
+            WaitVisibilityOfElement(TimeToWait, _warningWindow);
         }
         public string GetTextFromWarningWindow()
         {
@@ -56,11 +61,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickGoogleButton()
         {
             _googleButton.Click();
-        }
-        
-        public IWebElement GetValidationWarningString()
-        {
-            return _loginValidationWarningString;
         }
         public string GetTextFromValidationWarningString()
         {

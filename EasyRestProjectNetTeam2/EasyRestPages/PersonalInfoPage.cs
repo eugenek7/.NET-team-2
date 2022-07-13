@@ -4,8 +4,6 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -17,6 +15,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
 
+        private const int TimeToWait = 20;
 
         [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Email:')]/following-sibling::td")]
         private IWebElement _inputEmail;
@@ -26,9 +25,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _inputEmail.Text;
         }
 
-        public IWebElement GetInputEmail()
+        public void WaitInputEmailIsVisible()
         {
-            return _inputEmail;
+            WaitVisibilityOfElement(TimeToWait, _inputEmail);
         }
 
     }

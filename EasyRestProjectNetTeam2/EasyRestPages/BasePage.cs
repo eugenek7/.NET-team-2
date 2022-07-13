@@ -3,14 +3,13 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
 
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class BasePage
     {
-        readonly protected IWebDriver driver;
+        readonly IWebDriver driver;
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -23,19 +22,19 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(timeToWait);
         }
 
-        public void WaitVisibilityOfElement(int timeToWait, IWebElement element)
+        protected void WaitVisibilityOfElement(int timeToWait, IWebElement element)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
             wait.Until(driver => element.Displayed);
         }
 
-        public void WaitElementIsEnable(int timeToWait, IWebElement element)
+        protected void WaitElementIsEnable(int timeToWait, IWebElement element)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
             wait.Until(driver => element.Enabled);
         }
 
-        public void WaitElementIsClickable(int timeToWait, IWebElement element)
+        protected void WaitElementIsClickable(int timeToWait, IWebElement element)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
             wait.Until(ExpectedConditions.ElementToBeClickable(element));

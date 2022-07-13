@@ -21,15 +21,15 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysEmail(dataModel.Email);
-            signInPage.SendKeysPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.Email);
+            signInPage.SendKeysToInputPassword(dataModel.Password);
             signInPage.HeaderMenuComponent.ClickSignInButton();
-            homePage.WaitElementIsClickable(dataModel.TimeToWait, homePage.HeaderMenuComponent.GetProfileIcon());
+            homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
             homePage.HeaderMenuComponent.ClickProfileIcon();
-            homePage.WaitElementIsClickable(dataModel.TimeToWait, homePage.HeaderMenuComponent.GetMyProfileMenu());
+            homePage.HeaderMenuComponent.WaitMyProfileMenuIsClickable();
             homePage.HeaderMenuComponent.ClickMyProfileMenu();
             personalInfoPage = GetPersonalInfoPage();
-            personalInfoPage.WaitVisibilityOfElement(dataModel.TimeToWait, personalInfoPage.GetInputEmail());
+            personalInfoPage.WaitInputEmailIsVisible();
             Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField());
             personalInfoPage.HeaderMenuComponent.ClickProfileIcon();
             personalInfoPage.HeaderMenuComponent.ClickLogOutButton();
@@ -42,10 +42,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysEmail(dataModel.FakeEmail);
-            signInPage.SendKeysPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.FakeEmail);
+            signInPage.SendKeysToInputPassword(dataModel.Password);
             signInPage.HeaderMenuComponent.ClickSignInButton();
-            signInPage.WaitVisibilityOfElement(dataModel.TimeToWait, signInPage.GetWarningWindow());
+            signInPage.WaitForWarningWindow();
             Assert.IsTrue(signInPage.GetTextFromWarningWindow().Contains(dataModel.WarningMessage));
 
         }
@@ -77,8 +77,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysEmail(dataModel.IncompleteEmail);
-            signInPage.WaitVisibilityOfElement(dataModel.TimeToWait, signInPage.GetValidationWarningString());
+            signInPage.SendKeysToInputEmail(dataModel.IncompleteEmail);
+            signInPage.WaitForLoginValidationWarningString();
             Assert.AreEqual(dataModel.EmailvalidationWarningMessage, signInPage.GetTextFromValidationWarningString());
 
         }

@@ -13,10 +13,11 @@ namespace EasyRestProjectNetTeam2.Helpers
     {
         private string _pathToJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\TestsData.json";
 
-        public void ReadData(out DataModel dataModelObject)
+        public DataModel ReadData()
         {
             string jsonFile = File.ReadAllText(_pathToJsonFile);
-            dataModelObject = JsonSerializer.Deserialize<DataModel>(jsonFile);
+            DataModel dataModelObject = JsonSerializer.Deserialize<DataModel>(jsonFile);
+            return dataModelObject;
         }
 
     }

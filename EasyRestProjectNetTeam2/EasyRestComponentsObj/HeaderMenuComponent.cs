@@ -11,11 +11,13 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 {
     public class HeaderMenuComponent : BasePage
     {
-        
+        private IWebDriver driver;
         public HeaderMenuComponent(IWebDriver driver) : base(driver)
         {
-
+            this.driver = driver;
         }
+
+        private const int TimeToWait = 20;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Sign In']")]
         private IWebElement _signInButton;
@@ -29,47 +31,41 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//li[text()='Log Out']")]
         private IWebElement _logOutButton;
 
-        public HeaderMenuComponent ClickProfileIcon()
+        public void ClickProfileIcon()
         {
             try
             {
                 _profileIcon.Click();
-                return this;
             }
             catch (StaleElementReferenceException ex)
             {
                 _profileIcon.Click();
-                return this;
             }
 
         }
-        public HeaderMenuComponent ClickLogOutButton()
+        public void ClickLogOutButton()
         {
             _logOutButton.Click();
             driver.Navigate().Refresh();
-            return this;
         }
-        public HeaderMenuComponent ClickSignInButton()
+        public void ClickSignInButton()
         {
             _signInButton.Click();
-            return this;
         }
 
-        public IWebElement GetProfileIcon()
+        public void WaitForProfileIconIsClickable()
         {
 
-            return _profileIcon;
+            WaitElementIsClickable(TimeToWait, _profileIcon);
         }
-        public IWebElement GetMyProfileMenu()
+        public void WaitMyProfileMenuIsClickable()
         {
-            return _myProfileMenu;
+            WaitElementIsClickable(TimeToWait, _myProfileMenu);
         }
 
-        public HeaderMenuComponent ClickMyProfileMenu()
+        public void ClickMyProfileMenu()
         {
-
             _myProfileMenu.Click();
-            return this;
         }
     }
 }

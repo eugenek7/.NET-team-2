@@ -9929,11 +9929,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\EasyRestProjectNetTeam2ObjModel\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
+      "projectUniqueName": "C:\\Users\\angid\\OneDrive\\Рабочий стол\\NET-team-2-ProjectWithJsonDataAndComponentObject\\.NET-team-2-ProjectWithJsonDataAndComponentObject\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
       "projectName": "EasyRestProjectNetTeam2",
-      "projectPath": "D:\\Projects\\EasyRestProjectNetTeam2ObjModel\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
+      "projectPath": "C:\\Users\\angid\\OneDrive\\Рабочий стол\\NET-team-2-ProjectWithJsonDataAndComponentObject\\.NET-team-2-ProjectWithJsonDataAndComponentObject\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
       "packagesPath": "C:\\Users\\angid\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\EasyRestProjectNetTeam2ObjModel\\EasyRestProjectNetTeam2\\obj\\",
+      "outputPath": "C:\\Users\\angid\\OneDrive\\Рабочий стол\\NET-team-2-ProjectWithJsonDataAndComponentObject\\.NET-team-2-ProjectWithJsonDataAndComponentObject\\EasyRestProjectNetTeam2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\angid\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AutAgdDiHGdDBQJuiWFZatcRMsgerftHD4a0q7t90Io2evyzjcOm6DTbHbsCRVO/TDcQAz7YnAy/G76XMbB7bA==",
+  "dgSpecHash": "y/lR+aoNhN5YdXOdWVoJCztpNHydmhviwxXJM+qrJUWINaSB0JlaQ55laEAz3nPCsE9VbtSdE04T1yg2WK46YA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\EasyRestProjectNetTeam2ObjModel\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
+  "projectFilePath": "C:\\Users\\angid\\OneDrive\\Рабочий стол\\NET-team-2-ProjectWithJsonDataAndComponentObject\\.NET-team-2-ProjectWithJsonDataAndComponentObject\\EasyRestProjectNetTeam2\\EasyRestProjectNetTeam2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angid\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\angid\\.nuget\\packages\\dnsclient\\1.2.0\\dnsclient.1.2.0.nupkg.sha512",
