@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using NUnit.Framework;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests

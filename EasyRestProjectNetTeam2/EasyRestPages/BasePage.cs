@@ -9,7 +9,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class BasePage
     {
-        readonly IWebDriver driver;
+        readonly protected IWebDriver driver;
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;

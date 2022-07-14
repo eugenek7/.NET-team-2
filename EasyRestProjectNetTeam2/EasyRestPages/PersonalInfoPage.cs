@@ -1,9 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -11,10 +6,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 {
     public class HeaderMenuComponent : BasePage
     {
-        private IWebDriver driver;
         public HeaderMenuComponent(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
+        
         }
 
         private const int TimeToWait = 20;
