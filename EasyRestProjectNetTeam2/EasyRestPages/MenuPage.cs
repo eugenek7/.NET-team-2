@@ -27,6 +27,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _inputDate;
         [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
         private IWebElement _inputTime;
+        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[1]")]
+        private IWebElement _datePickerLastMonthButton;
+        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[2]")]
+        private IWebElement _datePickerNextMonthButton;
+        [FindsBy(How = How.XPath, Using = "(//span[text()='1']/parent::button)[1]")]
+        private IWebElement _firstDayOfMonth;
+        [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
+        private IWebElement _errorPopUp;
 
         public void SendKeysToInputItemQuantity1(string quantity)
         {
@@ -73,6 +81,20 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickOnTimePicker()
         {
             _inputTime.Click();
+        }
+        public string GetErrorPopupText()
+        {
+            return _errorPopUp.Text;
+        }
+        public void SetPreviousDate()
+        {
+            _datePickerLastMonthButton.Click();
+            _firstDayOfMonth.Click();
+        }
+        public void SetFutureDate()
+        {
+            _datePickerNextMonthButton.Click();
+            _firstDayOfMonth.Click();
         }
 
     }
