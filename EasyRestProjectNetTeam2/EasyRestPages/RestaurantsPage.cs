@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
-    class RestaurantsPage : BasePage
+    public class RestaurantsPage : BasePage
     {
         public RestaurantsPage(IWebDriver driver) : base(driver)
         {
