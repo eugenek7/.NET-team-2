@@ -11,46 +11,56 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     class PersonalInfoPage : BasePage
     {
         public PersonalInfoPage(IWebDriver driver) : base(driver)
-        { }
-        [FindsBy(How = How.XPath, Using = "//span [contains(@class, 'MuiButtonBase-root')]")]
-        private IWebElement _editPhoto;
+        { 
+
+        }
+        private const int TimeToWait = 20;
+
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Name:')]/following-sibling::td")]
+        private IWebElement _inputName;
+
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Birth date:')]/following-sibling::td")]
+        private IWebElement _inputBirthDate;
+        
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Phone number:')]/following-sibling::td")]
+        private IWebElement _inputPhoneNumber;
 
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'Personal Info')]")]
         private IWebElement _personalInfoButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'Current Orders')]")]
-        private IWebElement _currentOrdersButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'Order History')]")]
-        private IWebElement _orderhistoryButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'My Restaurants')]")]
-        private IWebElement _myRestaurantsButton;
-
-        public void ClickEditPhoto()
+        
+        public string GetTextFromNameField()
         {
-            _editPhoto.Click();
-
+            return _inputName.Text;
         }
+
+        public void WaitInputNameIsVisible()
+        {
+            WaitVisibilityOfElement(TimeToWait, _inputName);
+        }
+
+        public string GetTextFromBirthDateField()
+        {
+            return _inputBirthDate.Text;
+        }
+
+        public void WaitInputBirthDateIsVisible()
+        {
+            WaitVisibilityOfElement(TimeToWait, _inputBirthDate);
+        }
+        public string GetTextFromPhoneNumberlField()
+        {
+            return _inputPhoneNumber.Text;
+        }
+
+        public void WaitInputPhoneNumberIsVisible()
+        {
+            WaitVisibilityOfElement(TimeToWait, _inputPhoneNumber);
+        }
+               
         public void ClickPersonalInfoButton()
         {
             _personalInfoButton.Click();
 
-        }
-        public void ClickCurrentOrdersButton()
-        {
-            _currentOrdersButton.Click();
-
-        }
-        public void ClickOrderHistoryButton()
-        {
-            _orderhistoryButton.Click();
-
-        }
-        public void MyRestaurantsButton()
-        {
-           _myRestaurantsButton.Click();    
-
-        }
+        }             
     }
 }
