@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,13 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants']")]
         private IWebElement _restaurantsList;
                
-        [FindsBy(How = How.XPath, Using = " //span[(text()= 'View all')]")]
+        [FindsBy(How = How.XPath, Using = " //span[(text()= 'View all')]/ancestor::a")]
         private IWebElement _viewAllTag;
 
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'beer')]")]
+        [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=beer']")]
         private IWebElement _beerTag;
 
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'kebab')]")]
+        [FindsBy(How = How.XPath, Using = "//a[@href=' /? tag = kebab']")]
         public IWebElement _kebabTag;
         
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]

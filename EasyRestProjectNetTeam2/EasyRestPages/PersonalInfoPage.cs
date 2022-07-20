@@ -1,5 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Email:')]/following-sibling::td")]
         private IWebElement _inputEmail;
 
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Name:')]/following-sibling::td")]
+        private IWebElement _inputName;
+
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Birth date:')]/following-sibling::td")]
+        private IWebElement _inputBirthDate;
+
+        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Phone number:')]/following-sibling::td")]
+        private IWebElement _inputPhoneNumber;
+
+        [FindsBy(How = How.XPath, Using = "//span[(text()= 'Personal Info')]")]
+        private IWebElement _personalInfoButton;
         public string GetTextFromEmailField()
         {
             return _inputEmail.Text;
@@ -30,19 +42,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             WaitVisibilityOfElement(TimeToWait, _inputEmail);
         }
-        private const int TimeToWait = 20;
-
-        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Name:')]/following-sibling::td")]
-        private IWebElement _inputName;
-
-        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Birth date:')]/following-sibling::td")]
-        private IWebElement _inputBirthDate;
-        
-        [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Phone number:')]/following-sibling::td")]
-        private IWebElement _inputPhoneNumber;
-
-        [FindsBy(How = How.XPath, Using = "//span[(text()= 'Personal Info')]")]
-        private IWebElement _personalInfoButton;
         
         public string GetTextFromNameField()
         {
