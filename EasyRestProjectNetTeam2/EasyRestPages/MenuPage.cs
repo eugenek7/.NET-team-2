@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using System.Collections.Generic;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -9,14 +10,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
 
         }
-        [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'])[1]")]
-        private IWebElement _inputItemQuantity1;
-        [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'])[2]")]
-        private IWebElement _inputItemQuantity2;
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Add to cart'])[1]")]
-        private IWebElement _addToCartButton1;
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Add to cart'])[2]")]
-        private IWebElement _addToCartButton2;
+        [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
+        private IWebElement _inputItemQuantity;
+        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Add to cart'][not(@disabled)])[1]")]
+        private IWebElement _addToCartButton;
         [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Remove item'])[1]")]
         private IWebElement _removeItemButton;
         [FindsBy(How = How.XPath, Using = "//span[text()='Submit order']/parent::button")]
@@ -28,39 +25,32 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
         private IWebElement _inputTime;
         [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[1]")]
-        private IWebElement _datePickerLastMonthButton;
+        private IWebElement _datePickerPreviousMonthButton;
         [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[2]")]
         private IWebElement _datePickerNextMonthButton;
-        [FindsBy(How = How.XPath, Using = "(//span[text()='1']/parent::button)[1]")]
-        private IWebElement _firstDayOfMonth;
+        [FindsBy(How = How.XPath, Using = "//button[contains(@class, 'MuiPickersDay')][not(@tabindex='-1')]")]
+        private IList<IWebElement> _datePickerDayList;
+        //[FindsBy(How = How.XPath, Using = "(//span[text()='1']/parent::button)[1]")]
+        //private IWebElement _firstDayOfMonth;
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
 
-        public void SendKeysToInputItemQuantity1(string quantity)
+        public void SendKeysToInputItemQuantity(string quantity)
         {
-            _inputItemQuantity1.SendKeys(quantity);
-
-        }
-        public void SendKeysToInputItemQuantity2(string quantity)
-        {
-            _inputItemQuantity2.SendKeys(quantity);
+            _inputItemQuantity.SendKeys(quantity);
 
         }
         public void IncreaseItemQuantity()
         {
-            _inputItemQuantity1.SendKeys(Keys.ArrowUp);
+            _inputItemQuantity.SendKeys(Keys.ArrowUp);
         }
         public void DecreaseItemQuantity()
         {
-            _inputItemQuantity1.SendKeys(Keys.ArrowDown);
+            _inputItemQuantity.SendKeys(Keys.ArrowDown);
         }
-        public void ClickAddToCartButton1()
+        public void ClickAddToCartButton()
         {
-            _addToCartButton1.Click();
-        }
-        public void ClickAddToCartButton2()
-        {
-            _addToCartButton2.Click();
+            _addToCartButton.Click();
         }
         public void ClickRemoveItemButton() //removes first item from cart
         {
@@ -86,16 +76,32 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             return _errorPopUp.Text;
         }
-        public void SetPreviousDate()
+        public void SelectDatePickerDay(string date)
         {
-            _datePickerLastMonthButton.Click();
-            _firstDayOfMonth.Click();
+            foreach (IWebElement day in _datePickerDayList)
+            {
+                if (day.Text.Equals(date))
+                    day.Click();
+            }
         }
-        public void SetFutureDate()
+        public void NextMonthButtonClick()
         {
             _datePickerNextMonthButton.Click();
-            _firstDayOfMonth.Click();
         }
+        public void PreviousMonthButtonClick()
+        {
+            _datePickerPreviousMonthButton.Click();
+        }
+        //public void SetPreviousDate()
+        //{
+        //    _datePickerPreviousMonthButton.Click();
+        //    _firstDayOfMonth.Click();
+        //}
+        //public void SetFutureDate()
+        //{
+        //    _datePickerNextMonthButton.Click();
+        //    _firstDayOfMonth.Click();
+        //}
 
     }
 }
