@@ -20,14 +20,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _submitOrderButton;
         [FindsBy(How = How.XPath, Using = "//span[text()='Submit']/parent::button")]
         private IWebElement _submitButton;
-        [FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
-        private IWebElement _inputDate;
-        [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
-        private IWebElement _inputTime;
-        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[1]")]
-        private IWebElement _datePickerPreviousMonthButton;
-        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[2]")]
-        private IWebElement _datePickerNextMonthButton;
+        //[FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
+        //private IWebElement _inputDate;
+        //[FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
+        //private IWebElement _inputTime;
+        //[FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[1]")]
+        //private IWebElement _datePickerPreviousMonthButton;
+        //[FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[2]")]
+        //private IWebElement _datePickerNextMonthButton;
         [FindsBy(How = How.XPath, Using = "//button[contains(@class, 'MuiPickersDay')][not(@tabindex='-1')]")]
         private IList<IWebElement> _datePickerDayList;
         //[FindsBy(How = How.XPath, Using = "(//span[text()='1']/parent::button)[1]")]
@@ -48,6 +48,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _inputItemQuantity.SendKeys(Keys.ArrowDown);
         }
+        public void GetItemQuantity()
+        {
+            _inputItemQuantity.GetAttribute("value");
+        }
         public void ClickAddToCartButton()
         {
             _addToCartButton.Click();
@@ -64,44 +68,35 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _submitButton.Click();
         }
-        public void ClickOnDataPicker()
-        {
-            _inputDate.Click();
-        }
-        public void ClickOnTimePicker()
-        {
-            _inputTime.Click();
-        }
+        //public void ClickOnDataPicker()
+        //{
+        //    _inputDate.Click();
+        //}
+        //public void ClickOnTimePicker()
+        //{
+        //    _inputTime.Click();
+        //}
         public string GetErrorPopupText()
         {
             return _errorPopUp.Text;
         }
-        public void SelectDatePickerDay(string date)
-        {
-            foreach (IWebElement day in _datePickerDayList)
-            {
-                if (day.Text.Equals(date))
-                    day.Click();
-            }
-        }
-        public void NextMonthButtonClick()
-        {
-            _datePickerNextMonthButton.Click();
-        }
-        public void PreviousMonthButtonClick()
-        {
-            _datePickerPreviousMonthButton.Click();
-        }
-        //public void SetPreviousDate()
+        //public void SelectDatePickerDay(string date)
         //{
-        //    _datePickerPreviousMonthButton.Click();
-        //    _firstDayOfMonth.Click();
+        //    foreach (IWebElement day in _datePickerDayList)
+        //    {
+        //        if (day.Text.Equals(date))
+        //            day.Click();
+        //    }
         //}
-        //public void SetFutureDate()
+        //public void NextMonthButtonClick()
         //{
         //    _datePickerNextMonthButton.Click();
-        //    _firstDayOfMonth.Click();
         //}
+        //public void PreviousMonthButtonClick()
+        //{
+        //    _datePickerPreviousMonthButton.Click();
+        //}
+       
 
     }
 }
