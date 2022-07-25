@@ -16,14 +16,14 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//span[text()='Menues']")]
         private IWebElement _menuesLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Create menu']")]
-        private IWebElement _createMenuLeftBarButton;
+        //[FindsBy(How = How.XPath, Using = "//span[text()='Create menu']")]
+        //private IWebElement _createMenuLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Common']")]
-        private IWebElement _commonMenuLeftBarButton;
+        //[FindsBy(How = How.XPath, Using = "//span[text()='Common']")]
+        //private IWebElement _commonMenuLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Image Menu']")]
-        private IWebElement _imageMenuLeftBarButton;
+        //[FindsBy(How = How.XPath, Using = "//span[text()='Image Menu']")]
+        //private IWebElement _imageMenuLeftBarButton;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Waiters']")]
         private IWebElement _waitersLeftBarButton;
@@ -31,12 +31,20 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//span[text()='Administrators']")]
         private IWebElement _administratorsLeftBarButton;
 
-        //Star
+        [FindsBy(How = How.XPath, Using = "//span[text()='Restaurants']")]
+        private IWebElement _restaurantsLeftBarButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Users']")]
+        private IWebElement _usersLeftBarButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Owners']")]
+        private IWebElement _ownersLeftBarButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Moderators']")]
+        private IWebElement _moderatorsLeftBarButton;
 
 
-
-
-
+        
 
         public void ClickDetailsLeftBarButton()
         {
@@ -48,20 +56,20 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _menuesLeftBarButton.Click();
         }
 
-        public void ClickCreateMenuLeftBarButton()
-        {
-            _createMenuLeftBarButton.Click();
-        }
+        //public void ClickCreateMenuLeftBarButton()
+        //{
+        //    _createMenuLeftBarButton.Click();
+        //}
 
-        public void ClickCommonMenuLeftBarButton()
-        {
-            _commonMenuLeftBarButton.Click();
-        }
+        //public void ClickCommonMenuLeftBarButton()
+        //{
+        //    _commonMenuLeftBarButton.Click();
+        //}
 
-        public void ClickImageMenuLeftBarButton()
-        {
-            _imageMenuLeftBarButton.Click();
-        }
+        //public void ClickImageMenuLeftBarButton()
+        //{
+        //    _imageMenuLeftBarButton.Click();
+        //}
 
         public void ClickWaitersLeftBarButton()
         {
@@ -72,6 +80,30 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _administratorsLeftBarButton.Click();
         }
+
+        public void ClickRestaurantsLeftBarButton()
+        {
+            _restaurantsLeftBarButton.Click();
+        }
+
+        public void ClickUsersLeftBarButton()
+        {
+            _usersLeftBarButton.Click();
+        }
+
+        public void ClickOwnersLeftBarButton()
+        {
+            _ownersLeftBarButton.Click();
+        }
+
+        public void ClickModeratorsLeftBarButton()
+        {
+            _moderatorsLeftBarButton.Click();
+        }
+
+
+
+
 
     }
 }
