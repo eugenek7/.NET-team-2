@@ -19,7 +19,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Active')]")]
         private IWebElement _activeModeratorsButton;
-
+         
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Banned')]")]
         private IWebElement _bannedModeratorsButton;
         
@@ -105,31 +105,26 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void SendKeysToNameInputField(string name)
         {
             _nameInputField.SendKeys(name);
-
         }
         
         public void SendKeysToEmailInputName(string email)
         {
             _emailInputField.SendKeys(email);
-
         }
         
         public void SendKeysToInputQuantityReorderField(string phone_number)
         {
             _phoneNumberInputField.SendKeys(phone_number);
-
         }
         
         public void SendKeysToPasswordInputField(string password)
         {
             _passwordInputField.SendKeys(password);
-
         }
         
         public void SendKeysToRepeatPasswordInputField(string repeat_password)
         {
             _repeatPasswordInputField.SendKeys(repeat_password);
-
         }
         
         public bool IsInputPasswordValidationWarningExist()
@@ -151,7 +146,5 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             return _repeatPasswordFieldWarning.Displayed;
         }
-        
     }
-    
 }
