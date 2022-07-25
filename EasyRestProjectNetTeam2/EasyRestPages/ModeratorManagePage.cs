@@ -124,9 +124,5 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _undoActionPopUpButton.Click();
         }
-
-
-
-
     }
 }
