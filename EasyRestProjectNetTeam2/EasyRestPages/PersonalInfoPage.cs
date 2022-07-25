@@ -25,6 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void WaitInputEmailIsVisible()
         {
             WaitVisibilityOfElement(TimeToWait, _inputEmail);
+
         }
 
     }

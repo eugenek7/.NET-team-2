@@ -1,4 +1,6 @@
-﻿using AventStack.ExtentReports;
+﻿using System;
+using System.IO;
+using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
@@ -7,15 +9,13 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.IO;
 
 
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
 
-    public class BaseTest 
+    public class BaseTest
     {
         static string pathToReport = Directory.GetParent(@"../../../").FullName
           + Path.DirectorySeparatorChar + "Reports"
@@ -24,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         static ExtentReports extent;
         ExtentTest test;
         protected DataModel dataModel;
-       
+
         private IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
 
@@ -35,10 +35,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             ExtentHtmlReporter htmlreport = new ExtentHtmlReporter(pathToReport);
             extent = new ExtentReports();
             extent.AttachReporter(htmlreport);
-            
+
         }
 
-         
+
 
         [SetUp]
         public void Setup()
@@ -58,33 +58,41 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
             ? "" : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
+            var errorMessage = string.IsNullOrEmpty(TestContext.CurrentContext.Result.Message)
+            ? "" : string.Format("Error message: {0}", TestContext.CurrentContext.Result.Message);
+            var context = TestContext.CurrentContext;
             Status logstatus;
 
             switch (status)
             {
                 case TestStatus.Failed:
                     logstatus = Status.Fail;
+                    test.Log(logstatus, $"Test complete with status: {logstatus}");
+                    test.Log(logstatus, errorMessage);
+                    test.Log(logstatus, stacktrace);
                     break;
                 case TestStatus.Inconclusive:
                     logstatus = Status.Warning;
+                    test.Log(logstatus, $"Test complete with status: {logstatus}");
                     break;
                 case TestStatus.Skipped:
                     logstatus = Status.Skip;
+                    test.Log(logstatus, $"Test complete with status: {logstatus}");
                     break;
                 default:
                     logstatus = Status.Pass;
+                    test.Log(logstatus, $"Test complete with status: {logstatus}");
                     break;
             }
 
-            test.Log(logstatus, "Test complete with status: " + logstatus + stacktrace);
             extent.Flush();
             driver.Quit();
-            
+
         }
 
         private void InitializeData()
         {
-            dataModel =  new DataReader().ReadData();  
+            dataModel = new DataReader().ReadData();
         }
         public IWebDriver GetDriver()
         {

@@ -8,13 +8,16 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
     {
         public HeaderMenuComponent(IWebDriver driver) : base(driver)
         {
-        
+
         }
 
         private const int TimeToWait = 20;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Sign In']")]
         private IWebElement _signInButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Sign Up']")]
+        private IWebElement _signUpButton;
 
         [FindsBy(How = How.XPath, Using = "//span[contains(@class, 'MuiIconButton-label')]")]
         private IWebElement _profileIcon;
@@ -46,7 +49,10 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _signInButton.Click();
         }
-
+        public void ClickSignUpButton()
+        {
+            _signUpButton.Click();
+        }
         public void WaitForProfileIconIsClickable()
         {
 
