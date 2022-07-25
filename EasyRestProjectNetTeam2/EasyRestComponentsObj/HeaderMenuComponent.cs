@@ -22,8 +22,8 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//span[contains(@class, 'MuiIconButton-label')]")]
         private IWebElement _profileIcon;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href='/profile/personal_info']")]
-        private IWebElement _myProfileMenu;
+        [FindsBy(How = How.XPath, Using = "//a[@role='menuitem']")]
+        private IWebElement _rolePanelButton;
 
         [FindsBy(How = How.XPath, Using = "//li[text()='Log Out']")]
         private IWebElement _logOutButton;
@@ -58,14 +58,14 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 
             WaitElementIsClickable(TimeToWait, _profileIcon);
         }
-        public void WaitMyProfileMenuIsClickable()
+        public void WaitRolePanelButtonIsClickable()
         {
-            WaitElementIsClickable(TimeToWait, _myProfileMenu);
+            WaitElementIsClickable(TimeToWait, _rolePanelButton);
         }
 
-        public void ClickMyProfileMenu()
+        public void ClickRolePanelButton()
         {
-            _myProfileMenu.Click();
+            _rolePanelButton.Click();
         }
     }
 }
