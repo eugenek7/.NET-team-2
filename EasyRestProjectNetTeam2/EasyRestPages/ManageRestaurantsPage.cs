@@ -19,9 +19,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _watchMenuButton;
         [FindsBy(How = How.XPath, Using = "//button[@aria-label= 'More']")]
         private IWebElement _moreButton;
-        [FindsBy(How = How.XPath, Using = "//a[@href='/profile/restaurants/8/edit/info']")]
+        [FindsBy(How = How.XPath, Using = "//a[@role='menuitem']")]
         private IWebElement _manageRestaurantButton;
-        [FindsBy(How = How.XPath, Using = "//li [@role='menuitem']")]
+        [FindsBy(How = How.XPath, Using = "//li[@role='menuitem']")]
         private IWebElement _archiveRestaurantButton;
         [FindsBy(How = How.XPath, Using = "//span[text()='NOT APPROVED']")]
         private IWebElement _unarchivedStatus;
@@ -43,32 +43,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _popuprestaurantAdded;
 
 
-        [FindsBy(How = How.XPath, Using = "//button[@title='Edit Information']")]
-        private IWebElement _EditButton;
-        [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
-        private IWebElement _inputeditedName;
-        [FindsBy(How = How.XPath, Using = "//input[@name='address']")]
-        private IWebElement _inputeditedAdress;
-        [FindsBy(How = How.XPath, Using = "//textarea[@name='description']")]
-        private IWebElement _inputEditedPrewievText;
-        [FindsBy(How = How.XPath, Using = "//div[@class='DraftEditor - editorContainer']")]
-        private IWebElement _editDescriptionInfo;
-        [FindsBy(How = How.XPath, Using = "//div[@id='select-tags'] ")]
-        private IWebElement _editTag;
-        [FindsBy(How = How.XPath, Using = "//li[@data-value='beer']")]
-        private IWebElement _beerTagClick;
-        [FindsBy(How = How.XPath, Using = "//span[text()='beer']")]
-        private IWebElement _beerTagAdded;
-        [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
-        private IWebElement _updateButton;
-        [FindsBy(How = How.XPath, Using = "//p[text()='Restaurant was successfully updated']")]
-        private IWebElement _popupRestaurantUpdated;
-        [FindsBy(How = How.XPath, Using = "//p[text()='Restaurant name cannot be empty']")]
-        private IWebElement _errorEmptyName;
-        [FindsBy(How = How.XPath, Using = "//p[text()='Restaurant address cannot be empty']")]
-        private IWebElement _errorEmptyAdress;
-
-
 
         public void ClickMoreButton()
         {
@@ -78,7 +52,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             WaitVisibilityOfElement(TimeToWait, _manageRestaurantButton);
         }
-        public void ArchiveeButton()
+        public void ClickArchiveButton()
         {
             _archiveRestaurantButton.Click();
         }
@@ -110,57 +84,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickCreateRestaurantButton()
         {
             _createRestaurantButton.Click();
-        }
-        public void EditButton()
-        {
-            _EditButton.Click();
-        }
-        public void WaitForAppearanceEditFunctional()
-        {
-            WaitVisibilityOfElement(TimeToWait, _inputRestaurantName);
-        }
-        public void ClearName()
-        {
-            _inputeditedName.Clear();
-        }
-        public void SendKeysToInputEditedName(string adress)
-        {
-            _inputeditedName.SendKeys(adress);
-        }
-        public void ClearAdress()
-        {
-            _inputeditedAdress.Clear();
-        }
-        public void SendKeysToInputEditeAdress(string adress)
-        {
-            _inputeditedAdress.SendKeys(adress);
-        }
-        public void SendKeysToInputEditedPrewievText(string prewievText)
-        {
-            _inputEditedPrewievText.SendKeys(prewievText);
-        }
-        public void SendKeysToInputDescriptionInfo(string descriptionInfo)
-        {
-            _editDescriptionInfo.SendKeys(descriptionInfo);
-        }
-        public void ClickEditTag()
-        {
-            _editTag.Click();
-        }
-        public void WaitForTagMenu()
-        {
-            WaitVisibilityOfElement(TimeToWait, _beerTagClick);
-        }
-        public void ClickBeerTag()
-        {
-            _beerTagClick.Click();
-        }
-        public void ClickUpdateButton()
-        {
-            _updateButton.Click();
-        }      
-
+        }        
     }
-
 }
 
