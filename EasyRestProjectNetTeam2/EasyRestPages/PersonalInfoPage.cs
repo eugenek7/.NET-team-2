@@ -1,11 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -41,9 +36,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void WaitInputEmailIsVisible()
         {
             WaitVisibilityOfElement(TimeToWait, _inputEmail);
-
         }
-        
+
         public string GetTextFromNameField()
         {
             return _inputName.Text;
@@ -72,11 +66,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             WaitVisibilityOfElement(TimeToWait, _inputPhoneNumber);
         }
-               
+
         public void ClickPersonalInfoButton()
         {
             _personalInfoButton.Click();
 
-        }             
+        }
     }
 }

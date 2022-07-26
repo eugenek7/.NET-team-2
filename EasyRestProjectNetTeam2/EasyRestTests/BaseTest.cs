@@ -35,9 +35,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             ExtentHtmlReporter htmlreport = new ExtentHtmlReporter(pathToReport);
             extent = new ExtentReports();
             extent.AttachReporter(htmlreport);
-
         }
-
 
 
         [SetUp]
@@ -84,10 +82,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
                     test.Log(logstatus, $"Test complete with status: {logstatus}");
                     break;
             }
-
             extent.Flush();
             driver.Quit();
-
         }
 
         private void InitializeData()

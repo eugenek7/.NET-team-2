@@ -47,6 +47,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _deleteButton.Click();
         }
+
         public void ClickAddWaiterButton()
         {
             _addWaiterButton.Click();

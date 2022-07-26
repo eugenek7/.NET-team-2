@@ -38,7 +38,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             {
                 _profileIcon.Click();
             }
-
         }
         public void ClickLogOutButton()
         {
@@ -55,7 +54,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         }
         public void WaitForProfileIconIsClickable()
         {
-
             WaitElementIsClickable(TimeToWait, _profileIcon);
         }
         public void WaitRolePanelButtonIsClickable()

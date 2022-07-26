@@ -7,9 +7,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class SignUpPage : BasePage
     {
         public DatePickerComponent DatePickerComponent { get; set; }
+
         public SignUpPage(IWebDriver driver) : base(driver)
         {
-            DatePickerComponent = new DatePickerComponent(driver);
+
         }
 
         [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
@@ -41,6 +42,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickToInputBirthDate()
         {
             _inputBirthDate.Click();
+            DatePickerComponent = new DatePickerComponent(driver);
         }
         public void SendKeysToInputEmail(string email)
         {
@@ -62,6 +64,5 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _createAccountButton.Click();
         }
-
     }
 }

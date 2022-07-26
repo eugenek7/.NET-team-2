@@ -32,10 +32,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _confirmationWindow;
 
 
-        public void ClickAssignedWaiteTab()
+        public void ClickAssignedWaiterTab()
         {
             _assignedWaiterTab.Click();
         }
+
         public void ClickInProgressTab()
         {
             _inProgressTab.Click();

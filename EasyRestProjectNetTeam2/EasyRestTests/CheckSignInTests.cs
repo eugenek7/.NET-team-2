@@ -21,8 +21,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.HeaderMenuComponent.ClickSignInButton();
             homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
             homePage.HeaderMenuComponent.ClickProfileIcon();
-            homePage.HeaderMenuComponent.WaitMyProfileMenuIsClickable();
-            homePage.HeaderMenuComponent.ClickMyProfileMenu();
+            homePage.HeaderMenuComponent.WaitRolePanelButtonIsClickable();
+            homePage.HeaderMenuComponent.ClickRolePanelButton();
             personalInfoPage = GetPersonalInfoPage();
             personalInfoPage.WaitInputEmailIsVisible();
             Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField(), "Emails are not equals");
