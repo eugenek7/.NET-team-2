@@ -40,7 +40,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void SendKeysInputMenuName(string menuName)
         {
             _inputMenuName.SendKeys(menuName);
-
         }
 
         public void ClickListMenuRadio()
