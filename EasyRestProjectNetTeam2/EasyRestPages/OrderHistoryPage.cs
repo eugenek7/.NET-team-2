@@ -27,8 +27,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/profile/order_history/History']")]
         private IWebElement _historyOrdersButton;
         
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'expandIcon')]")]
-        private IWebElement _dropDownToReorderButton;  //catch the first appearance
+        [FindsBy(How = How.XPath, Using = "(//div[contains(@class, 'expandIcon')])[1]")]
+        private IWebElement _dropDownToReorderButton;  
         
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Reorder')]")]
         private IWebElement _reorderButton;
@@ -39,8 +39,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Cancel')]")]
         private IWebElement _cancelReorderButton;
        
-        [FindsBy(How = How.XPath, Using = "//button[@aria-label = 'Remove item']")]
-        private IWebElement _removeItemReorderButton;  //catch the first item
+        [FindsBy(How = How.XPath, Using = "(//button[@aria-label = 'Remove item'])[1]")]
+        private IWebElement _removeItemReorderButton;  
        
         [FindsBy(How = How.XPath, Using = "//input[@type= 'number']")]
         private IWebElement _inputQuantityReorderField;
