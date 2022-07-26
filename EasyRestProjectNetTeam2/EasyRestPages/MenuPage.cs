@@ -1,14 +1,19 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
+
+        public LeftBarComponent LeftBarComponent { get; set; }
         public MenuPage(IWebDriver driver) : base(driver)
         {
-
+            LeftBarComponent = new LeftBarComponent(driver);
         }
+                      
+
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
 
