@@ -5,8 +5,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class ManageRestaurantsPage : BasePage
     {
-        private int timeToWait;
-        public ManageRestaurantsPage(IWebDriver driver, int timeToWait) : base(driver) { this.timeToWait = timeToWait; }
+     
+        public ManageRestaurantsPage(IWebDriver driver) : base(driver) { }
 
 
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'details')]/ancestor::a")]
@@ -56,9 +56,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _moreButton.Click();
         }
 
-        public void WaitForManageAndArchiveButtons()
+        public void WaitForManageAndArchiveButtons(int TimeToWait)
         {
-            WaitVisibilityOfElement(timeToWait, _manageRestaurantButton);
+            WaitVisibilityOfElement(TimeToWait, _manageRestaurantButton);
         }
 
         public void ClickArchiveButton()
@@ -66,14 +66,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _archiveRestaurantButton.Click();
         }
 
-        public void WaitForArchiveStatus()
+        public void WaitForArchiveStatus(int TimeToWait)
         {
-            WaitVisibilityOfElement(timeToWait, _archivedStatus);
+            WaitVisibilityOfElement(TimeToWait, _archivedStatus);
         }
 
-        public void WaitForUnarchiveStaus()
+        public void WaitForUnarchiveStaus(int TimeToWait)
         {
-            WaitVisibilityOfElement(timeToWait, _unarchivedStatus);
+            WaitVisibilityOfElement(TimeToWait, _unarchivedStatus);
         }
 
         public void ClickAddRestaurantButton()
@@ -81,9 +81,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _addRestaurantButton.Click();
         }
 
-        public void WaitForAppearanceCreatingResturantForm()
+        public void WaitForAppearanceCreatingResturantForm(int TimeToWait)
         {
-            WaitVisibilityOfElement(timeToWait, _inputRestaurantName);
+            WaitVisibilityOfElement(TimeToWait, _inputRestaurantName);
         }
 
         public void SendKeysToInputRestaurantName(string name)

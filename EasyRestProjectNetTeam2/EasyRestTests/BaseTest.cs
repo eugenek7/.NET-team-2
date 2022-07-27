@@ -27,7 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
        
         private IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
-        private const int TimeToWait = 20;
+        
 
         [OneTimeSetUp]
         public static void BeforeTestRun()
@@ -126,7 +126,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         public ManageRestaurantsPage GetManageRestaurantsPage()
         {
-            return new ManageRestaurantsPage(GetDriver(), TimeToWait);
+            return new ManageRestaurantsPage(GetDriver());
         }
     }
 }
