@@ -1,17 +1,18 @@
 ﻿using Npgsql;
+using System;
 
 namespace EasyRestProjectNetTeam2.Helpers
 {
     class DatabaseManager
     {
-        public static void SendNonQuery(string query)
+        public static void SendNonQuery(string query, string queryVariable)
         {
             using (NpgsqlConnection con = GetConnection())
             {
-                //string query = "DELETE FROM users WHERE email='eugene@test.com';";
-                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                string formatQuery = String.Format(query, queryVariable);
+                NpgsqlCommand cmd = new NpgsqlCommand(formatQuery, con);
                 con.Open();
-                int n = cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 con.Close();
             }
         }

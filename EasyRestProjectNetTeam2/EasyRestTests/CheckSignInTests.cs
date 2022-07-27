@@ -10,26 +10,26 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         PersonalInfoPage personalInfoPage;
 
 
-        //[Test]
-        //public void CheckUserSignInAndLogOutTest()
-        //{
-        //    homePage = GetHomePage();
-        //    homePage.HeaderMenuComponent.ClickSignInButton();
-        //    signInPage = GetSignInPage();
-        //    signInPage.SendKeysToInputEmail(dataModel.Email);
-        //    signInPage.SendKeysToInputPassword(dataModel.Password);
-        //    signInPage.HeaderMenuComponent.ClickSignInButton();
-        //    homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
-        //    homePage.HeaderMenuComponent.ClickProfileIcon();
-        //    homePage.HeaderMenuComponent.WaitMyProfileMenuIsClickable();
-        //    homePage.HeaderMenuComponent.ClickMyProfileMenu();
-        //    personalInfoPage = GetPersonalInfoPage();
-        //    personalInfoPage.WaitInputEmailIsVisible();
-        //    Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField());
-        //    personalInfoPage.HeaderMenuComponent.ClickProfileIcon();
-        //    personalInfoPage.HeaderMenuComponent.ClickLogOutButton();
-        //    Assert.IsTrue(signInPage.GetPageUrl().Contains(dataModel.SignInPageUrlSearchWords));
-        //}
+        [Test]
+        public void CheckUserSignInAndLogOutTest()
+        {
+            homePage = GetHomePage();
+            homePage.HeaderMenuComponent.ClickSignInButton();
+            signInPage = GetSignInPage();
+            signInPage.SendKeysToInputEmail(dataModel.Email);
+            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.HeaderMenuComponent.ClickSignInButton();
+            homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
+            homePage.HeaderMenuComponent.ClickProfileIcon();
+            //homePage.HeaderMenuComponent.WaitMyProfileMenuIsClickable();
+            //homePage.HeaderMenuComponent.ClickMyProfileMenu();
+            personalInfoPage = GetPersonalInfoPage();
+            personalInfoPage.WaitInputEmailIsVisible();
+            Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField());
+            personalInfoPage.HeaderMenuComponent.ClickProfileIcon();
+            personalInfoPage.HeaderMenuComponent.ClickLogOutButton();
+            Assert.IsTrue(signInPage.GetPageUrl().Contains(dataModel.SignInPageUrlSearchWords));
+        }
 
         [Test]
         public void CheckUserLoginWithWrongEmailTest()

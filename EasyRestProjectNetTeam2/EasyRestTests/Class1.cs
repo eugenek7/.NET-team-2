@@ -13,7 +13,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
     {
         HomePage homePage;
         SignInPage signInPage;
-        string query1 = "DELETE FROM users WHERE email='eugene@test.com';";
+        string query = "DELETE FROM users WHERE email='{0}';";
+        string email = "eugene@test.com";
         string query2 = "INSERT INTO users (email) VALUES ('eugene@test.com');";
 
 
@@ -25,8 +26,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage = GetSignInPage();
             signInPage.ClickGoogleButton();
             Assert.IsTrue(signInPage.GetPageUrl().Contains(dataModel.GooglePageUrlSearchWords));
-            DatabaseManager.SendNonQuery(query2);
-            DatabaseManager.SendNonQuery(query1);
+            DatabaseManager.SendNonQuery(query, dataModel.FakeEmail);
         }
 
 
