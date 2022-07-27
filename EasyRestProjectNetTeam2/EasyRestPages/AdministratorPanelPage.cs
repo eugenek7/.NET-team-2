@@ -22,7 +22,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//div[contains(@class, 'expandIcon')])[1]")]  //First one in the list
         private IWebElement _arrowToGetInfoAboutOrderButton;
 
-        [FindsBy(How = How.XPath, Using = "(//input[@name='waiters'])[1]")]  //First one
+        [FindsBy(How = How.XPath, Using = "(//input[@name='waiters'])[1]")]   //First one in the list
         private IWebElement _choseWaiterRadioButton;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Assign']")]
@@ -44,7 +44,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _acceptOrderButton.Click();
         }
 
-        public void ClickToGetInfoAboutOrderArrow()    //First one in the list
+        public void ClickToGetInfoAboutOrderArrow()
         {
             _arrowToGetInfoAboutOrderButton.Click();
         }

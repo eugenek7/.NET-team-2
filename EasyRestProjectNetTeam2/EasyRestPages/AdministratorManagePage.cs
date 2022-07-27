@@ -44,29 +44,27 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _inputPhoneNumberValidationWarning;
 
 
-
-
         public void ClickDeleteAdministrator()
         {
             _deleteAdministratorButton.Click();
         }
 
-        public void SendKeysToInputNameForNewAdministrator(string name)
+        public void SendKeysToInputName(string name)
         {
             _inputNameForNewAdministrator.SendKeys(name);
         }
 
-        public void SendKeysToInputEmailForNewAdministrator(string email)
+        public void SendKeysToInputEmail(string email)
         {
             _inputEmailForNewAdministrator.SendKeys(email);
         }
 
-        public void SendKeysToInputPasswordForNewAdministrator(string password)
+        public void SendKeysToInputPassword(string password)
         {
             _inputPasswordForNewAdministrator.SendKeys(password);
         }
 
-        public void SendKeysToInputPhoneNumberForNewAdministrator(string phonenumber)
+        public void SendKeysToInputPhoneNumber(string phonenumber)
         {
             _inputPhoneNumberForNewAdministrator.SendKeys(phonenumber);
         }

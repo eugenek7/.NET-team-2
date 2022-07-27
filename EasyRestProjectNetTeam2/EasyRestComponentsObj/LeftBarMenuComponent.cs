@@ -74,10 +74,5 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _moderatorsLeftBarButton.Click();
         }
-
-
-
-
-
     }
 }

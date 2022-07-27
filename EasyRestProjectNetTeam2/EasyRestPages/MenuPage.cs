@@ -6,8 +6,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-
         public LeftBarComponent LeftBarComponent { get; set; }
+       
         public MenuPage(IWebDriver driver) : base(driver)
         {
             LeftBarComponent = new LeftBarComponent(driver);
