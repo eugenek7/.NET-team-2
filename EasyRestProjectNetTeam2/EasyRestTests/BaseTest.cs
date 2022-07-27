@@ -27,7 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         private IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
-
+        
 
         [OneTimeSetUp]
         public static void BeforeTestRun()
@@ -99,6 +99,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             return new HomePage(GetDriver());
         }
+        public OrderHistoryPage GetOrderHistoryPage()
+        {
+            return new OrderHistoryPage(GetDriver());
+        }
         public SignInPage GetSignInPage()
         {
             return new SignInPage(GetDriver());
@@ -122,6 +126,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public SignUpPage GetSignUpPage()
         {
             return new SignUpPage(GetDriver());
+        }
+
+        public ManageRestaurantsPage GetManageRestaurantsPage()
+        {
+            return new ManageRestaurantsPage(GetDriver());
         }
     }
 }
