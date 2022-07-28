@@ -6,7 +6,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class PersonalInfoPage : BasePage
     {
-        public HeaderMenuComponent HeaderMenuComponent { get; set; }
+        public HeaderMenuComponent HeaderMenuComponent { get; }
         public PersonalInfoPage(IWebDriver driver) : base(driver)
         {
             HeaderMenuComponent = new HeaderMenuComponent(driver);

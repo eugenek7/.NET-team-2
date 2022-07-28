@@ -3,7 +3,7 @@ using System;
 
 namespace EasyRestProjectNetTeam2.Helpers
 {
-    class DatabaseManager
+    internal class DatabaseManager
     {
         public static void SendNonQuery(string query, string queryVariable)
         {
