@@ -26,8 +26,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.WaitForHotCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikHotCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
-            var expectedPageUrl = dataModel.NavigationHotCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
+            var expectedSearchWord = dataModel.NavigationHotCatagoryMenuPage;
+            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
@@ -45,11 +45,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
             menuPage = GetMenuPage();
-            menuPage.WaitForHotCategoryIsClickable(dataModel.TimeToWait);
+            menuPage.WaitForSoupCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikSoupCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
-            var expectedPageUrl = dataModel.NavigationSoupCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
+            var expectedSearchWord = dataModel.NavigationSoupCatagoryMenuPage;
+            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
@@ -67,11 +67,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
             menuPage = GetMenuPage();
-            menuPage.WaitForCoctailsCatagoryIsClickable(dataModel.TimeToWait);
+            menuPage.WaitForCoctailsCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikCoctailsCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
-            var expectedPageUrl = dataModel.NavigationCoctailsCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
+            var expectedSearchWord = dataModel.NavigationCoctailsCatagoryMenuPage;
+            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }

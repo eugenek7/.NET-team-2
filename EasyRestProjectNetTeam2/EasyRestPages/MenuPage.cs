@@ -115,7 +115,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _coctailsCatagoryButton.Click();
         }
 
-        public void WaitForSoupCatagoryIsClickable(int timeToWait)
+        public void WaitForSoupCategoryIsClickable(int timeToWait)
         {
             WaitElementIsClickable(timeToWait, _soupCatagoryButton);
         }
@@ -125,7 +125,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             WaitElementIsClickable(timeToWait, _hotCatagoryButton);
         }
 
-        public void WaitForCoctailsCatagoryIsClickable(int timeToWait)
+        public void WaitForCoctailsCategoryIsClickable(int timeToWait)
         {
             WaitElementIsClickable(timeToWait, _coctailsCatagoryButton);
         }
