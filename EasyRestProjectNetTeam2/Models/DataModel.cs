@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EasyRestProjectNetTeam2.Models
+﻿namespace EasyRestProjectNetTeam2.Models
 {
     public class DataModel
     {
@@ -18,7 +12,8 @@ namespace EasyRestProjectNetTeam2.Models
         public string WarningMessage { get; set; }
         public string IncompleteEmail { get; set; }
         public string EmailvalidationWarningMessage { get; set; }
-        
-
+        public string NavigationHotCatagoryMenuPage { get; set; }
+        public string NavigationSoupCatagoryMenuPage { get; set; }
+        public string NavigationCoctailsCatagoryMenuPage { get; set; }
     }
 }

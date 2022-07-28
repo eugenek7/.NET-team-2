@@ -7,12 +7,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class MenuPage : BasePage
     {
         public LeftBarComponent LeftBarComponent { get; set; }
-       
+        public HeaderMenuComponent HeaderMenuComponent { get; set; }
+
         public MenuPage(IWebDriver driver) : base(driver)
         {
             LeftBarComponent = new LeftBarComponent(driver);
+            HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
-                      
+
 
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
@@ -50,10 +52,19 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
 
+        [FindsBy(How = How.XPath, Using = "//span[text()='Hot']")]
+        private IWebElement _hotCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Soup']")]
+        private IWebElement _soupCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Coctails']")]
+        private IWebElement _coctailsCatagoryButton;
+
+
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
-
         }
 
         public void IncreaseItemQuantity()
@@ -91,6 +102,36 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _submitButton.Click();
         }
 
+        public void ClikHotCatagory()
+        {
+            _hotCatagoryButton.Click();
+        }
+
+        public void ClikSoupCatagory()
+        {
+            _soupCatagoryButton.Click();
+        }
+
+        public void ClikCoctailsCatagory()
+        {
+            _coctailsCatagoryButton.Click();
+        }
+
+        public void WaitForSoupCatagoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _soupCatagoryButton);
+        }
+
+        public void WaitForHotCategoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _hotCatagoryButton);
+        }
+
+        public void WaitForCoctailsCatagoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _coctailsCatagoryButton);
+        }
+
         //public void ClickOnDataPicker()
         //{
         //    _inputDate.Click();
@@ -124,7 +165,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         //{
         //    _datePickerPreviousMonthButton.Click();
         //}
-       
+
 
     }
 }
