@@ -6,12 +6,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public LeftBarComponent LeftBarComponent { get; set; }
         public HeaderMenuComponent HeaderMenuComponent { get; set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
-            LeftBarComponent = new LeftBarComponent(driver);
             HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
 
