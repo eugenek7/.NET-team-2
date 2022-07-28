@@ -6,14 +6,13 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public LeftBarComponent LeftBarComponent { get; set; }
-       
+        public DatePickerComponent DatePickerComponent { get; }
+        public TimePickerComponent TimePickerComponent { get; }
+
         public MenuPage(IWebDriver driver) : base(driver)
         {
-            LeftBarComponent = new LeftBarComponent(driver);
         }
-                      
-
+          
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
 
@@ -29,23 +28,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[text()='Submit']/parent::button")]
         private IWebElement _submitButton;
 
-        //[FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
-        //private IWebElement _inputDate;
+        [FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
+        private IWebElement _inputDate;
 
-        //[FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
-        //private IWebElement _inputTime;
-
-        //[FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[1]")]
-        //private IWebElement _datePickerPreviousMonthButton;
-
-        //[FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiPickersCalendarHeader')])[2]")]
-        //private IWebElement _datePickerNextMonthButton;
-
-        //[FindsBy(How = How.XPath, Using = "//button[contains(@class, 'MuiPickersDay')][not(@tabindex='-1')]")]
-        //private IList<IWebElement> _datePickerDayList;
-
-        //[FindsBy(How = How.XPath, Using = "(//span[text()='1']/parent::button)[1]")]
-        //private IWebElement _firstDayOfMonth;
+        [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
+        private IWebElement _inputTime;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
@@ -53,7 +40,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
-
         }
 
         public void IncreaseItemQuantity()
@@ -91,40 +77,22 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _submitButton.Click();
         }
 
-        //public void ClickOnDataPicker()
-        //{
-        //    _inputDate.Click();
-        //}
+        public void ClickOnDatePicker()
+        {
+            _inputDate.Click();
+            DatePickerComponent = new DatePickerComponent(driver);
+        }
 
-        //public void ClickOnTimePicker()
-        //{
-        //    _inputTime.Click();
-        //}
+        public void ClickOnTimePicker()
+        {
+            _inputTime.Click();
+            TimePickerComponent = new TimePickerComponent(driver);
+        }
 
         public string GetErrorPopupText()
         {
             return _errorPopUp.Text;
         }
-
-        //public void SelectDatePickerDay(string date)
-        //{
-        //    foreach (IWebElement day in _datePickerDayList)
-        //    {
-        //        if (day.Text.Equals(date))
-        //            day.Click();
-        //    }
-        //}
-
-        //public void NextMonthButtonClick()
-        //{
-        //    _datePickerNextMonthButton.Click();
-        //}
-
-        //public void PreviousMonthButtonClick()
-        //{
-        //    _datePickerPreviousMonthButton.Click();
-        //}
-       
 
     }
 }
