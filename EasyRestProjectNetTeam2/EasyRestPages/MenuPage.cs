@@ -6,14 +6,13 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public LeftBarComponent LeftBarComponent { get; set; }
-       
+        public DatePickerComponent DatePickerComponent { get; set; }
+        public TimePickerComponent TimePickerComponent { get; set; }
+
         public MenuPage(IWebDriver driver) : base(driver)
         {
-            LeftBarComponent = new LeftBarComponent(driver);
         }
-                      
-
+          
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
 
@@ -41,7 +40,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
-
         }
 
         public void IncreaseItemQuantity()
@@ -79,14 +77,16 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _submitButton.Click();
         }
 
-        public void ClickOnDataPicker()
+        public void ClickOnDatePicker()
         {
             _inputDate.Click();
+            DatePickerComponent = new DatePickerComponent(driver);
         }
 
         public void ClickOnTimePicker()
         {
             _inputTime.Click();
+            TimePickerComponent = new TimePickerComponent(driver);
         }
 
         public string GetErrorPopupText()

@@ -24,6 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         static ExtentReports extent;
         ExtentTest test;
         protected DataModel dataModel;
+        protected QueryDataModel queryDataModel;
 
         private IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
@@ -88,7 +89,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         private void InitializeData()
         {
-            dataModel = new DataReader().ReadData();
+            dataModel = new DataReader().ReadDataFromTestData();
+            queryDataModel = new DataReader().ReadDataFromQueryData();
         }
         public IWebDriver GetDriver()
         {
