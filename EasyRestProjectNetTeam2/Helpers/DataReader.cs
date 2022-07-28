@@ -7,10 +7,10 @@ namespace EasyRestProjectNetTeam2.Helpers
 {
     internal class DataReader
     {
-        private string _winPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\TestsData.json";
-        private string _macPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName+ "/TestsData/TestsData.json";
-        private string _winPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\QueryData.json";
-        private string _macPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "/TestsData/QueryData.json";
+        private readonly string _winPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\TestsData.json";
+        private readonly string _macPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName+ "/TestsData/TestsData.json";
+        private readonly string _winPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\QueryData.json";
+        private readonly string _macPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "/TestsData/QueryData.json";
 
         public DataModel ReadDataFromTestData()
         {
