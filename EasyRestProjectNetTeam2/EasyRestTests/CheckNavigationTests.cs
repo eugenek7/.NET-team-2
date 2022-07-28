@@ -27,7 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.ClikHotCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedPageUrl = dataModel.NavigationHotCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is present for menu URL");
+            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
@@ -49,7 +49,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.ClikSoupCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedPageUrl = dataModel.NavigationSoupCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is present for menu URL");
+            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
@@ -71,7 +71,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.ClikCoctailsCatagory();
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedPageUrl = dataModel.NavigationCoctailsCatagoryMenuPage;
-            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is present for menu URL");
+            StringAssert.Contains(expectedPageUrl, actualPageUrl, "Search word is missed for menu URL");
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
