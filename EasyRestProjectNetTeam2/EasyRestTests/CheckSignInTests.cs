@@ -24,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.WaitRolePanelButtonIsClickable();
             homePage.HeaderMenuComponent.ClickRolePanelButton();
             personalInfoPage = GetPersonalInfoPage();
-            personalInfoPage.WaitInputEmailIsVisible();
+            personalInfoPage.WaitInputEmailIsVisible(dataModel.TimeToWait);
             Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField(), "Emails are not equals");
             personalInfoPage.HeaderMenuComponent.ClickProfileIcon();
             personalInfoPage.HeaderMenuComponent.ClickLogOutButton();

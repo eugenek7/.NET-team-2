@@ -1,13 +1,18 @@
 ﻿{
-    "TimeToWait": 20,
-    "Email": "stevenhall@test.com",
-    "FakeEmail": "stepanbandera@test.com",
-    "Password": "1111",
-    "GooglePageUrlSearchWords": "google.com",
-    "SignUpPageUrlSearchWords": "sign-up",
-    "SignInPageUrlSearchWords": "log-in",
-    "WarningMessage": "Email or password is invalid",
-    "IncompleteEmail": "stepanbandera@test",
-    "EmailvalidationWarningMessage": "Email is not valid"
+  "TimeToWait": 20,
+  "Email": "stevenhall@test.com",
+  "FakeEmail": "stepanbandera@test.com",
+  "Password": "1111",
+  "GooglePageUrlSearchWords": "google.com",
+  "SignUpPageUrlSearchWords": "sign-up",
+  "SignInPageUrlSearchWords": "log-in",
+  "WarningMessage": "Email or password is invalid",
+  "IncompleteEmail": "stepanbandera@test",
+  "EmailvalidationWarningMessage": "Email is not valid",
+  "RestaurantsListPageUrl": "restaurants",
+  "RestaurantDetailsUrl": "restaurants/2",
+  "RestaurantMenuUrl":"restaurant/2/menu/3",
+  "BeerTagUrl": "restaurants?tag=beer",
+  "KebabTagUrl": "restaurants?tag=kebab"
 
 }

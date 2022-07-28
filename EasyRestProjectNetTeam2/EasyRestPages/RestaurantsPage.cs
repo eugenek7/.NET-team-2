@@ -1,10 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -23,14 +19,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=beer']")]
         private IWebElement _beerTag;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href=' /? tag = kebab']")]
-        public IWebElement _kebabTag;
+        [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=kebab']  ")]
+        private IWebElement _kebabTag;
         
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
-        public IWebElement _johnsonDetails;
+        private IWebElement _johnsonDetails;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']")]
-        public IWebElement _johnsonMenu;
+        [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']/..")]
+        private IWebElement _johnsonMenu;       
 
         public void ClickRestarauntsList()
         {
@@ -41,10 +37,12 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _viewAllTag.Click();
         }
+
         public void ClickBeerTag()
         {
             _beerTag.Click();
         }
+
         public void ClickKebabTag()
         {
             _kebabTag.Click();
@@ -54,9 +52,35 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _johnsonDetails.Click();
         }
+
         public void ClickJohnsonMenu()
         {
             _johnsonMenu.Click();
-        }            
+        }
+
+        public void WaitForRestaruantDetails(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _johnsonDetails);
+        }
+
+        public void WaitForRestaruantMenu(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _johnsonMenu);
+        }
+
+        public void WaitForBeerTag(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _beerTag);
+        }
+
+        public void WaitForKebabTag(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _kebabTag);
+        }
+
+        public void WaitForResturantListisCkickable(int TimeToWait)
+        {
+            WaitElementIsClickable(TimeToWait, _restaurantsList);
+        }
     }
 }
