@@ -9,5 +9,14 @@
     "WarningMessage": "Email or password is invalid",
     "IncompleteEmail": "stepanbandera@test",
     "EmailvalidationWarningMessage": "Email is not valid"
+    "LettersInPhoneNumber": "bjnkl;l;",
+    "PasswordForSignUp":"123456789",
+    "NameForSignUp":"Steve",
+    "EmailForSignUp":"tesmm@gmail.com",
+    "RepeatPasswordForSignUp": "123456789",
+    "PhoneNumberForSignUp": "+345645678",
+    "ShortPasswordForSignUp": "0",
+    "AlreadyRegisteredEmail": "steveadmin@test.com",
+    "BirthDateSignUp": "12 July 1950"
 
 }
