@@ -24,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.ClickRestarauntsList();
             var expectedUrl = dataModel.RestaurantsListPageUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is present for menu URL");
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
         }
 
             [Test]
@@ -43,7 +43,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.ClickJohnsonDetails();
             var expectedUrl = dataModel.RestaurantDetailsUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is present for menu URL");         
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");         
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.ClickJohnsonMenu();
             var expectedUrl = dataModel.RestaurantMenuUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is present for menu URL");             
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");             
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.ClickBeerTag();
             var expectedUrl = dataModel.BeerTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is present for menu URL");
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             restaurantsPage.ClickKebabTag();
             var expectedUrl = dataModel.KebabTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is present for menu URL");           
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");           
         }    
     }
 }
