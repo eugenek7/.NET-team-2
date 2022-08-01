@@ -28,8 +28,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedSearchWord = dataModel.NavigationHotCatagoryMenuPage;
             StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
-            menuPage.HeaderMenuComponent.ClickProfileIcon();
-            menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
 
         [Test]
@@ -50,8 +48,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedSearchWord = dataModel.NavigationSoupCatagoryMenuPage;
             StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
-            menuPage.HeaderMenuComponent.ClickProfileIcon();
-            menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
 
         [Test]
@@ -72,8 +68,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var actualPageUrl = menuPage.GetPageUrl();
             var expectedSearchWord = dataModel.NavigationCoctailsCatagoryMenuPage;
             StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is missed for menu URL");
-            menuPage.HeaderMenuComponent.ClickProfileIcon();
-            menuPage.HeaderMenuComponent.ClickLogOutButton();
         }
     }
 }
