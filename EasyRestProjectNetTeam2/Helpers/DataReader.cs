@@ -7,24 +7,43 @@ namespace EasyRestProjectNetTeam2.Helpers
 {
     internal class DataReader
     {
-        private string _winPathToJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\TestsData.json";
-        private string _macPathToJsonFile = Directory.GetParent(@"../../../").FullName+ "/TestsData/TestsData.json";
+        private readonly string _winPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\TestsData.json";
+        private readonly string _macPathToTestDataJsonFile = Directory.GetParent(@"../../../").FullName+ "/TestsData/TestsData.json";
+        private readonly string _winPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "\\TestsData\\QueryData.json";
+        private readonly string _macPathToQueryDataJsonFile = Directory.GetParent(@"../../../").FullName + "/TestsData/QueryData.json";
 
-        public DataModel ReadData()
+        public DataModel ReadDataFromTestData()
         {
             OperatingSystem os = Environment.OSVersion;
             string jsonFile;
             
             if (os.Platform.ToString().Equals("Win32NT"))
             {
-                jsonFile = File.ReadAllText(_winPathToJsonFile);
+                jsonFile = File.ReadAllText(_winPathToTestDataJsonFile);
             }
             else
             {
-                jsonFile = File.ReadAllText(_macPathToJsonFile);
+                jsonFile = File.ReadAllText(_macPathToTestDataJsonFile);
             }
             DataModel dataModelObject = JsonSerializer.Deserialize<DataModel>(jsonFile);
             return dataModelObject;
+        }
+
+        public QueryDataModel ReadDataFromQueryData()
+        {
+            OperatingSystem os = Environment.OSVersion;
+            string jsonFile;
+
+            if (os.Platform.ToString().Equals("Win32NT"))
+            {
+                jsonFile = File.ReadAllText(_winPathToQueryDataJsonFile);
+            }
+            else
+            {
+                jsonFile = File.ReadAllText(_macPathToQueryDataJsonFile);
+            }
+            QueryDataModel queryDataModelObject = JsonSerializer.Deserialize<QueryDataModel>(jsonFile);
+            return queryDataModelObject;
         }
     }
 }
