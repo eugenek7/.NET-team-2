@@ -11,7 +11,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         MenuPage menuPage;
 
         [Test]
-        public void cn1_CheckNavigationToMenuCategory()
+        public void CheckNavigationToMenuCategory()
         {
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
@@ -31,7 +31,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void cn2_CheckNavigationToMenuCategory()
+        public void CheckNavigationToMenuCategory()
         {
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
@@ -51,7 +51,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void cn3_CheckNavigationToMenuCategory()
+        public void CheckNavigationToMenuCategory()
         {
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
