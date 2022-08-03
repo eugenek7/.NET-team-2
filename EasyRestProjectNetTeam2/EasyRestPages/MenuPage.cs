@@ -6,8 +6,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public DatePickerComponent DatePickerComponent { get; }
-        public TimePickerComponent TimePickerComponent { get; }
+        public DatePickerComponent DatePickerComponent { get; private set; }
+        public TimePickerComponent TimePickerComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
