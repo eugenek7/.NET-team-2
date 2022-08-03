@@ -32,6 +32,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[text()='Create account']/parent::a")]
         private IWebElement _createAccountButton;
 
+        [FindsBy(How = How.XPath, Using = "//span[text()='Sign In']")]
+        private IWebElement _signInButton;
 
         public void SendKeysToInputEmail(string email)
         {
@@ -72,7 +74,12 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             SendKeysToInputEmail(email);
             SendKeysToInputPassword(password);
-            HeaderMenuComponent.ClickSignInButton();
+            ClickSignInButton();
+        }
+
+        public void ClickSignInButton()
+        {
+            _signInButton.Click();
         }
     }
 }
