@@ -1,8 +1,8 @@
 ﻿{
   "TimeToWait": 20,
-  "Email": "stevenhall@test.com",
+  "EmailForClient": "stevenhall@test.com",
   "FakeEmail": "stepanbandera@test.com",
-  "Password": "1111",
+  "PasswordForClient": "1111",
   "GooglePageUrlSearchWords": "google.com",
   "SignUpPageUrlSearchWords": "sign-up",
   "SignInPageUrlSearchWords": "log-in",

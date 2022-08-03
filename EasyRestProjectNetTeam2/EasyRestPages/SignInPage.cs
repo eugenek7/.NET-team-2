@@ -68,5 +68,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _createAccountButton.Click();
         }
+        public void SignInWithValidData(string email, string password)
+        {
+            SendKeysToInputEmail(email);
+            SendKeysToInputPassword(password);
+            HeaderMenuComponent.ClickSignInButton();
+        }
     }
 }

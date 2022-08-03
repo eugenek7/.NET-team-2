@@ -16,9 +16,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
@@ -36,9 +34,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
@@ -56,9 +52,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
