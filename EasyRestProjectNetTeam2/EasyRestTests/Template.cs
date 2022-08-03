@@ -20,7 +20,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage = GetSignInPage();
             signInPage.ClickGoogleButton();
             Assert.IsTrue(signInPage.GetPageUrl().Contains(dataModel.GooglePageUrlSearchWords), "Search word is absent on Google page URL");
-            string result = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.FakeEmail);
+            string result = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.Email).ToString();
         }
 
      
