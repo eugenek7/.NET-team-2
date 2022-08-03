@@ -33,6 +33,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[2]")]
         private IWebElement _deleteAdministratorButton;
 
+        [FindsBy(How = How.XPath, Using = "(//span[contains(@class, 'MuiTypography-root-41 MuiTypography-body1')])[5]")]
+        private IWebElement _nameAdministrator;
+
+        public string GetTextFromAdministratorNameField()
+        {
+            return _nameAdministrator.Text;
+        }
+
         //[FindsBy(How = How.XPath, Using = "//p[text()='Name is required']")]
         //private IWebElement _inputNameValidationWarning;
 
