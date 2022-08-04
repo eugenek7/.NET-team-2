@@ -6,7 +6,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-
         public DatePickerComponent DatePickerComponent { get; private set; }
         public TimePickerComponent TimePickerComponent { get; private set; }
 
