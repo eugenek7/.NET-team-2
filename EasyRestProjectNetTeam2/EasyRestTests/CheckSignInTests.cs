@@ -16,8 +16,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             signInPage.HeaderMenuComponent.ClickSignInButton();
             homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
             homePage.HeaderMenuComponent.ClickProfileIcon();
@@ -25,7 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickRolePanelButton();
             personalInfoPage = GetPersonalInfoPage();
             personalInfoPage.WaitInputEmailIsVisible();
-            Assert.AreEqual(dataModel.Email, personalInfoPage.GetTextFromEmailField(), "Emails are not equals");
+            Assert.AreEqual(dataModel.EmailForClient, personalInfoPage.GetTextFromEmailField(), "Emails are not equals");
             personalInfoPage.HeaderMenuComponent.ClickProfileIcon();
             personalInfoPage.HeaderMenuComponent.ClickLogOutButton();
             Assert.IsTrue(signInPage.GetPageUrl().Contains(dataModel.SignInPageUrlSearchWords), "Search word is absent on SignIn page URL");
@@ -38,7 +38,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.FakeEmail);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             signInPage.HeaderMenuComponent.ClickSignInButton();
             signInPage.WaitForWarningWindow();
             Assert.IsTrue(signInPage.GetTextFromWarningWindow().Contains(dataModel.WarningMessage), "Problems with warning window");

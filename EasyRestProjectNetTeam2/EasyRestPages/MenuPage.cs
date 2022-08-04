@@ -1,4 +1,4 @@
-﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -36,6 +36,16 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Hot']")]
+        private IWebElement _hotCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Soup']")]
+        private IWebElement _soupCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Coctails']")]
+        private IWebElement _coctailsCatagoryButton;
+
 
         public void SendKeysToInputItemQuantity(string quantity)
         {
@@ -75,6 +85,37 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickSubmitButton() //click submit button on Order confirmation pop-up
         {
             _submitButton.Click();
+        }
+
+
+        public void ClikHotCatagory()
+        {
+            _hotCatagoryButton.Click();
+        }
+
+        public void ClikSoupCatagory()
+        {
+            _soupCatagoryButton.Click();
+        }
+
+        public void ClikCoctailsCatagory()
+        {
+            _coctailsCatagoryButton.Click();
+        }
+
+        public void WaitForSoupCategoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _soupCatagoryButton);
+        }
+
+        public void WaitForHotCategoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _hotCatagoryButton);
+        }
+
+        public void WaitForCoctailsCategoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _coctailsCatagoryButton);
         }
 
         public void ClickOnDatePicker()

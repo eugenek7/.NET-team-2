@@ -22,21 +22,24 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//p[contains(@class, 'MuiTypography-root-41 MuiTypography')]")]
         private IWebElement _warningWindow;
-        
+
         [FindsBy(How = How.XPath, Using = "//a[contains(@href, 'https://accounts.google.com')]")]
         private IWebElement _googleButton;
-        
+
         [FindsBy(How = How.XPath, Using = "//p[contains(@class, 'MuiFormHelperText-root')]")]
         private IWebElement _loginValidationWarningString;
-        
+
         [FindsBy(How = How.XPath, Using = "//span[text()='Create account']/parent::a")]
         private IWebElement _createAccountButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Sign In']")]
+        private IWebElement _signInButton;
 
         public void SendKeysToInputEmail(string email)
         {
             _inputEmail.SendKeys(email);
-            
         }
+
         public void WaitForLoginValidationWarningString()
         {
             WaitVisibilityOfElement(TimeToWait, _loginValidationWarningString);
@@ -66,6 +69,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickCreateAccountButton()
         {
             _createAccountButton.Click();
+        }
+        public void SignInWithValidData(string email, string password)
+        {
+            SendKeysToInputEmail(email);
+            SendKeysToInputPassword(password);
+            ClickSignInButton();
+        }
+
+        public void ClickSignInButton()
+        {
+            _signInButton.Click();
         }
     }
 }
