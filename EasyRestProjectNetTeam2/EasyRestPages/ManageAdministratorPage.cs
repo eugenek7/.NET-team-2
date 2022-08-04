@@ -7,6 +7,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class ManageAdministratorsPage : BasePage
     {
         public AddEmploeeComponent AddEmploeeComponent { get; private set; }
+
         public ManageAdministratorsPage(IWebDriver driver) : base(driver)
         {
 
