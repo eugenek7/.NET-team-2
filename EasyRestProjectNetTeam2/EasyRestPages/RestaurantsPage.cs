@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -29,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
         public IWebElement _johnsonDetails;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']")]
+        [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']/..")]
         public IWebElement _johnsonMenu;
 
         public void ClickRestarauntsList()
@@ -41,10 +36,12 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _viewAllTag.Click();
         }
+
         public void ClickBeerTag()
         {
             _beerTag.Click();
         }
+
         public void ClickKebabTag()
         {
             _kebabTag.Click();
@@ -54,9 +51,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _johnsonDetails.Click();
         }
+
         public void ClickJohnsonMenu()
         {
             _johnsonMenu.Click();
-        }            
+        }    
+        public void WaitForJonsonMenuIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _johnsonMenu);
+        }
     }
 }
