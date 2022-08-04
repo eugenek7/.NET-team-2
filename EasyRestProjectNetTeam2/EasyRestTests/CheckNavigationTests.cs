@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
+    [TestFixture]
     class CheckNavigationTests : BaseTest
     {
         HomePage homePage;
@@ -10,14 +11,20 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         RestaurantsPage restaurantsPage;
         MenuPage menuPage;
 
-        [Test]
-        public void CheckNavigationToMenuCategoryHot()
+        [SetUp]
+        public override void SetUp()
         {
+            base.SetUp();
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
             restaurantsPage = GetRestaurantsPage();
+        }
+
+        [Test]
+        public void CheckNavigationToMenuCategoryHot()
+        {
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
             menuPage = GetMenuPage();
@@ -31,11 +38,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigationToMenuCategorySoup()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
-            restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
             menuPage = GetMenuPage();
@@ -49,11 +51,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigationToMenuCategoryCoctails()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
-            restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
             restaurantsPage.ClickJohnsonMenu();
             menuPage = GetMenuPage();
