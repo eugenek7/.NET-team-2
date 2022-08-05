@@ -17,6 +17,17 @@ namespace EasyRestProjectNetTeam2.Helpers
             }
         }
 
+        public static void SendNonQuery(string query)
+        {
+            using (NpgsqlConnection con = GetConnection())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
         public static object SendQuery(string query, string queryVariable)
         {
             using (NpgsqlConnection con = GetConnection())
