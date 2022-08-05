@@ -8,11 +8,13 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     {
         public DatePickerComponent DatePickerComponent { get; private set; }
         public TimePickerComponent TimePickerComponent { get; private set; }
+        public LeftBarComponent LeftBarComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
+            LeftBarComponent = new LeftBarComponent(driver);
         }
-          
+
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
 

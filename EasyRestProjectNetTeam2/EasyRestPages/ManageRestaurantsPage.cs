@@ -5,7 +5,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class ManageRestaurantsPage : BasePage
     {
-     
+
         public ManageRestaurantsPage(IWebDriver driver) : base(driver) { }
 
 
@@ -15,7 +15,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'Watch Menu')]/ancestor::a")]
         private IWebElement _watchMenuButton;
 
-        [FindsBy(How = How.XPath, Using = "//button[@aria-label= 'More']")]
+        [FindsBy(How = How.XPath, Using = "(//button[@aria-label= 'More'])[3]")] // !!!!!!!!!!!!!
         private IWebElement _moreButton;
 
         [FindsBy(How = How.XPath, Using = "//a[@role='menuitem']")]
@@ -99,6 +99,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickCreateRestaurantButton()
         {
             _createRestaurantButton.Click();
+        }
+
+        public void ClickManage()
+        {
+            _manageRestaurantButton.Click();
         }
     }
 }

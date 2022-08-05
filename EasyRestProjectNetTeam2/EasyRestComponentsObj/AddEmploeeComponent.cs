@@ -59,10 +59,11 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _inputPhoneNumber.SendKeys(phonenumber);
         }
 
-        public void ClickAddNewAdministrator()
+        public void ClickAddNewEmploee()
         {
             _addEmploeeButton.Click();
         }
+        public SendKeysToInput
 
         public bool IsInputNameValidationWarningExist()
         {

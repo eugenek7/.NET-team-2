@@ -11,7 +11,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         }
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants']")]
         private IWebElement _restaurantsList;
-               
+
         [FindsBy(How = How.XPath, Using = " //span[(text()= 'View all')]/ancestor::a")]
         private IWebElement _viewAllTag;
 
@@ -20,7 +20,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//a[@href=' /? tag = kebab']")]
         public IWebElement _kebabTag;
-        
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
         public IWebElement _johnsonDetails;
 
@@ -29,9 +29,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public void ClickRestarauntsList()
         {
-          _restaurantsList.Click();
+            _restaurantsList.Click();
         }
-        
+
         public void ClickViewAllTag()
         {
             _viewAllTag.Click();
@@ -46,7 +46,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _kebabTag.Click();
         }
-        
+
         public void ClickJohnsonDetails()
         {
             _johnsonDetails.Click();
@@ -55,7 +55,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickJohnsonMenu()
         {
             _johnsonMenu.Click();
-        }    
+        }
         public void WaitForJonsonMenuIsClickable(int timeToWait)
         {
             WaitElementIsClickable(timeToWait, _johnsonMenu);

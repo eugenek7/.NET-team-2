@@ -10,29 +10,17 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
         }
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Details']")]
+        [FindsBy(How = How.XPath, Using = "//span[text()='Details']/ancestor::a")]
         private IWebElement _detailsLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Menues']")]
+        [FindsBy(How = How.XPath, Using = "//span[text()='Menues']/ancestor::a")]
         private IWebElement _menuesLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Waiters']")]
+        [FindsBy(How = How.XPath, Using = "//span[text()='Waiters']/ancestor::a")]
         private IWebElement _waitersLeftBarButton;
 
-        [FindsBy(How = How.XPath, Using = "//span[text()='Administrators']")]
+        [FindsBy(How = How.XPath, Using = "//span[text()='Administrators']/ancestor::a")]
         private IWebElement _administratorsLeftBarButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Restaurants']")]
-        private IWebElement _restaurantsLeftBarButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Users']")]
-        private IWebElement _usersLeftBarButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Owners']")]
-        private IWebElement _ownersLeftBarButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Moderators']")]
-        private IWebElement _moderatorsLeftBarButton;
 
 
         public void ClickDetailsLeftBarButton()
@@ -44,7 +32,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _menuesLeftBarButton.Click();
         }
-          
+
         public void ClickWaitersLeftBarButton()
         {
             _waitersLeftBarButton.Click();
@@ -55,24 +43,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _administratorsLeftBarButton.Click();
         }
 
-        public void ClickRestaurantsLeftBarButton()
-        {
-            _restaurantsLeftBarButton.Click();
-        }
-
-        public void ClickUsersLeftBarButton()
-        {
-            _usersLeftBarButton.Click();
-        }
-
-        public void ClickOwnersLeftBarButton()
-        {
-            _ownersLeftBarButton.Click();
-        }
-
-        public void ClickModeratorsLeftBarButton()
-        {
-            _moderatorsLeftBarButton.Click();
-        }
     }
 }
+

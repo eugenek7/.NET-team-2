@@ -15,5 +15,7 @@
         public string NavigationHotCatagoryMenuPage { get; set; }
         public string NavigationSoupCatagoryMenuPage { get; set; }
         public string NavigationCoctailsCatagoryMenuPage { get; set; }
+        public string EmailForOwner { get; set; }
+        public string PasswordForOwner { get; set; }
     }
 }

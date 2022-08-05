@@ -134,5 +134,15 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             return new ManageRestaurantsPage(GetDriver());
         }
+
+        public ManageAdministratorPage GetManageAdministratorPage()
+        {
+            return new ManageAdministratorPage(GetDriver());
+        }
+
+        public ManageWaitersPage GetManageWaitersPage()
+        {
+            return new ManageWaitersPage(GetDriver());
+        }
     }
 }

@@ -11,5 +11,8 @@
   "EmailvalidationWarningMessage": "Email is not valid",
   "NavigationHotCatagoryMenuPage": "Hot",
   "NavigationSoupCatagoryMenuPage": "Soup",
-  "NavigationCoctailsCatagoryMenuPage": "Coctails"
+  "NavigationCoctailsCatagoryMenuPage": "Coctails",
+  "EmailForOwner": "jasonbrown@test.com",
+  "PasswordForOwner": "1111"
+
 }
