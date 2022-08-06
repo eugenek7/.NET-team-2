@@ -25,4 +25,8 @@
     <Folder Include="Reports\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="EasyRestComponentsObj\UsersTableComponent.cs" />
+  </ItemGroup>
+
 </Project>
