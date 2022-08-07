@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
@@ -104,6 +105,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickManage()
         {
             _manageRestaurantButton.Click();
+        }
+
+        public void WaitAndClickManageButton(int TimeToWait)
+        {
+            _manageRestaurantButton.WaitAndClick(driver, TimeToWait);
         }
     }
 }

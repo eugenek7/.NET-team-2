@@ -63,7 +63,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _addEmploeeButton.Click();
         }
-        public SendKeysToInput
 
         public bool IsInputNameValidationWarningExist()
         {

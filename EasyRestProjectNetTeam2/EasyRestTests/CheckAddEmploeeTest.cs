@@ -22,10 +22,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.SignInWithValidData(dataModel.EmailForOwner, dataModel.PasswordForOwner);
             manageRestaurantsPage = GetManageRestaurantsPage();
             Thread.Sleep(1000);
-            //manageRestaurantsPage.WaitForManageAndArchiveButtons(dataModel.TimeToWait);
             manageRestaurantsPage.ClickMoreButton();
-            Thread.Sleep(1000);
-            manageRestaurantsPage.ClickManage();
+            manageRestaurantsPage.WaitAndClickManageButton(dataModel.TimeToWait);
             menuPage = GetMenuPage();
             Thread.Sleep(1000);
             menuPage.LeftBarComponent.ClickAdministratorsLeftBarButton();
