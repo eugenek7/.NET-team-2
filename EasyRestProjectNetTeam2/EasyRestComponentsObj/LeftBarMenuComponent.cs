@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -43,6 +44,10 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _administratorsLeftBarButton.Click();
         }
 
+        public void WaitAndClickAdministratorsLeftBarButton(int TimeToWait)
+        {
+            _administratorsLeftBarButton.WaitAndClick(driver, TimeToWait);
+        }
     }
 }
 

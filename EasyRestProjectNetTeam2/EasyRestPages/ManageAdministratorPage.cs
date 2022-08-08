@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -19,9 +20,13 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//span[contains(@class, 'MuiTypography-root-41 MuiTypography-body1')])[5]")]
         private IWebElement _nameAdministrator;
 
-        public string GetTextFromAdministratorNameField()
+        public string WaitAndGetTextFromAdministratorNameField(int TimeToWait)
         {
-            return _nameAdministrator.Text;
+            driver.Navigate().Refresh();
+            var x = _nameAdministrator.WaitAndGetText(driver, TimeToWait);
+            //_nameAdministrator.WaitAndGetText(driver, TimeToWait);
+            return x;
+
         }
 
         public void ClickDeleteAdministrator()

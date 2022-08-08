@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -39,24 +40,25 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         private IWebElement _inputPhoneNumberValidationWarning;
 
 
-        public void SendKeysToInputName(string name)
+        public void WaitAndSendKeysToInputName(string name, int TimeToWait)
         {
-            _inputName.SendKeys(name);
+            _inputName.WaitAndSendKeys(driver, TimeToWait, name);
+            //_inputName.SendKeys(name);
         }
 
-        public void SendKeysToInputEmail(string email)
+        public void WaitAndSendKeysToInputEmail(string email, int TimeToWait)
         {
-            _inputEmail.SendKeys(email);
+            _inputEmail.WaitAndSendKeys(driver, TimeToWait, email);
         }
 
-        public void SendKeysToInputPassword(string password)
+        public void WaitAndSendKeysToInputPassword(string password, int TimeToWait)
         {
-            _inputPassword.SendKeys(password);
+            _inputPassword.WaitAndSendKeys(driver, TimeToWait, password);
         }
 
-        public void SendKeysToInputPhoneNumber(string phonenumber)
+        public void WaitAndSendKeysToInputPhoneNumber(string phonenumber, int TimeToWait)
         {
-            _inputPhoneNumber.SendKeys(phonenumber);
+            _inputPhoneNumber.WaitAndSendKeys(driver, TimeToWait, phonenumber);
         }
 
         public void ClickAddNewEmploee()
