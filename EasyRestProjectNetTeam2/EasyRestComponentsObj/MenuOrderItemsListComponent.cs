@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -24,9 +25,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _removeItemButton.Click();
         }
 
-        public void ClickSubmitOrderButton() //opens Order confirmation pop-up
+        public void WaitAndClickSubmitOrderButton(int TimeToWait) //opens Order confirmation pop-up
         {
-            _submitOrderButton.Click();
+            _submitOrderButton.WaitAndClick(driver, TimeToWait);
             OrderConfirmationPopUpComponent = new OrderConfirmationPopUpComponent(driver);
         }
 

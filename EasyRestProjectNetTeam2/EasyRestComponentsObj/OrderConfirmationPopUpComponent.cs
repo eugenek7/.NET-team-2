@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestPages;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -61,9 +62,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             TimePickerComponent = new TimePickerComponent(driver);
         }
 
-        public void ClickSubmitButton() //click submit button on Order confirmation pop-up
+        public void WaitAndClickSubmitButton(int TimeToWait) //click submit button on Order confirmation pop-up
         {
-            _submitButton.Click();
+            _submitButton.WaitAndClick(driver, TimeToWait);
         }
 
         public void ClickRemoveItemButton() //removes first item from cart

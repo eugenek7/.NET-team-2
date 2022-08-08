@@ -1,3 +1,4 @@
+using EasyRestProjectNetTeam2.Decorator;
 using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
@@ -71,6 +72,12 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickAddToCartButton()
         {
             _addToCartButton.Click();
+            MenuOrderItemsListComponent = new MenuOrderItemsListComponent(driver);
+        }
+
+        public void WaitAndClickAddToCartButton(int TimeToWait)
+        {
+            _addToCartButton.WaitAndClick(driver, TimeToWait);
             MenuOrderItemsListComponent = new MenuOrderItemsListComponent(driver);
         }
 
