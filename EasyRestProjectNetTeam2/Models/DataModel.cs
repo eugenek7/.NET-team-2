@@ -15,5 +15,15 @@
         public string NavigationHotCatagoryMenuPage { get; set; }
         public string NavigationSoupCatagoryMenuPage { get; set; }
         public string NavigationCoctailsCatagoryMenuPage { get; set; }
+        public string LettersInPhoneNumber { get; set; }
+        public string PasswordForSignUp  { get; set; }
+        public string NameForSignUp  { get; set; }
+        public string EmailForSignUp  { get; set; }
+        public string RepeatPasswordForSignUp  { get; set; }
+        public string PhoneNumberForSignUp  { get; set; }
+        public string ShortPasswordForSignUp  { get; set; }
+        public string AlreadyRegisteredEmail  { get; set; }
+        public string BirthDateSignUp  { get; set; }
     }
 }
+

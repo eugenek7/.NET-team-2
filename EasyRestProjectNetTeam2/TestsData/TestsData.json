@@ -11,5 +11,14 @@
   "EmailvalidationWarningMessage": "Email is not valid",
   "NavigationHotCatagoryMenuPage": "Hot",
   "NavigationSoupCatagoryMenuPage": "Soup",
-  "NavigationCoctailsCatagoryMenuPage": "Coctails"
+  "NavigationCoctailsCatagoryMenuPage": "Coctails",
+  "LettersInPhoneNumber": "bjnkl;l;",
+  "PasswordForSignUp":"123456789",
+  "NameForSignUp":"Steve",
+  "EmailForSignUp":"tesT@gmail.com",
+  "RepeatPasswordForSignUp": "57899",
+  "PhoneNumberForSignUp": "+345645678",
+  "ShortPasswordForSignUp": "0",
+  "AlreadyRegisteredEmail": "steveadmin@test.com",
+  "BirthDateSignUp": "12 July 1950"
 }
