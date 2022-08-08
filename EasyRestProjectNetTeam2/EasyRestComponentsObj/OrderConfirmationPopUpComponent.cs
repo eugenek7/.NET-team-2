@@ -72,6 +72,5 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _removeItemButton.Click();
         }
 
-
     }
 }
