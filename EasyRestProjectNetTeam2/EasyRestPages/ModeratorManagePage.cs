@@ -1,11 +1,14 @@
 //moderator panel 
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class ModeratorManagePage : BasePage
     {
+        public HeaderUsersListComponent HeaderUsersListComponent { get; private set; }
+        
         public ModeratorManagePage(IWebDriver driver) : base(driver)
         {
             
@@ -19,15 +22,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Owners']")]
         private IWebElement _ownersButton;
-        
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'All')]")]
-        private IWebElement _allButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Active')]")]
-        private IWebElement _activeButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Banned')]")]
-        private IWebElement _bannedButton;
         
         [FindsBy(How = How.XPath, Using = "(//span[contains(text(), 'Unapproved')])[1]")]
         private IWebElement _unapprovedRestaurantsButton;
@@ -56,21 +50,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[text()='Undo']")]
         private IWebElement _undoActionPopUpButton;
         
-        public void ClickAllButton()
-        {
-            _allButton.Click();
-        }
-
-        public void ClickActiveButton()
-        {
-            _activeButton.Click();
-        }
-
-        public void ClickBannedButton()
-        {
-            _bannedButton.Click();
-        }
-
         public void ClickRestaurantsButton()
         {
             _restaurantsButton.Click();
