@@ -34,7 +34,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
             manageAdministratorPage = GetManageAdministratorPage();
             manageAdministratorPage.ClickPlusAdministrator();
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee, dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee, dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
+            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee,
+                dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee,
+                dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
             manageAdministratorPage.AddEmploeeComponent.ClickAddNewEmploee();
             var actualPageUrl = manageAdministratorPage.WaitAndGetTextFromAdministratorNameField(dataModel.TimeToWait);
             var expectedSearchWord = dataModel.NameForNewEmploee;
@@ -47,7 +49,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
             manageWaitersPage = GetManageWaitersPage();
             manageWaitersPage.ClickAddWaiterButton();
-            manageWaitersPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee, dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee, dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
+            manageWaitersPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee,
+                dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee,
+                dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
             manageWaitersPage.AddEmploeeComponent.ClickAddNewEmploee();
             var actualPageUrl = manageWaitersPage.WaitAndGetTextFromWaitersNameField(dataModel.TimeToWait);
             var expectedSearchWord = dataModel.NameForNewEmploee;
@@ -57,10 +61,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [TearDown]
         public override void TearDown()
         {
-            base.TearDown();
             DatabaseManager.SendNonQuery(queryDataModel.SetPreviousAdministrator);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteUserByEmail, dataModel.EmailForNewEmploee);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForOwner);
+            base.TearDown();
         }
     }
 }
