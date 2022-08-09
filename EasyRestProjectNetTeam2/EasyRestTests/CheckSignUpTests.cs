@@ -37,21 +37,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
         
         [Test]
-        public void CheckUserIsAbleToSignUpWithLettersInPhoneNumber()
-        {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.SendKeysToInputPhoneNumber(dataModel.LettersInPhoneNumber);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
-            _signUpPage.ClickToInputBirthDate();
-            _signUpPage.DatePickerComponent.ChooseDateFromDatePicker(dataModel.BirthDateSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            var expectedResult = DatabaseManager.SendQuery(QueryDataModel.SelectUserEmailByEmail , dataModel.EmailForSignUp);
-            Assert.AreNotEqual(null, expectedResult, "User is unable to sign up with invalid phone number");
-        }
-        
-        [Test]
         public void CheckUserIsUnableToSignUpWithoutName()
         {
             _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
