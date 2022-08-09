@@ -17,5 +17,9 @@
         public string NavigationCoctailsCatagoryMenuPage { get; set; }
         public string EmailForOwner { get; set; }
         public string PasswordForOwner { get; set; }
+        public string NameForNewEmploee { get; set; }
+        public string EmailForNewEmploee { get; set; }
+        public string PasswordForNewEmploee { get; set; }
+        public string PhoneForNewEmploee { get; set; }
     }
 }

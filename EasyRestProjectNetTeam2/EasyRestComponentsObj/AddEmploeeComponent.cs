@@ -43,7 +43,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         public void WaitAndSendKeysToInputName(string name, int TimeToWait)
         {
             _inputName.WaitAndSendKeys(driver, TimeToWait, name);
-            //_inputName.SendKeys(name);
         }
 
         public void WaitAndSendKeysToInputEmail(string email, int TimeToWait)
@@ -59,6 +58,21 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         public void WaitAndSendKeysToInputPhoneNumber(string phonenumber, int TimeToWait)
         {
             _inputPhoneNumber.WaitAndSendKeys(driver, TimeToWait, phonenumber);
+        }
+
+        public void SendKeysToInputEmail(string email)
+        {
+            _inputEmail.SendKeys(email);
+        }
+
+        public void SendKeysToInputPassword(string password)
+        {
+            _inputPassword.SendKeys(password);
+        }
+
+        public void SendKeysToInputPhoneNumber(string phonenumber)
+        {
+            _inputPhoneNumber.SendKeys(phonenumber);
         }
 
         public void ClickAddNewEmploee()

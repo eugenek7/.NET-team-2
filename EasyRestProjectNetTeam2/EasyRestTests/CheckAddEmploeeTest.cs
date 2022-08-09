@@ -34,22 +34,24 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
             manageAdministratorPage = GetManageAdministratorPage();
             manageAdministratorPage.ClickPlusAdministrator();
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputName("Lozxxzy", dataModel.TimeToWait);
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputEmail("lozzxxkl@lol.gg", dataModel.TimeToWait);
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputPhoneNumber("123321", dataModel.TimeToWait);
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputPassword("12345678", dataModel.TimeToWait);
+            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputName(dataModel.NameForNewEmploee, dataModel.TimeToWait);
+            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputEmail(dataModel.EmailForNewEmploee);
+            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputPhoneNumber(dataModel.PhoneForNewEmploee);
+            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputPassword(dataModel.PhoneForNewEmploee);
             manageAdministratorPage.AddEmploeeComponent.ClickAddNewEmploee();
             var actualPageUrl = manageAdministratorPage.WaitAndGetTextFromAdministratorNameField(dataModel.TimeToWait);
-            var expectedSearchWord = "Lozxxzy";
-            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is name in emploee name field");
+            var expectedSearchWord = dataModel.NameForNewEmploee;
+            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in emploee name field");
+        }
 
-            string q1 = "UPDATE restaurants SET administrator_id = '13' where id = 8;";
-            DatabaseManager.SendNonQuery(q1);
-            string q2 = "delete from users where email = 'lozzxxkl@lol.gg';";
-            DatabaseManager.SendNonQuery(q2);
-            string q3 = "delete from tokens USING users where tokens.user_id=users.id and users.email='jasonbrown@test.com';";
-            DatabaseManager.SendNonQuery(q3);
 
+        [TearDown]
+        public override void TearDown()
+        {
+            base.TearDown();
+            DatabaseManager.SendNonQuery(queryDataModel.SetPreviousAdministrator);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteUserByEmail, dataModel.EmailForNewEmploee);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForOwner);
         }
     }
 }

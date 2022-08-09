@@ -13,6 +13,9 @@
   "NavigationSoupCatagoryMenuPage": "Soup",
   "NavigationCoctailsCatagoryMenuPage": "Coctails",
   "EmailForOwner": "jasonbrown@test.com",
-  "PasswordForOwner": "1111"
-
+  "PasswordForOwner": "1111",
+  "NameForNewEmploee": "Spok",
+  "EmailForNewEmploee": "Spock@enterprise.vu",
+  "PasswordForNewEmploee": "12345678",
+  "PhoneForNewEmploee": "777666555444"
 }

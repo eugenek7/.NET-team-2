@@ -52,7 +52,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [TearDown]
-        public void TearDown()
+        public virtual void TearDown()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
