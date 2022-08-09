@@ -16,7 +16,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'Watch Menu')]/ancestor::a")]
         private IWebElement _watchMenuButton;
 
-        [FindsBy(How = How.XPath, Using = "//button[@aria-label= 'More']")] // !!!!!!!!!!!!!
+        [FindsBy(How = How.XPath, Using = "//button[@aria-label= 'More']")]
         private IWebElement _moreButton;
 
         [FindsBy(How = How.XPath, Using = "//a[@role='menuitem']")]
