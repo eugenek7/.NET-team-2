@@ -29,7 +29,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-
         public void CheckAddAdministrator()
         {
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
