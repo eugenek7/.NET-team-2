@@ -9,7 +9,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
     {
         public AddEmploeeComponent(IWebDriver driver) : base(driver)
         {
-
         }
 
         [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
