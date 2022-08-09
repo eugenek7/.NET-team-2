@@ -6,7 +6,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class SignUpPage : BasePage
     {
-        public DatePickerComponent DatePickerComponent { get; set; }
+        public DatePickerComponent DatePickerComponent { get; private set; }
 
         public SignUpPage(IWebDriver driver) : base(driver)
         {
