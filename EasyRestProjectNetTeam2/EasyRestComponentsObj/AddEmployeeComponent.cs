@@ -5,9 +5,9 @@ using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 {
-    public class AddEmploeeComponent : BasePage
+    public class AddEmployeeComponent : BasePage
     {
-        public AddEmploeeComponent(IWebDriver driver) : base(driver)
+        public AddEmployeeComponent(IWebDriver driver) : base(driver)
         {
         }
 

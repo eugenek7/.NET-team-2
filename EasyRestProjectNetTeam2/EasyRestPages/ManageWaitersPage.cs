@@ -8,7 +8,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class ManageWaitersPage : BasePage
     {
 
-        public AddEmploeeComponent AddEmploeeComponent { get; private set; }
+        public AddEmployeeComponent AddEmploeeComponent { get; private set; }
 
         public ManageWaitersPage(IWebDriver driver) : base(driver)
         {
@@ -32,7 +32,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickAddWaiterButton()
         {
             _addWaiterButton.Click();
-            AddEmploeeComponent = new AddEmploeeComponent(driver);
+            AddEmploeeComponent = new AddEmployeeComponent(driver);
         }
 
         public string WaitAndGetTextFromWaitersNameField(int TimeToWait)

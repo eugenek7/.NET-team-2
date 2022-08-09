@@ -7,7 +7,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class ManageAdministratorPage : BasePage
     {
-        public AddEmploeeComponent AddEmploeeComponent { get; private set; }
+        public AddEmployeeComponent AddEmploeeComponent { get; private set; }
 
         public ManageAdministratorPage(IWebDriver driver) : base(driver) { }
 
@@ -34,7 +34,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickPlusAdministrator()
         {
             _plusAdministratorButton.Click();
-            AddEmploeeComponent = new AddEmploeeComponent(driver);
+            AddEmploeeComponent = new AddEmployeeComponent(driver);
         }
     }
 }
