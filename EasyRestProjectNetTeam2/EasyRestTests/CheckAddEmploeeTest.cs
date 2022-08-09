@@ -25,13 +25,13 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             manageRestaurantsPage = GetManageRestaurantsPage();
             manageRestaurantsPage.WaitAndClickMoreButton(dataModel.TimeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(dataModel.TimeToWait);
+            menuPage = GetMenuPage();
         }
 
         [Test]
 
         public void CheckAddAdministrator()
         {
-            menuPage = GetMenuPage();
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
             manageAdministratorPage = GetManageAdministratorPage();
             manageAdministratorPage.ClickPlusAdministrator();
@@ -45,7 +45,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckAddWaiter()
         {
-            menuPage = GetMenuPage();
             menuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
             manageWaitersPage = GetManageWaitersPage();
             manageWaitersPage.ClickAddWaiterButton();
