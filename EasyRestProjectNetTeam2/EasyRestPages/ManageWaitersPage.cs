@@ -1,10 +1,15 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class ManageWaitersPage : BasePage
     {
+
+        public AddEmploeeComponent AddEmploeeComponent { get; private set; }
+
         public ManageWaitersPage(IWebDriver driver) : base(driver)
         {
 
@@ -43,6 +48,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//p[text()='Phone number is required']")]
         private IWebElement _inputPhoneNumberValidationWarning;
 
+        [FindsBy(How = How.XPath, Using = " (//span[contains(@class, 'MuiTypography-root-41 MuiTypography-body1')])[7]")] // third one in the list
+        private IWebElement _nameWaiter;
+
         public void ClickDeleteButton()
         {
             _deleteButton.Click();
@@ -51,6 +59,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickAddWaiterButton()
         {
             _addWaiterButton.Click();
+            AddEmploeeComponent = new AddEmploeeComponent(driver);
         }
         public void SendKeysToInputName(string name)
         {
@@ -89,6 +98,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _inputPhoneNumberValidationWarning.Displayed;
         }
 
+        public string WaitAndGetTextFromWaitersNameField(int TimeToWait)
+        {
+            driver.Navigate().Refresh();
+            return _nameWaiter.WaitAndGetText(driver, TimeToWait);
+        }
     }
 }
 

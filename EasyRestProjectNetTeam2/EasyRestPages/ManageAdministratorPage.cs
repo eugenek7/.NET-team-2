@@ -23,10 +23,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public string WaitAndGetTextFromAdministratorNameField(int TimeToWait)
         {
             driver.Navigate().Refresh();
-            var x = _nameAdministrator.WaitAndGetText(driver, TimeToWait);
-            //_nameAdministrator.WaitAndGetText(driver, TimeToWait);
-            return x;
-
+            return _nameAdministrator.WaitAndGetText(driver, TimeToWait);
         }
 
         public void ClickDeleteAdministrator()

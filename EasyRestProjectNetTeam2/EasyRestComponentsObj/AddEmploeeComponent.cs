@@ -80,6 +80,14 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _addEmploeeButton.Click();
         }
 
+        public void WaitAndSendKeysToInputData(string name, string email, string password, string phonenumber, int TimeToWait)
+        {
+            _inputName.WaitAndSendKeys(driver, TimeToWait, name);
+            _inputEmail.SendKeys(email);
+            _inputPassword.SendKeys(password);
+            _inputPhoneNumber.SendKeys(phonenumber);
+        }
+
         public bool IsInputNameValidationWarningExist()
         {
             return _inputNameValidationWarning.Displayed;
@@ -99,9 +107,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             return _inputPhoneNumberValidationWarning.Displayed;
         }
-
-
-
     }
 
 }

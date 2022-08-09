@@ -12,6 +12,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         ManageRestaurantsPage manageRestaurantsPage;
         MenuPage menuPage;
         ManageAdministratorPage manageAdministratorPage;
+        ManageWaitersPage manageWaitersPage;
 
         [SetUp]
         public override void SetUp()
@@ -34,16 +35,26 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
             manageAdministratorPage = GetManageAdministratorPage();
             manageAdministratorPage.ClickPlusAdministrator();
-            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputName(dataModel.NameForNewEmploee, dataModel.TimeToWait);
-            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputEmail(dataModel.EmailForNewEmploee);
-            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputPhoneNumber(dataModel.PhoneForNewEmploee);
-            manageAdministratorPage.AddEmploeeComponent.SendKeysToInputPassword(dataModel.PhoneForNewEmploee);
+            manageAdministratorPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee, dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee, dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
             manageAdministratorPage.AddEmploeeComponent.ClickAddNewEmploee();
             var actualPageUrl = manageAdministratorPage.WaitAndGetTextFromAdministratorNameField(dataModel.TimeToWait);
             var expectedSearchWord = dataModel.NameForNewEmploee;
             StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in emploee name field");
         }
 
+        [Test]
+        public void CheckAddWaiter()
+        {
+            menuPage = GetMenuPage();
+            menuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
+            manageWaitersPage = GetManageWaitersPage();
+            manageWaitersPage.ClickAddWaiterButton();
+            manageWaitersPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmploee, dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee, dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
+            manageWaitersPage.AddEmploeeComponent.ClickAddNewEmploee();
+            var actualPageUrl = manageWaitersPage.WaitAndGetTextFromWaitersNameField(dataModel.TimeToWait);
+            var expectedSearchWord = dataModel.NameForNewEmploee;
+            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in emploee name field");
+        }
 
         [TearDown]
         public override void TearDown()

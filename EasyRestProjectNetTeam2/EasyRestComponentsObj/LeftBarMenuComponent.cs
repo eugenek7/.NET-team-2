@@ -48,6 +48,11 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         {
             _administratorsLeftBarButton.WaitAndClick(driver, TimeToWait);
         }
+
+        public void WaitAndClickWaiterLeftBarButton(int TimeToWait)
+        {
+            _waitersLeftBarButton.WaitAndClick(driver, TimeToWait);
+        }
     }
 }
 
