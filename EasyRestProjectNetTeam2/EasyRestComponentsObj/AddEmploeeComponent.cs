@@ -39,7 +39,6 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//p[text()='Phone number is required']")]
         private IWebElement _inputPhoneNumberValidationWarning;
 
-
         public void WaitAndSendKeysToInputName(string name, int TimeToWait)
         {
             _inputName.WaitAndSendKeys(driver, TimeToWait, name);
@@ -108,5 +107,4 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             return _inputPhoneNumberValidationWarning.Displayed;
         }
     }
-
 }
