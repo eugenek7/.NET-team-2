@@ -12,7 +12,12 @@
         public string WarningMessage { get; set; }
         public string IncompleteEmail { get; set; }
         public string EmailvalidationWarningMessage { get; set; }
-        
+        public string ClientEmail { get; set; }
+        public string ItemAddedPopUp { get; set; }
+        public string ItemQuantity11 { get; set; }
+        public string ItemQuantity1 { get; set; }
+        public string ItemQuantity2 { get; set; }
+
 
     }
 }

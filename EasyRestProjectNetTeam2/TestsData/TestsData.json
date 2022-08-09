@@ -1,13 +1,17 @@
 ﻿{
-    "TimeToWait": 20,
-    "Email": "stevenhall@test.com",
-    "FakeEmail": "stepanbandera@test.com",
-    "Password": "1111",
-    "GooglePageUrlSearchWords": "google.com",
-    "SignUpPageUrlSearchWords": "sign-up",
-    "SignInPageUrlSearchWords": "log-in",
-    "WarningMessage": "Email or password is invalid",
-    "IncompleteEmail": "stepanbandera@test",
-    "EmailvalidationWarningMessage": "Email is not valid"
-
+  "TimeToWait": 20,
+  "Email": "stevenhall@test.com",
+  "ClientEmail": "angelabrewer@test.com",
+  "FakeEmail": "stepanbandera@test.com",
+  "Password": "1111",
+  "GooglePageUrlSearchWords": "google.com",
+  "SignUpPageUrlSearchWords": "sign-up",
+  "SignInPageUrlSearchWords": "log-in",
+  "WarningMessage": "Email or password is invalid",
+  "IncompleteEmail": "stepanbandera@test",
+  "EmailvalidationWarningMessage": "Email is not valid",
+  "ItemAddedPopUp": "Item was added",
+  "ItemQuantity11": "11",
+  "ItemQuantity1": "1",
+  "ItemQuantity2": "2"
 }

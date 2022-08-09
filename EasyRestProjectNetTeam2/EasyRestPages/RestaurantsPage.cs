@@ -1,10 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -57,6 +53,31 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickJohnsonMenu()
         {
             _johnsonMenu.Click();
-        }            
+        }
+
+        public void WaitForRestaruantDetails(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _johnsonDetails);
+        }
+
+        public void WaitForRestaruantMenu(int TimeToWait)
+        {
+            WaitElementIsClickable(TimeToWait, _johnsonMenu);
+        }
+
+        public void WaitForBeerTag(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _beerTag);
+        }
+
+        public void WaitForKebabTag(int TimeToWait)
+        {
+            WaitVisibilityOfElement(TimeToWait, _kebabTag);
+        }
+
+        public void WaitForResturantListisCkickable(int TimeToWait)
+        {
+            WaitElementIsClickable(TimeToWait, _restaurantsList);
+        }
     }
 }

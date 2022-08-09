@@ -40,7 +40,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [SetUp]
-        public void Setup()
+        public virtual void SetUp()
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             test.Info($"Test {TestContext.CurrentContext.Test.Name} started");

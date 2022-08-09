@@ -37,11 +37,38 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
 
+        [FindsBy(How = How.XPath, Using = "//p[text()='Item was added']")]
+        private IWebElement _itemAddedPopUp;
+
+        [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
+        private IWebElement _itemQuantityInTheCart;
+
+
+        public void WaitForItemQuantityInTheCart(int TimeToWait)
+        {
+            WaitElementIsEnable(TimeToWait, _itemQuantityInTheCart);
+        }        
+
+        public void WaitForitemAddedPopUp(int TimeToWait)
+        {
+            WaitElementIsEnable(TimeToWait, _itemAddedPopUp);
+        }        
+        
+        public void ClickInputItemQuantity()
+        {
+            _inputItemQuantity.Click();
+        }     
+
+        public void ClearInputItemQuantity()
+        {
+            _inputItemQuantity.Clear(); ;
+        }
+
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
         }
-
+        
         public void IncreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowUp);
@@ -94,5 +121,24 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _errorPopUp.Text;
         }
 
+        public void WaitForAddToCartButton(int TimeToWait)
+        {
+            WaitElementIsClickable(TimeToWait, _addToCartButton);
+        }
+
+        public string GetTextFromItemAddedPopUp()
+        {
+            return _itemAddedPopUp.Text;
+        }        
+
+        public void WaitForInputItemQuantity(int TimeToWait)
+        {
+            WaitElementIsClickable(TimeToWait, _inputItemQuantity);
+        }       
+
+        public string GetValueFromItemQuantity()
+        {
+            return _itemQuantityInTheCart.GetAttribute("value");
+        }        
     }
 }
