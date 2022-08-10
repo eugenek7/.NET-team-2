@@ -1,27 +1,33 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using NUnit.Framework;
+using EasyRestProjectNetTeam2.Decorator;
 
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
+    [TestFixture]
     class CheckRestaurantsInfoTests : BaseTest
     {
         RestaurantsPage restaurantsPage;
         HomePage homePage;
         SignInPage signInPage;
 
-        [Test]
-        public void CheckReastaurantListPagetest()
+        [SetUp]
+        public override void SetUp()
         {
+            base.SetUp();
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
             signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            homePage.HeaderMenuComponent.ClickSignInButton();        
+        }
+            [Test]
+        public void CheckReastaurantListPagetest()
+        {
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
-            restaurantsPage.ClickRestarauntsList();
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
             var expectedUrl = dataModel.RestaurantsListPageUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
@@ -30,17 +36,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             [Test]
         public void CheckReastaurantDetailsTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);           
-            restaurantsPage.ClickRestarauntsList();
-            restaurantsPage.WaitForRestaruantDetails(dataModel.TimeToWait);
-            restaurantsPage.ClickJohnsonDetails();
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
+            restaurantsPage.WaitAndClickJonsonDetails(dataModel.TimeToWait);          
             var expectedUrl = dataModel.RestaurantDetailsUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");         
@@ -49,17 +47,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckReastaurantMenuTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
-            restaurantsPage.ClickRestarauntsList();
-            restaurantsPage.WaitForRestaruantMenu(dataModel.TimeToWait);
-            restaurantsPage.ClickJohnsonMenu();
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);          
             var expectedUrl = dataModel.RestaurantMenuUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");             
@@ -68,17 +58,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigateToBeerTagTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
-            restaurantsPage.ClickRestarauntsList();
-            restaurantsPage.WaitForBeerTag(dataModel.TimeToWait);
-            restaurantsPage.ClickBeerTag();
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
+            restaurantsPage.WaitAndClicBeerTag(dataModel.TimeToWait);          
             var expectedUrl = dataModel.BeerTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
@@ -87,17 +69,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigateToKebabTagTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
-            signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
-            restaurantsPage.ClickRestarauntsList();
-            restaurantsPage.WaitForKebabTag(dataModel.TimeToWait);
-            restaurantsPage.ClickKebabTag();
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
+            restaurantsPage.WaitAndClicKebabTag(dataModel.TimeToWait);         
             var expectedUrl = dataModel.KebabTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");           
