@@ -2,26 +2,21 @@
 // Admin
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class AdminModeratorsPage : BasePage
     {
+        
+        public HeaderUsersListComponent HeaderUsersListComponent { get; private set; }
+
         public AdminModeratorsPage(IWebDriver driver) : base(driver)
         {
             
         }
         [FindsBy(How = How.XPath, Using = "//span[text()='Add moderator']")]
         private IWebElement _createModeratorButton;
-        
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'All')]")]
-        private IWebElement _allModeratorsButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Active')]")]
-        private IWebElement _activeModeratorsButton;
-         
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Banned')]")]
-        private IWebElement _bannedModeratorsButton;
         
         [FindsBy(How = How.XPath, Using = "(//span[contains(@class, 'MuiIconButton')])[2]")]
         private IWebElement _banOrActivateModeratorIcon;
@@ -61,21 +56,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         
         [FindsBy(How = How.XPath, Using = "//p[contains(text(), 'mismatch')]")]
         private IWebElement _repeatPasswordFieldWarning;
-        
-        public void ClickAllModeratorsButton()
-        {
-            _allModeratorsButton.Click();
-        }
-        
-        public void ClickActiveModeratorsButton()
-        {
-            _activeModeratorsButton.Click();
-        }
-        
-        public void ClickBannedModeratorsButton()
-        {
-            _bannedModeratorsButton.Click();
-        }
         
         public void ClickBanOrActivateModeratorIcon()
         {

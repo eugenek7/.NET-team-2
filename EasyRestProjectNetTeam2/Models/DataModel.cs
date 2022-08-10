@@ -3,9 +3,9 @@
     public class DataModel
     {
         public int TimeToWait { get; set; }
-        public string Email { get; set; }
+        public string EmailForClient { get; set; }
         public string FakeEmail { get; set; }
-        public string Password { get; set; }
+        public string PasswordForClient { get; set; }
         public string GooglePageUrlSearchWords { get; set; }
         public string SignUpPageUrlSearchWords { get; set; }
         public string SignInPageUrlSearchWords { get; set; }
@@ -17,8 +17,8 @@
         public string RestaurantMenuUrl { get; set; }
         public string BeerTagUrl { get; set; }
         public string KebabTagUrl { get; set; }
-
-
-
+        public string NavigationHotCatagoryMenuPage { get; set; }
+        public string NavigationSoupCatagoryMenuPage { get; set; }
+        public string NavigationCoctailsCatagoryMenuPage { get; set; }
     }
 }

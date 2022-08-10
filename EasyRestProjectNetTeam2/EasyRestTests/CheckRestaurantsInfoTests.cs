@@ -16,8 +16,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
@@ -33,8 +33,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);           
@@ -52,8 +52,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
@@ -71,8 +71,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);
@@ -90,8 +90,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.Email);
-            signInPage.SendKeysToInputPassword(dataModel.Password);
+            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitForResturantListisCkickable(dataModel.TimeToWait);

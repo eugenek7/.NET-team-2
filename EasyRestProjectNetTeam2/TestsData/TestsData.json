@@ -1,8 +1,8 @@
 ﻿{
   "TimeToWait": 20,
-  "Email": "stevenhall@test.com",
-  "FakeEmail": "stepanbandera@test.com",
-  "Password": "1111",
+  "FakeEmail": "stepanbandera@test.com",  
+  "EmailForClient": "stevenhall@test.com",
+  "PasswordForClient": "1111",
   "GooglePageUrlSearchWords": "google.com",
   "SignUpPageUrlSearchWords": "sign-up",
   "SignInPageUrlSearchWords": "log-in",
@@ -13,6 +13,8 @@
   "RestaurantDetailsUrl": "restaurants/2",
   "RestaurantMenuUrl":"restaurant/2/menu/3",
   "BeerTagUrl": "restaurants?tag=beer",
-  "KebabTagUrl": "restaurants?tag=kebab"
-
+  "KebabTagUrl": "restaurants?tag=kebab",
+  "NavigationHotCatagoryMenuPage": "Hot",
+  "NavigationSoupCatagoryMenuPage": "Soup",
+  "NavigationCoctailsCatagoryMenuPage": "Coctails"
 }

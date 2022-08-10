@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using AventStack.ExtentReports;
+﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
@@ -9,6 +7,8 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.IO;
 
 
 
@@ -28,7 +28,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         private IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
-        
+
 
         [OneTimeSetUp]
         public static void BeforeTestRun()
@@ -40,7 +40,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [SetUp]
-        public void Setup()
+        public virtual void SetUp()
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             test.Info($"Test {TestContext.CurrentContext.Test.Name} started");

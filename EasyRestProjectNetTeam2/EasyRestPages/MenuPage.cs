@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -6,8 +7,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public DatePickerComponent DatePickerComponent { get; private set; }
-        public TimePickerComponent TimePickerComponent { get; private set; }
+        public MenuOrderItemsListComponent MenuOrderItemsListComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
@@ -19,23 +19,18 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Add to cart'][not(@disabled)])[1]")]
         private IWebElement _addToCartButton;
 
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Remove item'])[1]")]
-        private IWebElement _removeItemButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Submit order']/parent::button")]
-        private IWebElement _submitOrderButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Submit']/parent::button")]
-        private IWebElement _submitButton;
-
-        [FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
-        private IWebElement _inputDate;
-
-        [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
-        private IWebElement _inputTime;
-
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Hot']")]
+        private IWebElement _hotCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Soup']")]
+        private IWebElement _soupCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Coctails']")]
+        private IWebElement _coctailsCatagoryButton;
+
 
         public void SendKeysToInputItemQuantity(string quantity)
         {
@@ -57,36 +52,40 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _inputItemQuantity.GetAttribute("value");
         }
 
-        public void ClickAddToCartButton()
+        public void WaitAndClickAddToCartButton(int TimeToWait)
         {
-            _addToCartButton.Click();
+            _addToCartButton.WaitAndClick(driver, TimeToWait);
+            MenuOrderItemsListComponent = new MenuOrderItemsListComponent(driver);
         }
 
-        public void ClickRemoveItemButton() //removes first item from cart
+        public void ClikHotCatagory()
         {
-            _removeItemButton.Click();
+            _hotCatagoryButton.Click();
         }
 
-        public void ClickSubmitOrderButton() //opens Order confirmation pop-up
+        public void ClikSoupCatagory()
         {
-            _submitOrderButton.Click();
+            _soupCatagoryButton.Click();
         }
 
-        public void ClickSubmitButton() //click submit button on Order confirmation pop-up
+        public void ClikCoctailsCatagory()
         {
-            _submitButton.Click();
+            _coctailsCatagoryButton.Click();
         }
 
-        public void ClickOnDatePicker()
+        public void WaitForSoupCategoryIsClickable(int timeToWait)
         {
-            _inputDate.Click();
-            DatePickerComponent = new DatePickerComponent(driver);
+            WaitElementIsClickable(timeToWait, _soupCatagoryButton);
         }
 
-        public void ClickOnTimePicker()
+        public void WaitForHotCategoryIsClickable(int timeToWait)
         {
-            _inputTime.Click();
-            TimePickerComponent = new TimePickerComponent(driver);
+            WaitElementIsClickable(timeToWait, _hotCatagoryButton);
+        }
+
+        public void WaitForCoctailsCategoryIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _coctailsCatagoryButton);
         }
 
         public string GetErrorPopupText()
