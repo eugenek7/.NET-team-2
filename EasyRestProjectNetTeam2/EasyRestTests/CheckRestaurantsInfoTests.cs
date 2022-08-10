@@ -23,7 +23,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
             homePage.HeaderMenuComponent.ClickSignInButton();        
         }
-            [Test]
+        [Test]
         public void CheckReastaurantListPagetest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -33,7 +33,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
         }
 
-            [Test]
+        [Test]
         public void CheckReastaurantDetailsTest()
         {
             restaurantsPage = GetRestaurantsPage();
