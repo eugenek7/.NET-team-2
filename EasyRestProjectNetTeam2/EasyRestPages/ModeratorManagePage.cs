@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using EasyRestProjectNetTeam2.Decorator;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -50,7 +52,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         //span[text()='Undo']
         [FindsBy(How = How.XPath, Using = "//span[text()='Undo']")]
         private IWebElement _undoActionPopUpButton;
-        
+
+        [FindsBy(How = How.XPath, Using = "//span[contains(@class, 'MuiCardHeader-title')]")]
+        private IList<IWebElement> _listOfRestaurantsNames;
+
         public void ClickRestaurantsButton()
         {
             _restaurantsButton.Click();
@@ -113,6 +118,16 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public string WaitAndGetTextFromArchivedRestaurantsButton(int TimeToWait)
         {
             return _archivedRestaurantsButton.WaitAndGetText(driver, TimeToWait);
+        }
+
+        public string GetFirstRestaurantName()
+        {
+            return _listOfRestaurantsNames[0].Text;
+        }
+
+        public bool CheckRestaurantNameExist(string RestaurantName)
+        {
+            return _listOfRestaurantsNames.Any(RestaurantNameElement => RestaurantNameElement.Text.Equals(RestaurantName));
         }
     }
 }

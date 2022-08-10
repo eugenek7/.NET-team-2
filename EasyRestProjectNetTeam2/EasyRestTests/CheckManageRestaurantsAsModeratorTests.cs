@@ -25,24 +25,24 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage = GetModeratorManagePage();
         }
 
-        [Test]
+        [Test, Order(1)]
         public void CheckRestoreArchivedRestaurant()
         {
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
+            string FirstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
             moderatorManagePage.ClickRestoreRestaurantButton();
-            string actualApprovedRestaurantsButtonText = moderatorManagePage.WaitAndGetTextFromApprovedRestaurantsButton(dataModel.TimeToWait);
-            string expectedApprovedRestaurantsButtonText = "APPROVED (4)";
-            Assert.AreEqual(expectedApprovedRestaurantsButtonText, actualApprovedRestaurantsButtonText, "Approved restaurants quantity has not changed");
+            moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
+            Assert.IsTrue(moderatorManagePage.CheckRestaurantNameExist(FirstRestaurantName));
         }
 
-        [Test]
+        [Test, Order(2)]
         public void CheckDeleteApprovedRestaurant()
         {
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
+            string FirstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
             moderatorManagePage.ClickDeleteRestaurantButton();
-            string actualArchivedRestaurantsButtonText = moderatorManagePage.WaitAndGetTextFromArchivedRestaurantsButton(dataModel.TimeToWait);
-            string expectedArchivedRestaurantsButtonText = "ARCHIVED (3)";
-            Assert.AreEqual(expectedArchivedRestaurantsButtonText, actualArchivedRestaurantsButtonText, "Archived restaurants quantity has not changed");
+            moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
+            Assert.IsTrue(moderatorManagePage.CheckRestaurantNameExist(FirstRestaurantName));
         }
     }
 }
