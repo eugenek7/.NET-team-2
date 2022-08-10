@@ -29,7 +29,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        [Category("Possibility to manage waiters")]
+        [Category("(ow) Possibility to manage waiters")]
         public void CheckAddAdministratorWithValidData()
         {
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
@@ -45,7 +45,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        [Category("ow Possibility to manage administrator")]
+        [Category("(oa) Possibility to manage administrator")]
         public void CheckAddWaiterWithValidData()
         {
             menuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
