@@ -29,7 +29,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void CheckAddAdministrator()
+        [Category("Possibility to manage waiters")]
+        public void CheckAddAdministratorWithValidData()
         {
             menuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
             manageAdministratorPage = GetManageAdministratorPage();
@@ -44,7 +45,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void CheckAddWaiter()
+        [Category("ow Possibility to manage administrator")]
+        public void CheckAddWaiterWithValidData()
         {
             menuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
             manageWaitersPage = GetManageWaitersPage();
@@ -53,9 +55,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
                 dataModel.EmailForNewEmploee, dataModel.PasswordForNewEmploee,
                 dataModel.PhoneForNewEmploee, dataModel.TimeToWait);
             manageWaitersPage.AddEmploeeComponent.ClickAddNewEmploee();
-            var actualPageUrl = manageWaitersPage.WaitAndGetTextFromWaitersNameField(dataModel.TimeToWait);
-            var expectedSearchWord = dataModel.NameForNewEmploee;
-            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in emploee name field");
+            var ifNewWaiterAppears = manageWaitersPage.CheckThatNewWaiterAppears(dataModel.NameForNewEmploee);
+            Assert.IsTrue((ifNewWaiterAppears), "No Waiter in the list");
         }
 
         [TearDown]
