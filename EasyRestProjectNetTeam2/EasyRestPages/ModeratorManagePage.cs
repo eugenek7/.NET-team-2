@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using EasyRestProjectNetTeam2.Decorator;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -65,14 +66,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _ownersButton.Click();
         }
 
-        public void ClickArchivedRestaurantsButton()
+        public void WaitAndClickArchivedRestaurantsButton(int TimeToWait)
         {
-            _archivedRestaurantsButton.Click();
+            _archivedRestaurantsButton.WaitAndClick(driver, TimeToWait);
         }
         
-        public void ClickApprovedRestaurantsButton()
+        public void WaitAndClickApprovedRestaurantsButton(int TimeToWait)
         {
-            _approvedRestaurantsButton.Click();
+            _approvedRestaurantsButton.WaitAndClick(driver, TimeToWait);
         }
         public void ClickUnapprovedRestaurantsButton()
         {
@@ -102,6 +103,16 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickUndoActionPopUpButton()
         {
             _undoActionPopUpButton.Click();
+        }
+
+        public string WaitAndGetTextFromApprovedRestaurantsButton(int TimeToWait)
+        {
+            return _approvedRestaurantsButton.WaitAndGetText(driver, TimeToWait);
+        }
+
+        public string WaitAndGetTextFromArchivedRestaurantsButton(int TimeToWait)
+        {
+            return _archivedRestaurantsButton.WaitAndGetText(driver, TimeToWait);
         }
     }
 }

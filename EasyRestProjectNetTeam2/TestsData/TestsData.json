@@ -11,5 +11,7 @@
   "EmailvalidationWarningMessage": "Email is not valid",
   "NavigationHotCatagoryMenuPage": "Hot",
   "NavigationSoupCatagoryMenuPage": "Soup",
-  "NavigationCoctailsCatagoryMenuPage": "Coctails"
+  "NavigationCoctailsCatagoryMenuPage": "Coctails",
+  "EmailForModerator": "petermoderator@test.com",
+  "PasswordShort": "1"
 }
