@@ -82,5 +82,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             WaitElementIsClickable(TimeToWait, _restaurantsList);
         }
+
+        public void WaitForJonsonMenuIsClickable(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _johnsonMenu);
+        }
     }
 }
