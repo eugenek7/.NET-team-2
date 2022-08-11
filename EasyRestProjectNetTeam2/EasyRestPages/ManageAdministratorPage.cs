@@ -20,10 +20,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//span[contains(@class, 'MuiTypography')])[5]")]
         private IWebElement _nameAdministrator;
 
-        public string WaitAndGetTextFromAdministratorNameField(int TimeToWait)
+        public string WaitAndGetTextFromAdministratorNameField(int timeToWait)
         {
             driver.Navigate().Refresh();
-            return _nameAdministrator.WaitAndGetText(driver, TimeToWait);
+            return _nameAdministrator.WaitAndGetText(driver, timeToWait);
         }
 
         public void ClickDeleteAdministrator()
