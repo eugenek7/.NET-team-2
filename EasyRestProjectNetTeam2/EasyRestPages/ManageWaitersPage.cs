@@ -44,7 +44,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             AddEmploeeComponent = new AddEmployeeComponent(driver);
         }
 
-        public bool WaitAndCheckIfDisplayedUserSuccesfullyAdded(int TimeToWait)
+        public bool WaitAndCheckIfDisplayedUserSuccesfullyAddedConfirmationPopUp(int TimeToWait)
         {
             return _userSuccessfullyAddedPopUp.WaitElementAndCheckIfDisplayed(driver, TimeToWait);
         }
