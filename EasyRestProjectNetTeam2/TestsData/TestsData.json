@@ -23,4 +23,11 @@
   "EmailForNewEmployee": "Spock@enterprise.vu",
   "PasswordForNewEmployee": "12345678",
   "PhoneForNewEmployee": "777666555444"
+  "PasswordForSignUp":"123456789",
+  "NameForSignUp":"Steve",
+  "EmailForSignUp":"tesmm@gmail.com",
+  "PhoneNumberForSignUp": "+345645678",
+  "ShortPasswordForSignUp": "0",
+  "AlreadyRegisteredEmail": "steveadmin@test.com",
+  "BirthDateSignUp": "12 July 1950"
 }
