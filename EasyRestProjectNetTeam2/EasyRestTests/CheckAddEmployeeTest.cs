@@ -28,7 +28,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             manageMenuPage = GetManageMenuPage();
         }
 
-        [Test, Repeat(10)]
+        [Test]
         [Category("(oa) Possibility to manage  administrator")]
         public void CheckAddAdministratorWithValidData()
         {
@@ -44,7 +44,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in employee name field");
         }
 
-        [Test, Repeat(10)]
+        [Test]
         [Category("(ow) Possibility to manage waiters")]
         public void CheckAddWaiterWithValidData()
         {
