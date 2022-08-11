@@ -10,7 +10,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class ManageWaitersPage : BasePage
     {
 
-        public AddEmployeeComponent AddEmploeeComponent { get; private set; }
+        public AddEmployeeComponent AddEmployeeComponent { get; private set; }
 
         public ManageWaitersPage(IWebDriver driver) : base(driver)
         {
@@ -28,9 +28,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//button[@title='Add Waiter']")]
         private IWebElement _addWaiterButton;
 
-        public bool CheckThatNewWaiterAppears(string NameForNewEmployee)
+        public bool CheckThatNewWaiterAppears(string nameForNewEmployee)
         {
-            return _listOfWaiters.Any(waiterElement => waiterElement.Text.Equals(NameForNewEmployee));
+            return _listOfWaiters.Any(waiterElement => waiterElement.Text.Equals(nameForNewEmployee));
         }
 
         public void ClickDeleteButton()
@@ -41,12 +41,12 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickAddWaiterButton()
         {
             _addWaiterButton.Click();
-            AddEmploeeComponent = new AddEmployeeComponent(driver);
+            AddEmployeeComponent = new AddEmployeeComponent(driver);
         }
 
-        public bool WaitAndCheckIfDisplayedUserSuccesfullyAddedConfirmationPopUp(int TimeToWait)
+        public bool WaitAndCheckIfDisplayedUserSuccesfullyAddedConfirmationPopUp(int timeToWait)
         {
-            return _userSuccessfullyAddedPopUp.WaitElementAndCheckIfDisplayed(driver, TimeToWait);
+            return _userSuccessfullyAddedPopUp.WaitElementAndCheckIfDisplayed(driver, timeToWait);
         }
     }
 }

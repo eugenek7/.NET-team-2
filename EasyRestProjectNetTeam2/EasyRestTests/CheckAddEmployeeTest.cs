@@ -51,10 +51,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             manageMenuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(dataModel.TimeToWait);
             manageWaitersPage = GetManageWaitersPage();
             manageWaitersPage.ClickAddWaiterButton();
-            manageWaitersPage.AddEmploeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmployee,
+            manageWaitersPage.AddEmployeeComponent.WaitAndSendKeysToInputData(dataModel.NameForNewEmployee,
                 dataModel.EmailForNewEmployee, dataModel.PasswordForNewEmployee,
                 dataModel.PhoneForNewEmployee, dataModel.TimeToWait);
-            manageWaitersPage.AddEmploeeComponent.ClickAddNewEmployee();
+            manageWaitersPage.AddEmployeeComponent.ClickAddNewEmployee();
             var ifUserSuccessfullyAddedPopUpDisplayed = manageWaitersPage.WaitAndCheckIfDisplayedUserSuccesfullyAddedConfirmationPopUp(dataModel.TimeToWait);
             Assert.IsTrue(ifUserSuccessfullyAddedPopUpDisplayed, "Confirmation pop up not displayed");
             var ifNewWaiterAppears = manageWaitersPage.CheckThatNewWaiterAppears(dataModel.NameForNewEmployee);

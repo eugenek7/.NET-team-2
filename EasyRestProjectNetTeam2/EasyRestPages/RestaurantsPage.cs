@@ -27,29 +27,29 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         private IWebElement _johnsonMenu;
 
 
-        public void WaitAndClickJonsonDetails(int TimeToWait)
+        public void WaitAndClickJonsonDetails(int timeToWait)
         {
-            _johnsonDetails.WaitAndClick(driver, TimeToWait);
+            _johnsonDetails.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClickJonsonMenu(int TimeToWait)
+        public void WaitAndClickJonsonMenu(int timeToWait)
         {
-            _johnsonMenu.WaitAndClick(driver, TimeToWait);
+            _johnsonMenu.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClickResturantList(int TimeToWait)
+        public void WaitAndClickResturantList(int timeToWait)
         {
-            _restaurantsList.WaitAndClick(driver, TimeToWait);
+            _restaurantsList.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClickBeerTag(int TimeToWait)
+        public void WaitAndClickBeerTag(int timeToWait)
         {
-            _beerTag.WaitAndClick(driver, TimeToWait);
+            _beerTag.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClicKebabTag(int TimeToWait)
+        public void WaitAndClicKebabTag(int timeToWait)
         {
-            _kebabTag.WaitAndClick(driver, TimeToWait);
+            _kebabTag.WaitAndClick(driver, timeToWait);
         }
     }
 }

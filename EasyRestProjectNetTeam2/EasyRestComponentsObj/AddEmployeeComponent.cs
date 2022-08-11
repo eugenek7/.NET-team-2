@@ -38,24 +38,24 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//p[text()='Phone number is required']")]
         private IWebElement _inputPhoneNumberValidationWarning;
 
-        public void WaitAndSendKeysToInputName(string name, int TimeToWait)
+        public void WaitAndSendKeysToInputName(string name, int timeToWait)
         {
-            _inputName.WaitAndSendKeys(driver, TimeToWait, name);
+            _inputName.WaitAndSendKeys(driver, timeToWait, name);
         }
 
-        public void WaitAndSendKeysToInputEmail(string email, int TimeToWait)
+        public void WaitAndSendKeysToInputEmail(string email, int timeToWait)
         {
-            _inputEmail.WaitAndSendKeys(driver, TimeToWait, email);
+            _inputEmail.WaitAndSendKeys(driver, timeToWait, email);
         }
 
-        public void WaitAndSendKeysToInputPassword(string password, int TimeToWait)
+        public void WaitAndSendKeysToInputPassword(string password, int timeToWait)
         {
-            _inputPassword.WaitAndSendKeys(driver, TimeToWait, password);
+            _inputPassword.WaitAndSendKeys(driver, timeToWait, password);
         }
 
-        public void WaitAndSendKeysToInputPhoneNumber(string phonenumber, int TimeToWait)
+        public void WaitAndSendKeysToInputPhoneNumber(string phonenumber, int timeToWait)
         {
-            _inputPhoneNumber.WaitAndSendKeys(driver, TimeToWait, phonenumber);
+            _inputPhoneNumber.WaitAndSendKeys(driver, timeToWait, phonenumber);
         }
 
         public void SendKeysToInputEmail(string email)
@@ -78,9 +78,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _addEmployeeButton.Click();
         }
 
-        public void WaitAndSendKeysToInputData(string name, string email, string password, string phonenumber, int TimeToWait)
+        public void WaitAndSendKeysToInputData(string name, string email, string password, string phonenumber, int timeToWait)
         {
-            _inputName.WaitAndSendKeys(driver, TimeToWait, name);
+            _inputName.WaitAndSendKeys(driver, timeToWait, name);
             _inputEmail.SendKeys(email);
             _inputPassword.SendKeys(password);
             _inputPhoneNumber.SendKeys(phonenumber);
