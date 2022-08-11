@@ -14,7 +14,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public ManageWaitersPage(IWebDriver driver) : base(driver)
         {
-
         }
 
         [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[2]")]
@@ -22,7 +21,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//p[text()='User successfully added']")]
         private IWebElement _userSuccessfullyAddedPopUp;
-        //p[text()='User successfully added']
+
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'MuiPaper-rounded')]/ul/li/div/span")]
         private IList<IWebElement> _listOfWaiters;
 
@@ -31,7 +30,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public bool CheckThatNewWaiterAppears(string NameForNewEmployee)
         {
-            //driver.Navigate().Refresh();
             return _listOfWaiters.Any(waiterElement => waiterElement.Text.Equals(NameForNewEmployee));
         }
 
