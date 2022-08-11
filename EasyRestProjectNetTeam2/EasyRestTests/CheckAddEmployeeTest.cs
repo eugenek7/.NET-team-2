@@ -39,9 +39,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
                 dataModel.EmailForNewEmployee, dataModel.PasswordForNewEmployee,
                 dataModel.PhoneForNewEmployee, dataModel.TimeToWait);
             manageAdministratorPage.AddEmployeeComponent.ClickAddNewEmployee();
-            var actualPageUrl = manageAdministratorPage.WaitAndGetTextFromAdministratorNameField(dataModel.TimeToWait);
-            var expectedSearchWord = dataModel.NameForNewEmployee;
-            StringAssert.Contains(expectedSearchWord, actualPageUrl, "Search word is absent in employee name field");
+            var nameOfActualAdministrator = manageAdministratorPage.WaitAndGetTextFromAdministratorNameField(dataModel.TimeToWait);
+            var nameOfExpectedAdministrator = dataModel.NameForNewEmployee;
+            StringAssert.Contains(nameOfExpectedAdministrator, nameOfActualAdministrator, "Search word is absent in employee name field");
         }
 
         [Test]
