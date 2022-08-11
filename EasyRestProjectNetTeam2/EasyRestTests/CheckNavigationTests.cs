@@ -25,8 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigationToMenuCategoryHot()
         {
-            restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
-            restaurantsPage.ClickJohnsonMenu();
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);        
             menuPage = GetMenuPage();
             menuPage.WaitForHotCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikHotCatagory();
@@ -38,8 +37,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigationToMenuCategorySoup()
         {
-            restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
-            restaurantsPage.ClickJohnsonMenu();
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);          
             menuPage = GetMenuPage();
             menuPage.WaitForSoupCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikSoupCatagory();
@@ -51,8 +49,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckNavigationToMenuCategoryCoctails()
         {
-            restaurantsPage.WaitForJonsonMenuIsClickable(dataModel.TimeToWait);
-            restaurantsPage.ClickJohnsonMenu();
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);         
             menuPage = GetMenuPage();
             menuPage.WaitForCoctailsCategoryIsClickable(dataModel.TimeToWait);
             menuPage.ClikCoctailsCatagory();

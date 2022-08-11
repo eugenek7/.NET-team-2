@@ -10,9 +10,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public PersonalInfoPage(IWebDriver driver) : base(driver)
         {
             HeaderMenuComponent = new HeaderMenuComponent(driver);
-        }
-
-        private const int TimeToWait = 20;
+        }              
 
         [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Email:')]/following-sibling::td")]
         private IWebElement _inputEmail;
@@ -33,7 +31,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _inputEmail.Text;
         }
 
-        public void WaitInputEmailIsVisible()
+        public void WaitInputEmailIsVisible(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _inputEmail);
         }
@@ -43,7 +41,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _inputName.Text;
         }
 
-        public void WaitInputNameIsVisible()
+        public void WaitInputNameIsVisible(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _inputName);
         }
@@ -53,16 +51,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _inputBirthDate.Text;
         }
 
-        public void WaitInputBirthDateIsVisible()
+        public void WaitInputBirthDateIsVisible(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _inputBirthDate);
         }
+
         public string GetTextFromPhoneNumberlField()
         {
             return _inputPhoneNumber.Text;
         }
 
-        public void WaitInputPhoneNumberIsVisible()
+        public void WaitInputPhoneNumberIsVisible(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _inputPhoneNumber);
         }
@@ -70,7 +69,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickPersonalInfoButton()
         {
             _personalInfoButton.Click();
-
         }
     }
 }
