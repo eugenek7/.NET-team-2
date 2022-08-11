@@ -55,8 +55,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
                 dataModel.EmailForNewEmployee, dataModel.PasswordForNewEmployee,
                 dataModel.PhoneForNewEmployee, dataModel.TimeToWait);
             manageWaitersPage.AddEmploeeComponent.ClickAddNewEmployee();
-            var ifUserSuccessFullyAddedPopUpDisplayed = manageWaitersPage.WaitAndCheckIfDisplayedUserSuccesfullyAdded(dataModel.TimeToWait);
-            Assert.IsTrue(ifUserSuccessFullyAddedPopUpDisplayed, "Confirmation pop up not displayed");
+            var ifUserSuccessfullyAddedPopUpDisplayed = manageWaitersPage.WaitAndCheckIfDisplayedUserSuccesfullyAdded(dataModel.TimeToWait);
+            Assert.IsTrue(ifUserSuccessfullyAddedPopUpDisplayed, "Confirmation pop up not displayed");
             var ifNewWaiterAppears = manageWaitersPage.CheckThatNewWaiterAppears(dataModel.NameForNewEmployee);
             Assert.IsTrue(ifNewWaiterAppears, "New Waiter is not added");
         }
