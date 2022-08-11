@@ -12,6 +12,11 @@
         public string WarningMessage { get; set; }
         public string IncompleteEmail { get; set; }
         public string EmailvalidationWarningMessage { get; set; }
+        public string RestaurantsListPageUrl { get; set; }
+        public string RestaurantDetailsUrl { get; set; }
+        public string RestaurantMenuUrl { get; set; }
+        public string BeerTagUrl { get; set; }
+        public string KebabTagUrl { get; set; }
         public string NavigationHotCatagoryMenuPage { get; set; }
         public string NavigationSoupCatagoryMenuPage { get; set; }
         public string NavigationCoctailsCatagoryMenuPage { get; set; }
