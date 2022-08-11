@@ -3,6 +3,7 @@ using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -19,24 +20,19 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[2]")]
         private IWebElement _deleteButton;
 
-        [FindsBy(How = How.XPath, Using = "//button[@title='Add Waiter']")]
-        private IWebElement _addWaiterButton;
-
-        [FindsBy(How = How.XPath, Using = " (//span[contains(@class, 'MuiTypography-root-41 MuiTypography-body1')])[7]")] // third one in the list
-        private IWebElement _nameWaiter;
-
+        [FindsBy(How = How.XPath, Using = "//p[text()='User successfully added']")]
+        private IWebElement _userSuccessfullyAddedPopUp;
+        //p[text()='User successfully added']
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'MuiPaper-rounded')]/ul/li/div/span")]
         private IList<IWebElement> _listOfWaiters;
 
-        public bool CheckThatNewWaiterAppears(string NameForNewEmploee)
+        [FindsBy(How = How.XPath, Using = "//button[@title='Add Waiter']")]
+        private IWebElement _addWaiterButton;
+
+        public bool CheckThatNewWaiterAppears(string NameForNewEmployee)
         {
-            driver.Navigate().Refresh();
-            foreach (IWebElement listOfWaiters in _listOfWaiters)
-            {
-                if (listOfWaiters.Text.Equals(NameForNewEmploee))
-                    return true;
-            }
-            return false;
+            //driver.Navigate().Refresh();
+            return _listOfWaiters.Any(waiterElement => waiterElement.Text.Equals(NameForNewEmployee));
         }
 
         public void ClickDeleteButton()
@@ -50,10 +46,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             AddEmploeeComponent = new AddEmployeeComponent(driver);
         }
 
-        public string WaitAndGetTextFromWaitersNameField(int TimeToWait)
+        public bool WaitAndCheckIfDisplayedUserSuccesfullyAdded(int TimeToWait)
         {
-            driver.Navigate().Refresh();
-            return _nameWaiter.WaitAndGetText(driver, TimeToWait);
+            return _userSuccessfullyAddedPopUp.WaitElementAndCheckIfDisplayed(driver, TimeToWait);
         }
     }
 }

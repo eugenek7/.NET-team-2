@@ -24,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         private IWebElement _inputPhoneNumber;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Add']/parent::button")]
-        private IWebElement _addEmploeeButton;
+        private IWebElement _addEmployeeButton;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='Name is required']")]
         private IWebElement _inputNameValidationWarning;
@@ -73,9 +73,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _inputPhoneNumber.SendKeys(phonenumber);
         }
 
-        public void ClickAddNewEmploee()
+        public void ClickAddNewEmployee()
         {
-            _addEmploeeButton.Click();
+            _addEmployeeButton.Click();
         }
 
         public void WaitAndSendKeysToInputData(string name, string email, string password, string phonenumber, int TimeToWait)
