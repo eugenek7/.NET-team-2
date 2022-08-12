@@ -1,3 +1,5 @@
 {
-  "DeleteUserByEmail": "DELETE FROM users WHERE email='{0}';"
+  "DeleteUserByEmail": "DELETE FROM users WHERE email='{0}';",
+  "SelectUserEmailByEmail": "SELECT email FROM users WHERE email = '{0}'",
+  "DeleteTokenByEmail": "DELETE from tokens USING users WHERE tokens.user_id=users.id and users.email='{0}';" 
 }

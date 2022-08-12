@@ -1,5 +1,6 @@
 //http://localhost:8880/profile/order_history
 // Client & Owner
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -7,6 +8,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class OrderHistoryPage : BasePage
     {
+        public OrderConfirmationPopUpComponent OrderConfirmationPopUpComponent { get; private set; }
+
         public OrderHistoryPage(IWebDriver driver) : base(driver)
         {
             
@@ -33,41 +36,26 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Reorder')]")]
         private IWebElement _reorderButton;
         
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Submit')]")]
-        private IWebElement _submitReorderButton;
-        
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Cancel')]")]
-        private IWebElement _cancelReorderButton;
-       
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label = 'Remove item'])[1]")]
-        private IWebElement _removeItemReorderButton;  
-       
-        [FindsBy(How = How.XPath, Using = "//input[@type= 'number']")]
-        private IWebElement _inputQuantityReorderField;
-        
-        [FindsBy(How = How.XPath, Using = " //label[contains(text(), 'Date picker')]")]
-        private IWebElement _dataPickerReorderField;
-        
-        [FindsBy(How = How.XPath, Using = "//label[contains(text(), 'Time picker')]")]
-        private IWebElement _timePickerReorderField;
-        
-        
         public void ClickAllOrdersButton()
         {
             _allOrdersButton.Click();
         }
+
         public void ClickDeclinedOrdersButton()
         {
             _declinedOrdersButton.Click();
         }
+
         public void ClickFailedOrdersButton()
         {
             _failedOrdersButton.Click();
         }
+
         public void ClickRemovedOrdersButton()
         {
             _removedOrdersButton.Click();
         }
+
         public void ClickHistoryOrdersButton()
         {
             _historyOrdersButton.Click();
@@ -81,42 +69,8 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickReorderButton()
         {
             _reorderButton.Click();
+            OrderConfirmationPopUpComponent = new OrderConfirmationPopUpComponent(driver);
         }
-        public void ClickSubmitReorderButton()
-        {
-            _submitReorderButton.Click();
-        }
-        public void ClickCancelReorderButton()
-        {
-            _cancelReorderButton.Click();
-        }
-        
-        public void ClickRemoveItemReorderButton()
-        {
-            _removeItemReorderButton.Click();
-        }
-        
-        public void IncreaseItemReorderQuantity()
-        {
-            _inputQuantityReorderField.SendKeys(Keys.ArrowUp);
-        }
-        public void DecreaseItemReorderQuantity()
-        {
-            _inputQuantityReorderField.SendKeys(Keys.ArrowDown);
-        }
-        public void SendKeysToInputQuantityReorderField(string quantity)
-        {
-            _inputQuantityReorderField.SendKeys(quantity);
 
-        }
-        public void ClickOnDataPickerReorderField()
-        {
-            _dataPickerReorderField.Click();
-        }
-        
-        public void ClickOnTimePickerReorderField()
-        {
-            _timePickerReorderField.Click();
-        }
     }
 }

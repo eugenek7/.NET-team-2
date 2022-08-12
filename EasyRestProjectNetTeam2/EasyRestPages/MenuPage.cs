@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -6,8 +7,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
-        public DatePickerComponent DatePickerComponent { get; private set; }
-        public TimePickerComponent TimePickerComponent { get; private set; }
+        public MenuOrderItemsListComponent MenuOrderItemsListComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
@@ -19,23 +19,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Add to cart'][not(@disabled)])[1]")]
         private IWebElement _addToCartButton;
 
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Remove item'])[1]")]
-        private IWebElement _removeItemButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Submit order']/parent::button")]
-        private IWebElement _submitOrderButton;
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Submit']/parent::button")]
-        private IWebElement _submitButton;
-
-        [FindsBy(How = How.XPath, Using = "//label[text()='Date picker']/following-sibling::div/input")]
-        private IWebElement _inputDate;
-
-        [FindsBy(How = How.XPath, Using = "//label[text()='Time picker']/following-sibling::div/input")]
-        private IWebElement _inputTime;
-
         [FindsBy(How = How.XPath, Using = "//p[text()='Sorry, you can`t pick past book time']")]
         private IWebElement _errorPopUp;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Hot']")]
+        private IWebElement _hotCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Soup']")]
+        private IWebElement _soupCatagoryButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Coctails']")]
+        private IWebElement _coctailsCatagoryButton;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='Item was added']")]
         private IWebElement _itemAddedPopUp;
@@ -43,21 +37,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
         private IWebElement _itemQuantityInTheCart;
 
-
-        public void WaitForItemQuantityInTheCart(int TimeToWait)
+              
+        public void WaitForitemAddedPopUp(int timeToWait)
         {
-            WaitElementIsEnable(TimeToWait, _itemQuantityInTheCart);
-        }        
-
-        public void WaitForitemAddedPopUp(int TimeToWait)
-        {
-            WaitElementIsEnable(TimeToWait, _itemAddedPopUp);
-        }        
-        
-        public void ClickInputItemQuantity()
-        {
-            _inputItemQuantity.Click();
-        }     
+            WaitElementIsEnable(timeToWait, _itemAddedPopUp);
+        }                    
 
         public void ClearInputItemQuantity()
         {
@@ -77,68 +61,57 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void DecreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowDown);
+        }       
+
+        public void WaitAndClickAddToCartButton(int timeToWait)
+        {
+            _addToCartButton.WaitAndClick(driver, timeToWait);
+            MenuOrderItemsListComponent = new MenuOrderItemsListComponent(driver);
         }
 
-        public void GetItemQuantity()
+        public void ClikHotCatagory()
         {
-            _inputItemQuantity.GetAttribute("value");
+            _hotCatagoryButton.Click();
         }
 
-        public void ClickAddToCartButton()
+        public void ClikSoupCatagory()
         {
-            _addToCartButton.Click();
+            _soupCatagoryButton.Click();
         }
 
-        public void ClickRemoveItemButton() //removes first item from cart
+        public void ClikCoctailsCatagory()
         {
-            _removeItemButton.Click();
+            _coctailsCatagoryButton.Click();
         }
 
-        public void ClickSubmitOrderButton() //opens Order confirmation pop-up
+        public void WaitForSoupCategoryIsClickable(int timeToWait)
         {
-            _submitOrderButton.Click();
+            WaitElementIsClickable(timeToWait, _soupCatagoryButton);
         }
 
-        public void ClickSubmitButton() //click submit button on Order confirmation pop-up
+        public void WaitForHotCategoryIsClickable(int timeToWait)
         {
-            _submitButton.Click();
+            WaitElementIsClickable(timeToWait, _hotCatagoryButton);
         }
 
-        public void ClickOnDatePicker()
+        public void WaitForCoctailsCategoryIsClickable(int timeToWait)
         {
-            _inputDate.Click();
-            DatePickerComponent = new DatePickerComponent(driver);
-        }
-
-        public void ClickOnTimePicker()
-        {
-            _inputTime.Click();
-            TimePickerComponent = new TimePickerComponent(driver);
+            WaitElementIsClickable(timeToWait, _coctailsCatagoryButton);
         }
 
         public string GetErrorPopupText()
         {
             return _errorPopUp.Text;
-        }
-
-        public void WaitForAddToCartButton(int TimeToWait)
-        {
-            WaitElementIsClickable(TimeToWait, _addToCartButton);
-        }
+        }     
 
         public string GetTextFromItemAddedPopUp()
         {
             return _itemAddedPopUp.Text;
         }        
 
-        public void WaitForInputItemQuantity(int TimeToWait)
+        public void WaitForInputItemQuantity(int timeToWait)
         {
-            WaitElementIsClickable(TimeToWait, _inputItemQuantity);
-        }       
-
-        public string GetValueFromItemQuantity()
-        {
-            return _itemQuantityInTheCart.GetAttribute("value");
-        }        
+            WaitElementIsClickable(timeToWait, _inputItemQuantity);
+        }              
     }
 }
