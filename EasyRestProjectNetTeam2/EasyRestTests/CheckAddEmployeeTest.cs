@@ -29,7 +29,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        [Category("(oa) Possibility to manage  administrator")]
+        [Category("(oa) Possibility to manage administrator")]
         public void CheckAddAdministratorWithValidData()
         {
             manageMenuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(dataModel.TimeToWait);
