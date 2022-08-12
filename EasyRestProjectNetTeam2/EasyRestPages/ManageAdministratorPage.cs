@@ -32,7 +32,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void WaitAndClickDeleteAdministrator(int timeToWait)
         {
             _deleteAdministratorButton.WaitAndClick(driver, timeToWait);
-            //driver.Navigate().Refresh();
         }
 
         public void ClickPlusAdministrator()
