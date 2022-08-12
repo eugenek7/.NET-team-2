@@ -20,21 +20,29 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//span[contains(@class, 'MuiTypography')])[5]")]
         private IWebElement _nameAdministrator;
 
+        [FindsBy(How = How.XPath, Using = "//h6[text()='Create your worker:']")]
+        private IWebElement _createYourWorkerSign;
+
         public string WaitAndGetTextFromAdministratorNameField(int timeToWait)
         {
             driver.Navigate().Refresh();
             return _nameAdministrator.WaitAndGetText(driver, timeToWait);
         }
 
-        public void ClickDeleteAdministrator()
+        public void WaitAndClickDeleteAdministrator(int timeToWait)
         {
-            _deleteAdministratorButton.Click();
+            _deleteAdministratorButton.WaitAndClick(driver, timeToWait);
         }
 
         public void ClickPlusAdministrator()
         {
             _plusAdministratorButton.Click();
             AddEmployeeComponent = new AddEmployeeComponent(driver);
+        }
+
+        public bool IfCreateYourWorkerSignDisplayed(int timeToWait)
+        {
+            return _createYourWorkerSign.WaitElementAndCheckIfDisplayed(driver, timeToWait);
         }
     }
 }

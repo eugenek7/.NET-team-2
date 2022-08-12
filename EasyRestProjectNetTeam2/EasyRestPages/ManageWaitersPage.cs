@@ -16,7 +16,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
         }
 
-        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[2]")]
+        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[4]")]
         private IWebElement _deleteButton;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='User successfully added']")]
@@ -33,9 +33,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return _listOfWaiters.Any(waiterElement => waiterElement.Text.Equals(nameForNewEmployee));
         }
 
-        public void ClickDeleteButton()
+        public void WaitAndClickDeleteButton(int timeToWait)
         {
-            _deleteButton.Click();
+            _deleteButton.WaitAndClick(driver, timeToWait);
+            driver.Navigate().Refresh();
         }
 
         public void ClickAddWaiterButton()
@@ -47,6 +48,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public bool WaitAndCheckIfDisplayedUserSuccesfullyAddedConfirmationPopUp(int timeToWait)
         {
             return _userSuccessfullyAddedPopUp.WaitElementAndCheckIfDisplayed(driver, timeToWait);
+        }
+
+        public bool CheckThatWaiterInTheList(string nameForNewEmployee, int timeToWait)
+        {
+            return _listOfWaiters.Any(waiterElement => waiterElement.WaitAndGetText(driver, timeToWait).Equals(nameForNewEmployee));
         }
     }
 }
