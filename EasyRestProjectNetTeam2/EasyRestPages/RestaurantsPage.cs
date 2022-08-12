@@ -9,46 +9,47 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     {
         public RestaurantsPage(IWebDriver driver) : base(driver)
         {
-
         }
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants']")]
-        private IWebElement _restaurantsList;              
-        
+        private IWebElement _restaurantsList;
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=beer']")]
         private IWebElement _beerTag;
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=kebab']  ")]
         private IWebElement _kebabTag;
-        
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
         private IWebElement _johnsonDetails;
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']/..")]
-        private IWebElement _johnsonMenu;                    
-                          
-        public void WaitAndClickJonsonDetails(int TimeToWait)
+        private IWebElement _johnsonMenu;
+
+
+        public void WaitAndClickJonsonDetails(int timeToWait)
         {
-            _johnsonDetails.WaitAndClick(driver, TimeToWait);
+            _johnsonDetails.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClickJonsonMenu(int TimeToWait)
+        public void WaitAndClickJonsonMenu(int timeToWait)
         {
-            _johnsonMenu.WaitAndClick(driver, TimeToWait);
-        }                        
-        
-        public void WaitAndClickResturantList(int TimeToWait)
-        {
-            _restaurantsList.WaitAndClick(driver, TimeToWait);
+            _johnsonMenu.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClicBeerTag(int TimeToWait)
+        public void WaitAndClickResturantList(int timeToWait)
         {
-            _beerTag.WaitAndClick(driver, TimeToWait);
+            _restaurantsList.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClicKebabTag(int TimeToWait)
+        public void WaitAndClickBeerTag(int timeToWait)
         {
-            _kebabTag.WaitAndClick(driver, TimeToWait);
-        }       
+            _beerTag.WaitAndClick(driver, timeToWait);
+        }
+
+        public void WaitAndClicKebabTag(int timeToWait)
+        {
+            _kebabTag.WaitAndClick(driver, timeToWait);
+        }
     }
 }
