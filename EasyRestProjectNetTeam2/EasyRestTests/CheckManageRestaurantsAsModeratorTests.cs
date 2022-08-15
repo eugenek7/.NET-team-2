@@ -1,10 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
@@ -29,20 +24,34 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public void CheckRestoreArchivedRestaurant()
         {
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
-            string FirstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
+            string firstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
             moderatorManagePage.ClickRestoreRestaurantButton();
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
-            Assert.IsTrue(moderatorManagePage.CheckRestaurantNameExist(FirstRestaurantName));
+            bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
+            Assert.IsTrue(restaurantExist);
         }
 
         [Test, Order(2)]
         public void CheckDeleteApprovedRestaurant()
         {
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
-            string FirstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
+            string firstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
             moderatorManagePage.ClickDeleteRestaurantButton();
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
-            Assert.IsTrue(moderatorManagePage.CheckRestaurantNameExist(FirstRestaurantName));
+            bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
+            Assert.IsTrue(restaurantExist);
+        }
+
+        [Test]
+        public void CheckUndoDeleteApprovedRestaurant()
+        {
+            moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
+            string firstRestaurantNameBeforeDelete = moderatorManagePage.GetFirstRestaurantName();
+            moderatorManagePage.ClickDeleteRestaurantButton();
+            moderatorManagePage.WaitAndClickUndoActionPopUpButton(dataModel.TimeToWait);
+            moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
+            string firstRestaurantNameAfterDeleteAndUndo = moderatorManagePage.GetFirstRestaurantName();
+            Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo);
         }
     }
 }

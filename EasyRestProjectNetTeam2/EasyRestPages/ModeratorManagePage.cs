@@ -105,9 +105,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _restoreRestaurantButton.Click();
         }
 
-        public void ClickUndoActionPopUpButton()
+        public void WaitAndClickUndoActionPopUpButton(int TimeToWait)
         {
-            _undoActionPopUpButton.Click();
+            _undoActionPopUpButton.WaitAndClick(driver, TimeToWait);
+            driver.Navigate().Refresh();
         }
 
         public string WaitAndGetTextFromApprovedRestaurantsButton(int TimeToWait)
