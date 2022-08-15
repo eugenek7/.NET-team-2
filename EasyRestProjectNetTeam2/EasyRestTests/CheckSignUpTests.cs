@@ -16,12 +16,12 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             _homePage = GetHomePage();
             _homePage.HeaderMenuComponent.ClickSignUpButton();
             _signUpPage = GetSignUpPage();
-            _signUpPage.ClickCreateAccountButton();
         }
 
         [Test]
         public void CheckUserIsUnableToSignUpWithEmptyFields()
         {
+            _signUpPage.ClickCreateAccountButton();
             Assert.Multiple(() =>
             {
                 Assert.True(_signUpPage.IsEmptyEmailFieldErrorMessageExist(),

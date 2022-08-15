@@ -7,12 +7,14 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 {
     public class MenuPage : BasePage
     {
+        public DatePickerComponent DatePickerComponent { get; private set; }
+        public TimePickerComponent TimePickerComponent { get; private set; }
         public MenuOrderItemsListComponent MenuOrderItemsListComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
         }
-          
+
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]
         private IWebElement _inputItemQuantity;
 
@@ -92,6 +94,5 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             return _errorPopUp.Text;
         }
-
     }
 }
