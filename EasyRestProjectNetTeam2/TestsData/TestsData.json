@@ -29,7 +29,8 @@
   "PhoneNumberForSignUp": "+345645678",
   "ShortPasswordForSignUp": "0",
   "AlreadyRegisteredEmail": "steveadmin@test.com",
-  "BirthDateSignUp": "12 July 1950"
+  "BirthDateSignUp": "12 July 1950",
   "EmailForModerator": "petermoderator@test.com",
+  "ShortPasswordForSignIn": "1"
 
 }

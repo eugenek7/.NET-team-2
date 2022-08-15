@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
@@ -16,7 +17,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForModerator, dataModel.PasswordShort);
+            signInPage.SignInWithValidData(dataModel.EmailForModerator, dataModel.ShortPasswordForSignIn);
             moderatorManagePage = GetModeratorManagePage();
         }
 
@@ -53,5 +54,13 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             string firstRestaurantNameAfterDeleteAndUndo = moderatorManagePage.GetFirstRestaurantName();
             Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo);
         }
+
+        [TearDown]
+        public override void TearDown()
+        {
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForModerator);
+            base.TearDown();
+        }
+
     }
 }
