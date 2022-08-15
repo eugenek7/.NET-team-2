@@ -43,9 +43,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _createRestaurantButton.Click();
             return this;
         }
-        public ManageResturantComponent WaitForAppearanceCreatingResturantForm(int TimeToWait)
+        public ManageResturantComponent WaitForAppearanceCreatingResturantForm(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _inputRestaurantName);
+            WaitVisibilityOfElement(timeToWait, _inputRestaurantName);
             return this;
         }
     }

@@ -52,9 +52,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return this;
         }
 
-        public ManageRestaurantsPage WaitForManageAndArchiveButtons(int TimeToWait)
+        public ManageRestaurantsPage WaitForManageAndArchiveButtons(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _manageRestaurantButton);
+            WaitVisibilityOfElement(timeToWait, _manageRestaurantButton);
             return this;
         }
 
@@ -64,15 +64,15 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return this;
         }
 
-        public ManageRestaurantsPage WaitForArchiveStatus(int TimeToWait)
+        public ManageRestaurantsPage WaitForArchiveStatus(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _archivedStatus);
+            WaitVisibilityOfElement(timeToWait, _archivedStatus);
             return this;
         }
 
-        public ManageRestaurantsPage WaitForUnarchiveStaus(int TimeToWait)
+        public ManageRestaurantsPage WaitForUnarchiveStaus(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _unarchivedStatus);
+            WaitVisibilityOfElement(timeToWait, _unarchivedStatus);
             return this;
         }
 
