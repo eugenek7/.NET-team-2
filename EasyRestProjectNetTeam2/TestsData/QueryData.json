@@ -1,5 +1,9 @@
 {
   "DeleteUserByEmail": "DELETE FROM users WHERE email='{0}';",
   "SelectUserEmailByEmail": "SELECT email FROM users WHERE email = '{0}'",
-  "DeleteTokenByEmail": "DELETE from tokens USING users WHERE tokens.user_id=users.id and users.email='{0}';" 
+  "DeleteTokenByEmail": "DELETE from tokens USING users WHERE tokens.user_id=users.id and users.email='{0}';",
+  "SetPreviousAdministrator": "UPDATE restaurants SET administrator_id = '13' where id = 8;",
+  "InsertInDBWaiterForDeleting": "insert into users(name, email, phone_number, birth_date, password, role_id, restaurant_id, is_active) values ('Spok', 'Spock@enterprise.vu', '888999777', '1777-07-30', '$pbkdf2-sha256$29000$5vx/D0EoJWRMKaWU8p5TSg$.1ams5oEycnMhuP2qYomYyaOjZvCSxXcXwpMEPJWxPc', '6', '8', '1');",
+  "InsertInDBAdministratorForDeleting": "insert into users(name, email, phone_number, birth_date, password, role_id, restaurant_id, is_active) values ('Spok', 'Spock2@enterprise.vu', '888999777', '1777-07-30', '$pbkdf2-sha256$29000$5vx/D0EoJWRMKaWU8p5TSg$.1ams5oEycnMhuP2qYomYyaOjZvCSxXcXwpMEPJWxPc', '5', '8', '1');",
+  "SetTempAdministrator": "UPDATE restaurants SET administrator_id = (select id from users where email='Spock2@enterprise.vu') where id = 8;"
 }

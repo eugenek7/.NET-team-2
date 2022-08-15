@@ -20,6 +20,12 @@
         public string NavigationHotCatagoryMenuPage { get; set; }
         public string NavigationSoupCatagoryMenuPage { get; set; }
         public string NavigationCoctailsCatagoryMenuPage { get; set; }
+        public string EmailForOwner { get; set; }
+        public string PasswordForOwner { get; set; }
+        public string NameForNewEmployee { get; set; }
+        public string EmailForNewEmployee { get; set; }
+        public string PasswordForNewEmployee { get; set; }
+        public string PhoneForNewEmployee { get; set; }
         public string NameForSignUp { get; set; }
         public string EmailForSignUp { get; set; }
         public string PasswordForSignUp { get; set; }
@@ -33,5 +39,7 @@
         public string ItemQuantity2 { get; set; }
         public string InputNegativeQuantity { get; set; }
         public string InputSymblosInQuantity { get; set; }
+        public string BirthDateSignUp { get; set; }
+        public string EmailForNewEmployee2 { get; set; }
     }
 }
