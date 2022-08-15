@@ -41,8 +41,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _restaurantsList.WaitAndClick(driver, timeToWait);
         }
-
-        public void WaitAndClickBeerTag(int TimeToWait)
+               
         public void WaitAndClickBeerTag(int timeToWait)
         {
             _beerTag.WaitAndClick(driver, timeToWait);

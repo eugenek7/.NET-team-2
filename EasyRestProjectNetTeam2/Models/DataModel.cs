@@ -38,8 +38,7 @@
         public string ItemQuantity1 { get; set; }
         public string ItemQuantity2 { get; set; }
         public string InputNegativeQuantity { get; set; }
-        public string InputSymblosInQuantity { get; set; }
-        public string BirthDateSignUp { get; set; }
+        public string InputSymblosInQuantity { get; set; }        
         public string EmailForNewEmployee2 { get; set; }
     }
 }

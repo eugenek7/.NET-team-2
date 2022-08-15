@@ -30,12 +30,17 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         public void MoveToCart()
         {
             Actions act = new Actions(driver);
-            act.MoveToElement(_Cart).Perform();            
+            act.MoveToElement(_Cart).Build().Perform();            
         }
-        
-        public void WaitForItemQuantityInTheCart(int TimeToWait)
+
+        public void WaitForCart(int timeToWait)
         {
-            WaitElementIsEnable(TimeToWait, _itemQuantityInTheCart);
+            WaitElementIsEnable(timeToWait, _Cart);
+        }
+
+        public void WaitForItemQuantityInTheCart(int timeToWait)
+        {
+            WaitElementIsEnable(timeToWait, _itemQuantityInTheCart);
         }
 
         public string GetValueFromItemQuantityInCart()

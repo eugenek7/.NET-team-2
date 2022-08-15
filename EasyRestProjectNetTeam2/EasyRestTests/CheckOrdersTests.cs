@@ -28,7 +28,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage = GetMenuPage();
         }
 
-        [Test]
+        [Test, Order (1)]
         public void CheckPosibilityToMakeOrder()
         {                     
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
@@ -38,20 +38,21 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
         }
 
-        [Test]
+        [Test, Order(2)]
         public void CheckPosibilityToBuyNegativeNumberDish()
         {            
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);      
             menuPage.ClearInputItemQuantity();
             menuPage.SendKeysToInputItemQuantity(dataModel.InputNegativeQuantity);
-            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
+            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);            
+            menuPage.MenuOrderItemsListComponent.MoveToCart();
             menuPage.MenuOrderItemsListComponent.WaitForItemQuantityInTheCart(dataModel.TimeToWait);
             var expectQuantity = dataModel.ItemQuantity11;
             var actualQuantity = menuPage.MenuOrderItemsListComponent.GetValueFromItemQuantityInCart();
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test]
+        [Test, Order(3)]
         public void CheckPosibilityToWriteSymbolsInNumberDish()
         {           
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);        
@@ -64,7 +65,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test]
+        [Test, Order(4)]
         public void CheckPosibilityIncraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
@@ -77,7 +78,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");           
         }
 
-        [Test]
+        [Test, Order(5)]
         public void CheckPosibilityDecraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
@@ -93,7 +94,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
          [TearDown]
          public override void TearDown()
         {
-            menuPage.MenuOrderItemsListComponent.MoveToCart();
+            menuPage.MenuOrderItemsListComponent.WaitForCart(dataModel.TimeToWait);
+            menuPage.MenuOrderItemsListComponent.MoveToCart();            
             menuPage.MenuOrderItemsListComponent.WaitAndClickRemoveItemButton(dataModel.TimeToWait);   
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
             base.TearDown();                  
