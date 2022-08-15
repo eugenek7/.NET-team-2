@@ -44,8 +44,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);      
             menuPage.ClearInputItemQuantity();
             menuPage.SendKeysToInputItemQuantity(dataModel.InputNegativeQuantity);
-            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);            
-            menuPage.MenuOrderItemsListComponent.MoveToCart();
+            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);                     
             menuPage.MenuOrderItemsListComponent.WaitForItemQuantityInTheCart(dataModel.TimeToWait);
             var expectQuantity = dataModel.ItemQuantity11;
             var actualQuantity = menuPage.MenuOrderItemsListComponent.GetValueFromItemQuantityInCart();
@@ -93,10 +92,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
          [TearDown]
          public override void TearDown()
-        {
-            menuPage.MenuOrderItemsListComponent.WaitForCart(dataModel.TimeToWait);
-            menuPage.MenuOrderItemsListComponent.MoveToCart();            
-            menuPage.MenuOrderItemsListComponent.WaitAndClickRemoveItemButton(dataModel.TimeToWait);   
+        {              
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromOrderAssociationByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromDraftOrderByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
             base.TearDown();                  
         }

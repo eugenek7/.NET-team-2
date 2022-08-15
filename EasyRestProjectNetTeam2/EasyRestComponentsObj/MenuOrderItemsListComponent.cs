@@ -22,21 +22,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         private IWebElement _submitOrderButton;
 
         [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
-        private IWebElement _itemQuantityInTheCart;
-
-        [FindsBy(How = How.XPath, Using = "(//div[contains(@class, 'MuiCardContent-root')]) [2]")]
-        private IWebElement _Cart;       
-
-        public void MoveToCart()
-        {
-            Actions act = new Actions(driver);
-            act.MoveToElement(_Cart).Build().Perform();            
-        }
-
-        public void WaitForCart(int timeToWait)
-        {
-            WaitElementIsEnable(timeToWait, _Cart);
-        }
+        private IWebElement _itemQuantityInTheCart;       
 
         public void WaitForItemQuantityInTheCart(int timeToWait)
         {
@@ -48,14 +34,14 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             return _itemQuantityInTheCart.GetAttribute("value");
         }
 
-        public void WaitAndClickRemoveItemButton(int TimeToWait) //removes first item from cart
+        public void WaitAndClickRemoveItemButton(int timeToWait) //removes first item from cart
         {
-            _removeItemButton.WaitAndClick(driver, TimeToWait);
+            _removeItemButton.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClickSubmitOrderButton(int TimeToWait) //opens Order confirmation pop-up
+        public void WaitAndClickSubmitOrderButton(int timeToWait) //opens Order confirmation pop-up
         {
-            _submitOrderButton.WaitAndClick(driver, TimeToWait);
+            _submitOrderButton.WaitAndClick(driver, timeToWait);
             OrderConfirmationPopUpComponent = new OrderConfirmationPopUpComponent(driver);
         }
     }
