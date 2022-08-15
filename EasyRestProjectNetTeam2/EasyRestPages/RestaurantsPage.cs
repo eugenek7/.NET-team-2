@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
 {
@@ -7,58 +9,47 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     {
         public RestaurantsPage(IWebDriver driver) : base(driver)
         {
-
         }
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants']")]
         private IWebElement _restaurantsList;
-               
-        [FindsBy(How = How.XPath, Using = " //span[(text()= 'View all')]/ancestor::a")]
-        private IWebElement _viewAllTag;
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=beer']")]
         private IWebElement _beerTag;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href=' /? tag = kebab']")]
-        public IWebElement _kebabTag;
-        
+        [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=kebab']  ")]
+        private IWebElement _kebabTag;
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
-        public IWebElement _johnsonDetails;
+        private IWebElement _johnsonDetails;
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']/..")]
-        public IWebElement _johnsonMenu;
+        private IWebElement _johnsonMenu;
 
-        public void ClickRestarauntsList()
+
+        public void WaitAndClickJonsonDetails(int timeToWait)
         {
-          _restaurantsList.Click();
-        }
-        
-        public void ClickViewAllTag()
-        {
-            _viewAllTag.Click();
+            _johnsonDetails.WaitAndClick(driver, timeToWait);
         }
 
-        public void ClickBeerTag()
+        public void WaitAndClickJonsonMenu(int timeToWait)
         {
-            _beerTag.Click();
+            _johnsonMenu.WaitAndClick(driver, timeToWait);
         }
 
-        public void ClickKebabTag()
+        public void WaitAndClickResturantList(int timeToWait)
         {
-            _kebabTag.Click();
-        }
-        
-        public void ClickJohnsonDetails()
-        {
-            _johnsonDetails.Click();
+            _restaurantsList.WaitAndClick(driver, timeToWait);
         }
 
-        public void ClickJohnsonMenu()
+        public void WaitAndClickBeerTag(int timeToWait)
         {
-            _johnsonMenu.Click();
-        }    
-        public void WaitForJonsonMenuIsClickable(int timeToWait)
+            _beerTag.WaitAndClick(driver, timeToWait);
+        }
+
+        public void WaitAndClicKebabTag(int timeToWait)
         {
-            WaitElementIsClickable(timeToWait, _johnsonMenu);
+            _kebabTag.WaitAndClick(driver, timeToWait);
         }
     }
 }

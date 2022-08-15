@@ -1,35 +1,30 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestPages;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
-namespace EasyRestProjectNetTeam2.EasyRestPages
+namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 {
-    public class AdministratorsManagePage : BasePage
+    public class AddEmployeeComponent : BasePage
     {
-        public AdministratorsManagePage(IWebDriver driver) : base(driver)
+        public AddEmployeeComponent(IWebDriver driver) : base(driver)
         {
-
         }
 
         [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
-        private IWebElement _inputNameForNewAdministrator;
+        private IWebElement _inputName;
 
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
-        private IWebElement _inputEmailForNewAdministrator;
+        private IWebElement _inputEmail;
 
         [FindsBy(How = How.XPath, Using = "//input[@name='password']")]
-        private IWebElement _inputPasswordForNewAdministrator;
+        private IWebElement _inputPassword;
 
         [FindsBy(How = How.XPath, Using = "//input[@name='phone_number']")]
-        private IWebElement _inputPhoneNumberForNewAdministrator;
+        private IWebElement _inputPhoneNumber;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Add']/parent::button")]
-        private IWebElement _addAdministratorButton;
-
-        [FindsBy(How = How.XPath, Using = "(//button[@aria-label='Show more'])[1]")]
-        private IWebElement _plusAdministratorButton;
-
-        [FindsBy(How = How.XPath, Using = "(//button[contains(@class, 'MuiButtonBase-root')])[2]")]
-        private IWebElement _deleteAdministratorButton;
+        private IWebElement _addEmployeeButton;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='Name is required']")]
         private IWebElement _inputNameValidationWarning;
@@ -43,40 +38,52 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//p[text()='Phone number is required']")]
         private IWebElement _inputPhoneNumberValidationWarning;
 
-
-        public void ClickDeleteAdministrator()
+        public void WaitAndSendKeysToInputName(string name, int timeToWait)
         {
-            _deleteAdministratorButton.Click();
+            _inputName.WaitAndSendKeys(driver, timeToWait, name);
         }
 
-        public void SendKeysToInputName(string name)
+        public void WaitAndSendKeysToInputEmail(string email, int timeToWait)
         {
-            _inputNameForNewAdministrator.SendKeys(name);
+            _inputEmail.WaitAndSendKeys(driver, timeToWait, email);
+        }
+
+        public void WaitAndSendKeysToInputPassword(string password, int timeToWait)
+        {
+            _inputPassword.WaitAndSendKeys(driver, timeToWait, password);
+        }
+
+        public void WaitAndSendKeysToInputPhoneNumber(string phonenumber, int timeToWait)
+        {
+            _inputPhoneNumber.WaitAndSendKeys(driver, timeToWait, phonenumber);
         }
 
         public void SendKeysToInputEmail(string email)
         {
-            _inputEmailForNewAdministrator.SendKeys(email);
+            _inputEmail.SendKeys(email);
         }
 
         public void SendKeysToInputPassword(string password)
         {
-            _inputPasswordForNewAdministrator.SendKeys(password);
+            _inputPassword.SendKeys(password);
         }
 
         public void SendKeysToInputPhoneNumber(string phonenumber)
         {
-            _inputPhoneNumberForNewAdministrator.SendKeys(phonenumber);
+            _inputPhoneNumber.SendKeys(phonenumber);
         }
 
-        public void ClickPlusAdministrator()
+        public void ClickAddNewEmployee()
         {
-            _plusAdministratorButton.Click();
+            _addEmployeeButton.Click();
         }
 
-        public void ClickAddNewAdministrator()
+        public void WaitAndSendKeysToInputData(string name, string email, string password, string phonenumber, int timeToWait)
         {
-            _addAdministratorButton.Click();
+            _inputName.WaitAndSendKeys(driver, timeToWait, name);
+            _inputEmail.SendKeys(email);
+            _inputPassword.SendKeys(password);
+            _inputPhoneNumber.SendKeys(phonenumber);
         }
 
         public bool IsInputNameValidationWarningExist()

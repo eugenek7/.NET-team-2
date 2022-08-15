@@ -52,7 +52,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [TearDown]
-        public void TearDown()
+        public virtual void TearDown()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
@@ -133,6 +133,21 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public ManageRestaurantsPage GetManageRestaurantsPage()
         {
             return new ManageRestaurantsPage(GetDriver());
+        }
+
+        public ManageAdministratorPage GetManageAdministratorPage()
+        {
+            return new ManageAdministratorPage(GetDriver());
+        }
+
+        public ManageWaitersPage GetManageWaitersPage()
+        {
+            return new ManageWaitersPage(GetDriver());
+        }
+
+        public ManageMenuPage GetManageMenuPage()
+        {
+            return new ManageMenuPage(GetDriver());
         }
 
         public ModeratorManagePage GetModeratorManagePage()
