@@ -9,17 +9,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     {
         public RestaurantsPage(IWebDriver driver) : base(driver)
         {
-
         }
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants']")]
-        private IWebElement _restaurantsList;              
-        
+        private IWebElement _restaurantsList;
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=beer']")]
         private IWebElement _beerTag;
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/?tag=kebab']  ")]
         private IWebElement _kebabTag;
-        
+
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurants/2']")]
         private IWebElement _johnsonDetails;
 
@@ -41,7 +41,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _restaurantsList.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitAndClicBeerTag(int timeToWait)
+        public void WaitAndClickBeerTag(int timeToWait)
         {
             _beerTag.WaitAndClick(driver, timeToWait);
         }

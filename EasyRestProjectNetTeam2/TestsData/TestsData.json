@@ -1,6 +1,6 @@
 ﻿{
   "TimeToWait": 20,
-  "FakeEmail": "stepanbandera@test.com",  
+  "FakeEmail": "stepanbandera@test.com",
   "EmailForClient": "stevenhall@test.com",
   "PasswordForClient": "1111",
   "GooglePageUrlSearchWords": "google.com",
@@ -11,10 +11,23 @@
   "EmailvalidationWarningMessage": "Email is not valid",
   "RestaurantsListPageUrl": "restaurants",
   "RestaurantDetailsUrl": "restaurants/2",
-  "RestaurantMenuUrl":"restaurant/2/menu/3",
+  "RestaurantMenuUrl": "restaurant/2/menu/3",
   "BeerTagUrl": "restaurants?tag=beer",
   "KebabTagUrl": "restaurants?tag=kebab",
   "NavigationHotCatagoryMenuPage": "Hot",
   "NavigationSoupCatagoryMenuPage": "Soup",
-  "NavigationCoctailsCatagoryMenuPage": "Coctails"
+  "NavigationCoctailsCatagoryMenuPage": "Coctails",
+  "EmailForOwner": "jasonbrown@test.com",
+  "PasswordForOwner": "1111",
+  "NameForNewEmployee": "Spok",
+  "EmailForNewEmployee": "Spock@enterprise.vu",
+  "PasswordForNewEmployee": "12345678",
+  "PhoneForNewEmployee": "777666555444",
+  "PasswordForSignUp": "123456789",
+  "NameForSignUp": "Steve",
+  "EmailForSignUp": "tesmm@gmail.com",
+  "PhoneNumberForSignUp": "+345645678",
+  "ShortPasswordForSignUp": "0",
+  "AlreadyRegisteredEmail": "steveadmin@test.com",
+  "BirthDateSignUp": "12 July 1950"
 }

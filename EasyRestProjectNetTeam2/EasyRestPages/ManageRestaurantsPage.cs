@@ -1,4 +1,5 @@
-﻿using EasyRestProjectNetTeam2.EasyRestComponentsObj;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -80,7 +81,17 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _addRestaurantButton.Click();
             return new ManageResturantComponent(driver);
-        }                
+        }                              
+
+        public void WaitAndClickManageButton(int timeToWait)
+        {
+            _manageRestaurantButton.WaitAndClick(driver, timeToWait);
+        }
+
+        public void WaitAndClickMoreButton(int timeToWait)
+        {
+            _moreButton.WaitAndClick(driver, timeToWait);
+        }
     }
 }
 

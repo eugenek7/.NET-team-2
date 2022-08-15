@@ -1,6 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using NUnit.Framework;
-using EasyRestProjectNetTeam2.Decorator;
 
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
@@ -21,7 +20,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
             signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();        
+            homePage.HeaderMenuComponent.ClickSignInButton();
         }
         [Test]
         public void CheckReastaurantListPagetest()
@@ -38,10 +37,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
-            restaurantsPage.WaitAndClickJonsonDetails(dataModel.TimeToWait);          
+            restaurantsPage.WaitAndClickJonsonDetails(dataModel.TimeToWait);
             var expectedUrl = dataModel.RestaurantDetailsUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");         
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
         }
 
         [Test]
@@ -49,10 +48,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
-            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);          
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);
             var expectedUrl = dataModel.RestaurantMenuUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");             
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
         }
 
         [Test]
@@ -60,7 +59,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
-            restaurantsPage.WaitAndClicBeerTag(dataModel.TimeToWait);          
+            restaurantsPage.WaitAndClickBeerTag(dataModel.TimeToWait);
             var expectedUrl = dataModel.BeerTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
@@ -71,10 +70,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
-            restaurantsPage.WaitAndClicKebabTag(dataModel.TimeToWait);         
+            restaurantsPage.WaitAndClicKebabTag(dataModel.TimeToWait);
             var expectedUrl = dataModel.KebabTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
-            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");           
-        }    
+            StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
+        }
     }
 }
