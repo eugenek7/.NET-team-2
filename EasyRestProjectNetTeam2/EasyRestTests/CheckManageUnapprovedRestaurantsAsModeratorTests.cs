@@ -21,14 +21,23 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.SignInWithValidData(dataModel.EmailForModerator, dataModel.ShortPasswordForSignIn);
             moderatorManagePage = GetModeratorManagePage();
             moderatorManagePage.WaitAndClickUnapprovedRestaurantsButton(dataModel.TimeToWait);
+            firstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
         }
 
         [Test]
         public void CheckDisapproveUnapprovedRestaurant()
         {
-            firstRestaurantName = moderatorManagePage.GetFirstRestaurantName();
             moderatorManagePage.ClickDisapproveRestaurantButton();
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
+            bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
+            Assert.IsTrue(restaurantExist);
+        }
+
+        [Test]
+        public void CheckApproveUnapprovedRestaurant()
+        {
+            moderatorManagePage.ClickApproveRestaurantButton();
+            moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
             bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
             Assert.IsTrue(restaurantExist);
         }
