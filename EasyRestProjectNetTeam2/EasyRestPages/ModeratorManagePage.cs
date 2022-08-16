@@ -80,9 +80,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _approvedRestaurantsButton.WaitAndClick(driver, TimeToWait);
         }
-        public void ClickUnapprovedRestaurantsButton()
+        public void WaitAndClickUnapprovedRestaurantsButton(int TimeToWait)
         {
-            _unapprovedRestaurantsButton.Click();
+            _unapprovedRestaurantsButton.WaitAndClick(driver, TimeToWait);
         }
 
         public void ClickDeleteRestaurantButton()
