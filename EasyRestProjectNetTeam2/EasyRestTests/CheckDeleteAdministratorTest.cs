@@ -38,6 +38,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             manageAdministratorPage.WaitAndClickDeleteAdministrator(dataModel.TimeToWait);
             var ifAdministratorListIsEmpty = manageAdministratorPage.IfCreateYourWorkerSignDisplayed(dataModel.TimeToWait);
             Assert.IsTrue(ifAdministratorListIsEmpty, "The administrator is still exist on the list of employees.");
+            var findUserInBDbyEmail = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.EmailForNewEmployee2);
+            Assert.IsNull(findUserInBDbyEmail, "User still exist in Database");
         }
 
         [TearDown]
