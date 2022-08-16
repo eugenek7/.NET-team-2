@@ -20,7 +20,7 @@
   "EmailForOwner": "jasonbrown@test.com",
   "PasswordForOwner": "1111",
   "NameForNewEmployee": "Spok",
-  "EmailForNewEmployee": "Spock2@enterprise.vu",
+  "EmailForNewEmployee": "Spock@enterprise.vu",
   "PasswordForNewEmployee": "12345678",
   "PhoneForNewEmployee": "777666555444",
   "PasswordForSignUp": "123456789",
