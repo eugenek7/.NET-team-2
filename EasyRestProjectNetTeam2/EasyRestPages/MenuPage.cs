@@ -47,7 +47,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public void ClearInputItemQuantity()
         {
-            _inputItemQuantity.Clear(); ;
+            _inputItemQuantity.Clear(); 
         }
 
         public void SendKeysToInputItemQuantity(string quantity)

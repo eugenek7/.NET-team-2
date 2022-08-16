@@ -59,7 +59,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
-            restaurantsPage.WaitAndClickBeerTag(dataModel.TimeToWait);          
+            restaurantsPage.WaitAndClickBeerTag(dataModel.TimeToWait);
             var expectedUrl = dataModel.BeerTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
