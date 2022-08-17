@@ -71,7 +71,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return this;
         }
 
-        public ManageRestaurantsPage WaitForUnarchiveStaus(int timeToWait)
+        public ManageRestaurantsPage WaitForUnarchiveStatus(int timeToWait)
         {
             WaitVisibilityOfElement(timeToWait, _unarchivedStatus);
             return this;
