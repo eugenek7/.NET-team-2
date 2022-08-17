@@ -6,31 +6,31 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
     [TestFixture]
     class CheckSignUpTests : BaseTest
     {
-        HomePage _homePage;
-        SignUpPage _signUpPage;
+        HomePage homePage;
+        SignUpPage signUpPage;
 
         [SetUp]
         public override void  SetUp()
         {
             base.SetUp();
-            _homePage = GetHomePage();
-            _homePage.HeaderMenuComponent.ClickSignUpButton();
-            _signUpPage = GetSignUpPage();
+            homePage = GetHomePage();
+            homePage.HeaderMenuComponent.ClickSignUpButton();
+            signUpPage = GetSignUpPage();
         }
 
         [Test]
         public void CheckUserIsUnableToSignUpWithEmptyFields()
         {
-            _signUpPage.ClickCreateAccountButton();
+            signUpPage.ClickCreateAccountButton();
             Assert.Multiple(() =>
             {
-                Assert.True(_signUpPage.IsEmptyEmailFieldErrorMessageExist(),
+                Assert.True(signUpPage.IsEmptyEmailFieldErrorMessageExist(),
                     "No error message for empty email field");
-                Assert.True(_signUpPage.IsEmptyPasswordFieldErrorMessageExist(),
+                Assert.True(signUpPage.IsEmptyPasswordFieldErrorMessageExist(),
                     "No error message for empty password field");
-                Assert.True(_signUpPage.IsEmptyRepeatPasswordFieldErrorMessageExist(), 
+                Assert.True(signUpPage.IsEmptyRepeatPasswordFieldErrorMessageExist(), 
                     "No error message for empty repeat password field");
-                Assert.True(_signUpPage.IsEmptyNameFieldErrorMessageExist(), 
+                Assert.True(signUpPage.IsEmptyNameFieldErrorMessageExist(), 
                     "No error message for empty name field");
             });
         }
@@ -38,79 +38,79 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Test]
         public void CheckUserIsUnableToSignUpWithoutName()
         {
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsEmptyNameFieldErrorMessageExist(),
+            signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
+            signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsEmptyNameFieldErrorMessageExist(),
                 "User is able to sign up without filling out name field");
         }
         
         [Test]
         public void CheckUserIsUnableToSignUpWithoutEmail()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsEmptyEmailFieldErrorMessageExist(),
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
+            signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsEmptyEmailFieldErrorMessageExist(),
                 "User is able to sign up without filling out email field");
         }
         
         [Test]
         public void CheckUserIsUnableToSignUpWithoutPassword()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsEmptyPasswordFieldErrorMessageExist(),
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsEmptyPasswordFieldErrorMessageExist(),
                 "User is able to sign up without filling out password field");
         }
         
         [Test]
         public void CheckUserIsUnableToSignUpWithShortPassword()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.SendKeysToInputPassword(dataModel.ShortPasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsInvalidPasswordErrorMessageExist(),
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.ShortPasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsInvalidPasswordErrorMessageExist(),
                 "User is able to sign up with password of invalid length");
         }
         
         [Test]
         public void CheckUserIsUnableToSignUpWithoutPasswordConfirmation()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsEmptyRepeatPasswordFieldErrorMessageExist(), 
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsEmptyRepeatPasswordFieldErrorMessageExist(), 
                 "User is able to sign up without password confirmation");
         }
         
         [Test]
         public void CheckUserIsUnableToSignUpWithoutValidPasswordConfirmation()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.SendKeysToInputConfirmPassword(dataModel.ShortPasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            Assert.True(_signUpPage.IsPasswordMismatchErrorMessageExist(), 
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
+            signUpPage.SendKeysToInputConfirmPassword(dataModel.ShortPasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            Assert.True(signUpPage.IsPasswordMismatchErrorMessageExist(), 
                 "User is able to sign up with mismatch passwords");
         }
 
         [Test]
         public void CheckUserIsUnableToSignUpWithUsedEmail()
         {
-            _signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
-            _signUpPage.SendKeysToInputEmail(dataModel.AlreadyRegisteredEmail);
-            _signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            _signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
-            _signUpPage.ClickCreateAccountButton();
-            _signUpPage.WaitForPopUp(dataModel.TimeToWait);
-            Assert.True(_signUpPage.IsValidationRegisteredUserErrorMessageExist(),
+            signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
+            signUpPage.SendKeysToInputEmail(dataModel.AlreadyRegisteredEmail);
+            signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
+            signUpPage.SendKeysToInputConfirmPassword(dataModel.PasswordForSignUp);
+            signUpPage.ClickCreateAccountButton();
+            signUpPage.WaitForPopUp(dataModel.TimeToWait);
+            Assert.True(signUpPage.IsValidationRegisteredUserErrorMessageExist(),
                 "User is able to create another account with already registered email");
         }
     }
