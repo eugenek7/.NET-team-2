@@ -1,12 +1,14 @@
 ﻿Feature:Feature1
 
+#Background: 
+#Given ResetSystem
 
-
-Scenario: Add two numbers
-	Given I Navigate to easyrest
-	And I click sign in
+@smoke
+Scenario: SignInAndGoTyMyProfile
+	#Given I Navigate to easyrest
+	Given I click Sign in
 	And I enter my email
 	And I enter my password
-	And I click Sign In
+	And I click Sign In Button
 	When I navigate to my profile	
 	Then I check my email in personal info
