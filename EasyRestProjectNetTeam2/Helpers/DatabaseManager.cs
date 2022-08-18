@@ -43,7 +43,7 @@ namespace EasyRestProjectNetTeam2.Helpers
 
         private static NpgsqlConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost;Port=6544;User Id=admin;Password=12345678;database=easyrest;");
+            return new NpgsqlConnection(@"Server=localhost;Port=5432;User Id=admin;Password=12345678;database=easyrest;");
         }
 
     }
