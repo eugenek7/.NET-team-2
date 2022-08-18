@@ -25,7 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signUpPage.ClickCreateAccountButton();
             var actual = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.EmailForSignUp);
             var expected = dataModel.EmailForSignUp;
-            Assert.AreEqual(expected, actual,"User is unable to sign in with invalid phone number");
+            Assert.AreEqual(expected, actual,"User is unable to sign up with invalid phone number");
         }
         
         [TearDown]
