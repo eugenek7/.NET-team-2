@@ -30,5 +30,8 @@
   "ShortPasswordForSignUp": "0",
   "AlreadyRegisteredEmail": "steveadmin@test.com",
   "BirthDateSignUp": "12 July 1950",
+  "EmailForModerator": "petermoderator@test.com",
+  "ShortPasswordForSignIn": "1",
   "EmailForNewEmployee2": "Spock2@enterprise.vu"
+
 }

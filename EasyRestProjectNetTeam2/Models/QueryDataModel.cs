@@ -9,5 +9,7 @@
         public string InsertInDBWaiterForDeleting { get; set; }
         public string InsertInDBAdministratorForDeleting { get; set; }
         public string SetTempAdministrator { get; set; }
+        public string SetRestaurantStatusToUnapprovedByName { get; set; }
+
     }
 }
