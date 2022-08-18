@@ -30,7 +30,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.ClickDisapproveRestaurantButton();
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
             bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
-            Assert.IsTrue(restaurantExist);
+            Assert.IsTrue(restaurantExist, "The restaurant did not appear in the archived tab");
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.ClickApproveRestaurantButton();
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
             bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
-            Assert.IsTrue(restaurantExist);
+            Assert.IsTrue(restaurantExist, "The restaurant did not appear in the approved tab");
         }
 
         [TearDown]

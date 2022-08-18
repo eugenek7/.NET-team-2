@@ -29,7 +29,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.ClickRestoreRestaurantButton();
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
             bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
-            Assert.IsTrue(restaurantExist);
+            Assert.IsTrue(restaurantExist, "The restaurant did not appear in the approved tab");
         }
 
         [Test, Order(2)]
@@ -40,7 +40,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.ClickDeleteRestaurantButton();
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
             bool restaurantExist = moderatorManagePage.CheckRestaurantNameExist(firstRestaurantName);
-            Assert.IsTrue(restaurantExist);
+            Assert.IsTrue(restaurantExist, "The restaurant did not appear in the archived tab");
         }
 
         [Test]
@@ -52,7 +52,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.WaitAndClickUndoActionPopUpButton(dataModel.TimeToWait);
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
             string firstRestaurantNameAfterDeleteAndUndo = moderatorManagePage.GetFirstRestaurantName();
-            Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo);
+            Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo, 
+                "The restaurant did not appear in the approved tab");
         }
 
         [TearDown]
