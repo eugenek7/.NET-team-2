@@ -1,4 +1,3 @@
-using System;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
