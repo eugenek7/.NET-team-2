@@ -32,4 +32,6 @@
   "BirthDateSignUp": "12 July 1950",
   "EmailForNewEmployee2": "Spock2@enterprise.vu",
   "LettersInPhoneNumber": "hjdks"
+  "EmailForModerator": "petermoderator@test.com",
+  "ShortPasswordForSignIn": "1",
 }
