@@ -27,9 +27,10 @@
   "NameForSignUp": "Steve",
   "EmailForSignUp": "test@gmail.com",
   "PhoneNumberForSignUp": "+345645678",
-  "ShortPasswordForSignUp": "0",
+  "ShortPassword": "1",
   "AlreadyRegisteredEmail": "steveadmin@test.com",
   "BirthDateSignUp": "12 July 1950",
   "EmailForNewEmployee2": "Spock2@enterprise.vu",
-  "LettersInPhoneNumber": "hjdks"
+  "LettersInPhoneNumber": "hjdks",
+  "WaiterEmail": "morgancrosby@test.com"
 }

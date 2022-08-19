@@ -9,5 +9,10 @@
         public string InsertInDBWaiterForDeleting { get; set; }
         public string InsertInDBAdministratorForDeleting { get; set; }
         public string SetTempAdministrator { get; set; }
+        public string InsertOrderInAssignedWaiterStatus { get; set; }
+        public string InsertOrderInProgressStatus { get; set; }
+        public string DeleteOrderInAssignedWaiterStatus { get; set; }
+        public string DeleteOrderInProgressStatus { get; set; }
+            
     }
 }

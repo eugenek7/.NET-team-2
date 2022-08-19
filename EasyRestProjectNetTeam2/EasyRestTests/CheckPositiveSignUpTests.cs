@@ -31,7 +31,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [TearDown]
         public override void TearDown()
         {
-            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForSignUp);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteUserByEmail, dataModel.EmailForSignUp);
             base.TearDown();
         }
 

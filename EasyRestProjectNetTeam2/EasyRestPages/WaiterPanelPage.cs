@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
@@ -31,35 +32,35 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//div[@role='alertdialog']")]
         private IWebElement _confirmationWindow;
 
-
-        public void ClickAssignedWaiterTab()
-        {
-            _assignedWaiterTab.Click();
-        }
-
-        public void ClickInProgressTab()
-        {
-            _inProgressTab.Click();
-        }
-        public void ClickHistoryTab()
-        {
-            _historyTab.Click();
-        }
-        public void ClickArrowDownButton()
-        {
-            _arrowDownButton.Click();
-        }
-        public void ClickStartOrderButton()
-        {
-            _startOrderButton.Click();
-        }
-        public void ClickCloseOrderButton()
-        {
-            _closeOrderButton.Click();
-        }
+        
         public bool IsConfirmationWindowExist()
         {
             return _confirmationWindow.Displayed;
+        }
+        public void WaitClickArrowDownButton(int timeToWait)
+        {
+            _arrowDownButton.WaitAndClick(driver, timeToWait);
+        }
+        public void WaitClickStartOrderButton (int timeToWait)
+        {
+            _startOrderButton.WaitAndClick(driver, timeToWait);
+        }
+        public void WaitClickCloseOrderButton (int timeToWait)
+        {
+            _closeOrderButton.WaitAndClick(driver, timeToWait);
+        }
+        public void WaitClickAssignedWaiterTab(int timeToWait)
+        {
+            _assignedWaiterTab.WaitAndClick(driver, timeToWait);
+        }
+        public void WaitClickInProgressTab(int timeToWait)
+        {
+            _inProgressTab.WaitAndClick(driver, timeToWait);
+        }
+        
+        public void  WaitConfirmationWindowAndCheckIfDisplayed(int timeToWait)
+        {
+            _confirmationWindow.WaitElementAndCheckIfDisplayed(driver, timeToWait);
         }
     }
 }
