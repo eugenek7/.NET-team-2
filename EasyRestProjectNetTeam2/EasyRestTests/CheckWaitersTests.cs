@@ -9,7 +9,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
     public class CheckWaitersTests : BaseTest
     {
         HomePage homePage;
-        SignUpPage signUpPage;
+        SignInPage signInPage;
         BaseSignIn baseSignIn;
         WaiterPanelPage waiterPanelPage;
 
@@ -19,7 +19,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             base.SetUp();
             DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInProgressStatus);
             DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInAssignedWaiterStatus);
-            baseSignIn = new BaseSignIn(driver);
+            signInPage = GetSignInPage();
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
             baseSignIn.SignIn(dataModel.WaiterEmail, dataModel.ShortPassword);
             waiterPanelPage = GetWaiterPanelPage();
         }
