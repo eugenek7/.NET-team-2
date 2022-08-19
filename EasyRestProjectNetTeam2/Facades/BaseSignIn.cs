@@ -1,5 +1,4 @@
 using EasyRestProjectNetTeam2.EasyRestPages;
-using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.Facades
 {
@@ -20,8 +19,6 @@ namespace EasyRestProjectNetTeam2.Facades
             signInPage.SendKeysToInputEmail(Email);
             signInPage.SendKeysToInputPassword(Password);
             signInPage.HeaderMenuComponent.ClickSignInButton();
-        } 
-        
-        
+        }
     }
 }
