@@ -11,37 +11,40 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
     {
         HomePage homePage;
         SignUpPage signUpPage;
-        FacadeForSignIn facadeForSignIn;
+        BaseSignIn baseSignIn;
         WaiterPanelPage waiterPanelPage;
-        
+
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInProgressStatus);
+            DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInAssignedWaiterStatus);
+            baseSignIn = new BaseSignIn(driver);
+            baseSignIn.SignIn(dataModel.WaiterEmail, dataModel.ShortPassword);
+            waiterPanelPage = GetWaiterPanelPage();
+        }
+
         [Test]
 
         public void CheckWaiterIsAbleToConfirmAssignedOrder()
         {
-            DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInAssignedWaiterStatus);
-            facadeForSignIn = new FacadeForSignIn(driver);
-            facadeForSignIn.SignIn(dataModel.WaiterEmail, dataModel.ShortPassword);
-            waiterPanelPage = GetWaiterPanelPage();
             waiterPanelPage.WaitClickAssignedWaiterTab(dataModel.TimeToWait);
             waiterPanelPage.WaitClickArrowDownButton(dataModel.TimeToWait);
             waiterPanelPage.WaitClickStartOrderButton(dataModel.TimeToWait);
             waiterPanelPage.WaitConfirmationWindowAndCheckIfDisplayed(dataModel.TimeToWait);
-            bool expected = waiterPanelPage.IsConfirmationWindowExist();
+            var expected = waiterPanelPage.IsConfirmationWindowExist();
             Assert.IsTrue(expected, "Waiter is unable to confirm assigned order");
         }
 
         [Test]
         public void CheckWaiterIsAbleToCloseOrderFromInProgressTab()
         {
-            DatabaseManager.SendNonQuery(queryDataModel.InsertOrderInProgressStatus);
-            facadeForSignIn = new FacadeForSignIn(driver);
-            facadeForSignIn.SignIn(dataModel.WaiterEmail, dataModel.ShortPassword);
-            waiterPanelPage = GetWaiterPanelPage();
             waiterPanelPage.WaitClickInProgressTab(dataModel.TimeToWait);
             waiterPanelPage.WaitClickArrowDownButton(dataModel.TimeToWait);
             waiterPanelPage.WaitClickCloseOrderButton(dataModel.TimeToWait);
             waiterPanelPage.WaitConfirmationWindowAndCheckIfDisplayed(dataModel.TimeToWait);
-            bool expected = waiterPanelPage.IsConfirmationWindowExist();
+            var expected = waiterPanelPage.IsConfirmationWindowExist();
             Assert.IsTrue(expected, "Waiter is unable to close order in progress");
         }
 

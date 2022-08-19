@@ -3,12 +3,12 @@ using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.Facades
 {
-    public class FacadeForSignIn
+    public class BaseSignIn
     {
         private readonly  SignInPage signInPage;
         private readonly HomePage homePage;
 
-        public FacadeForгSignIn(IWebDriver driver)
+        public BaseSignIn(IWebDriver driver)
         {
             signInPage = new SignInPage(driver);
             homePage = new HomePage(driver);
