@@ -2,7 +2,6 @@ using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Facades;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
 {
