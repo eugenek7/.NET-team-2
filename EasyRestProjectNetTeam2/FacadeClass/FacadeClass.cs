@@ -3,29 +3,31 @@ using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.FacadeClass
 {
-    public class FacadeClass
+    public class NavigateTo
     {
-        ManageMenuPage manageMenuPage;
-        ManageRestaurantsPage manageRestaurantsPage;
+        private readonly ManageMenuPage manageMenuPage;
+        private readonly ManageRestaurantsPage manageRestaurantsPage;
 
-        public NavigationFacade(IWebDriver driver)
+        public NavigateTo(IWebDriver driver)
         {
             manageMenuPage = new ManageMenuPage(driver);
             manageRestaurantsPage = new ManageRestaurantsPage(driver);
+            manageMenuPage = new ManageMenuPage(driver);
         }
 
-        public NavagationFacade NavigationToManageRestaurant(int timeToWait)
+        public void ManageWaiters(int timeToWait)
         {
-            manageRestaurantsPage = GetManageRestaurantsPage();
             manageRestaurantsPage.WaitAndClickMoreButton(timeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(timeToWait);
-            manageMenuPage = GetManageMenuPage();
-
-
-
+            manageMenuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(timeToWait);
         }
 
-
-
+        public void ManageAdministrator(int timeToWait)
+        {
+            manageRestaurantsPage.WaitAndClickMoreButton(timeToWait);
+            manageRestaurantsPage.WaitAndClickManageButton(timeToWait);
+            manageMenuPage.LeftBarComponent.WaitAndClickAdministratorsLeftBarButton(timeToWait);
+        }
     }
 }
+
