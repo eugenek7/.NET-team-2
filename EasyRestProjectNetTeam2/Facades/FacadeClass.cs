@@ -1,5 +1,4 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
-using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.FacadeClass
 {
@@ -8,21 +7,20 @@ namespace EasyRestProjectNetTeam2.FacadeClass
         private readonly ManageMenuPage manageMenuPage;
         private readonly ManageRestaurantsPage manageRestaurantsPage;
 
-        public NavigateTo(IWebDriver driver)
+        public NavigateTo(ManageMenuPage manageMenuPage, ManageRestaurantsPage manageRestaurantsPage)
         {
-            manageMenuPage = new ManageMenuPage(driver);
-            manageRestaurantsPage = new ManageRestaurantsPage(driver);
-            manageMenuPage = new ManageMenuPage(driver);
+            this.manageMenuPage = manageMenuPage;
+            this.manageRestaurantsPage = manageRestaurantsPage;
         }
 
-        public void ManageWaiters(int timeToWait)
+        public void ManageWaitersPage(int timeToWait)
         {
             manageRestaurantsPage.WaitAndClickMoreButton(timeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(timeToWait);
             manageMenuPage.LeftBarComponent.WaitAndClickWaiterLeftBarButton(timeToWait);
         }
 
-        public void ManageAdministrator(int timeToWait)
+        public void ManageAdministratorPage(int timeToWait)
         {
             manageRestaurantsPage.WaitAndClickMoreButton(timeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(timeToWait);
