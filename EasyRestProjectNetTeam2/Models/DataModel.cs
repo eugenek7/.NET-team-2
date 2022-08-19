@@ -40,5 +40,8 @@
         public string InputNegativeQuantity { get; set; }
         public string InputSymblosInQuantity { get; set; }        
         public string EmailForNewEmployee2 { get; set; }
+        public string LettersInPhoneNumber { get; set; }
+        public string EmailForModerator { get; set; }
+        public string ShortPasswordForSignIn { get; set; }
     }
 }

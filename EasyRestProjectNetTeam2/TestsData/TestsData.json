@@ -25,7 +25,7 @@
   "PhoneForNewEmployee": "777666555444",
   "PasswordForSignUp": "123456789",
   "NameForSignUp": "Steve",
-  "EmailForSignUp": "tesmm@gmail.com",
+  "EmailForSignUp": "test@gmail.com",
   "PhoneNumberForSignUp": "+345645678",
   "ShortPasswordForSignUp": "0",
   "AlreadyRegisteredEmail": "steveadmin@test.com",
@@ -36,5 +36,8 @@
   "ItemQuantity1": "1",
   "ItemQuantity2": "2",
   "InputNegativeQuantity": "-1",
-  "InputSymblosInQuantity": "QW$%"
+  "InputSymblosInQuantity": "QW$%",
+  "LettersInPhoneNumber": "hjdks",
+  "EmailForModerator": "petermoderator@test.com",
+  "ShortPasswordForSignIn": "1"
 }

@@ -28,7 +28,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage = GetMenuPage();
         }
 
-        [Test, Order (1)]
+        [Test]
         public void CheckPosibilityToMakeOrder()
         {                     
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
@@ -38,7 +38,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
         }
 
-        [Test, Order(2)]
+        [Test]
         public void CheckPosibilityToBuyNegativeNumberDish()
         {            
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);      
@@ -51,7 +51,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test, Order(3)]
+        [Test]
         public void CheckPosibilityToWriteSymbolsInNumberDish()
         {           
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);        
@@ -64,7 +64,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test, Order(4)]
+        [Test]
         public void CheckPosibilityIncraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
@@ -77,7 +77,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");           
         }
 
-        [Test, Order(5)]
+        [Test]
         public void CheckPosibilityDecraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
