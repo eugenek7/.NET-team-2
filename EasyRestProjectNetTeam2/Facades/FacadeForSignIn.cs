@@ -8,7 +8,7 @@ namespace EasyRestProjectNetTeam2.Facades
         private readonly  SignInPage signInPage;
         private readonly HomePage homePage;
 
-        public FacadeForгSignIn(IWebDriver driver)
+        public FacadeForSignIn(IWebDriver driver)
         {
             signInPage = new SignInPage(driver);
             homePage = new HomePage(driver);
