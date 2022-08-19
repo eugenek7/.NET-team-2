@@ -154,5 +154,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             return new WaiterPanelPage(GetDriver());
         }
+
+        public ModeratorManagePage GetModeratorManagePage()
+        {
+            return new ModeratorManagePage(GetDriver());
+        }
     }
 }

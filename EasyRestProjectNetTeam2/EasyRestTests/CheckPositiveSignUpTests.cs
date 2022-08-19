@@ -1,4 +1,3 @@
-using System;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
@@ -25,7 +24,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signUpPage.ClickCreateAccountButton();
             var actual = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.EmailForSignUp);
             var expected = dataModel.EmailForSignUp;
-            Assert.AreEqual(expected, actual,"User is unable to sign in with invalid phone number");
+            Assert.AreEqual(expected, actual,"User is unable to sign up with invalid phone number");
         }
         
         [TearDown]
@@ -37,3 +36,4 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
     }
 }
+
