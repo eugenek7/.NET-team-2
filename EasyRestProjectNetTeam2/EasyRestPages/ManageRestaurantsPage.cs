@@ -8,7 +8,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class ManageRestaurantsPage : BasePage
     {
 
-        public ManageResturantComponent manageResturantComponent { get; private set; }
+        public ManageRestaurantComponent manageResturantComponent { get; private set; }
         public ManageRestaurantsPage(IWebDriver driver) : base(driver) { }
 
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'My Restaurants')]")]
@@ -77,10 +77,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             return this;
         }
 
-        public ManageResturantComponent ClickAddRestaurantButton()
+        public ManageRestaurantComponent ClickAddRestaurantButton()
         {
             _addRestaurantButton.Click();
-            return new ManageResturantComponent(driver);
+            return new ManageRestaurantComponent(driver);
         }                              
 
         public void WaitAndClickManageButton(int timeToWait)

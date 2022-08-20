@@ -4,10 +4,10 @@ using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 {
-    public class ManageResturantComponent:ManageRestaurantsPage
+    public class ManageRestaurantComponent:BasePage
     {
 
-        public ManageResturantComponent(IWebDriver driver) : base(driver)
+        public ManageRestaurantComponent(IWebDriver driver) : base(driver)
         {
         }
 
@@ -26,24 +26,24 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//p[text()='Address is required']")]
         private IWebElement _adressError;       
         
-        public ManageResturantComponent SendKeysToInputRestaurantName(string name)
+        public ManageRestaurantComponent SendKeysToInputRestaurantName(string name)
         {
             _inputRestaurantName.SendKeys(name);
             return this;
         }
 
-        public ManageResturantComponent SendKeysToInputRestaurantAdress(string adress)
+        public ManageRestaurantComponent SendKeysToInputRestaurantAdress(string adress)
         {
             _inputRestaurantAdress.SendKeys(adress);
             return this;
         }
 
-        public ManageResturantComponent ClickCreateRestaurantButton()
+        public ManageRestaurantComponent ClickCreateRestaurantButton()
         {
             _createRestaurantButton.Click();
             return this;
         }
-        public ManageResturantComponent WaitForAppearanceCreatingResturantForm(int timeToWait)
+        public ManageRestaurantComponent WaitForAppearanceCreatingResturantForm(int timeToWait)
         {
             WaitVisibilityOfElement(timeToWait, _inputRestaurantName);
             return this;
