@@ -33,12 +33,28 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[text()='Coctails']")]
         private IWebElement _coctailsCatagoryButton;
 
+        [FindsBy(How = How.XPath, Using = "//p[text()='Item was added']")]
+        private IWebElement _itemAddedPopUp;
+
+        [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
+        private IWebElement _itemQuantityInTheCart;
+
+              
+        public void WaitForitemAddedPopUp(int timeToWait)
+        {
+            WaitElementIsEnable(timeToWait, _itemAddedPopUp);
+        }                    
+
+        public void ClearInputItemQuantity()
+        {
+            _inputItemQuantity.Clear(); 
+        }
 
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
         }
-
+        
         public void IncreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowUp);
@@ -47,16 +63,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void DecreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowDown);
-        }
+        }       
 
-        public void GetItemQuantity()
+        public void WaitAndClickAddToCartButton(int timeToWait)
         {
-            _inputItemQuantity.GetAttribute("value");
-        }
-
-        public void WaitAndClickAddToCartButton(int TimeToWait)
-        {
-            _addToCartButton.WaitAndClick(driver, TimeToWait);
+            _addToCartButton.WaitAndClick(driver, timeToWait);
             MenuOrderItemsListComponent = new MenuOrderItemsListComponent(driver);
         }
 
@@ -93,6 +104,16 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public string GetErrorPopupText()
         {
             return _errorPopUp.Text;
-        }
+        }     
+
+        public string GetTextFromItemAddedPopUp()
+        {
+            return _itemAddedPopUp.Text;
+        }        
+
+        public void WaitForInputItemQuantity(int timeToWait)
+        {
+            WaitElementIsClickable(timeToWait, _inputItemQuantity);
+        }              
     }
 }

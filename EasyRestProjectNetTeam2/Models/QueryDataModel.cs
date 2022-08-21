@@ -13,6 +13,8 @@
         public string InsertOrderInAssignedWaiterStatus { get; set; }
         public string InsertOrderInProgressStatus { get; set; }
         public string DeleteOrderInAssignedWaiterStatus { get; set; }
-        public string DeleteOrderInProgressStatus { get; set; }
+        public string DeleteOrderInProgressStatus { get; set;}   
+        public string DeleteFromOrderAssociationByEmail { get; set; }
+        public string DeleteFromDraftOrderByEmail { get; set; }
     }
 }
