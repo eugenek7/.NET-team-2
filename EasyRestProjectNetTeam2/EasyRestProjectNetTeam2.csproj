@@ -38,4 +38,16 @@
     <None Remove="EasyRestComponentsObj\Facades\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
 </Project>

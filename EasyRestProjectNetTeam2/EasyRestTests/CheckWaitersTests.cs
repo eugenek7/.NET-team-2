@@ -27,6 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        
 
         public void CheckWaiterIsAbleToConfirmAssignedOrder()
         {
@@ -49,6 +50,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             Assert.IsTrue(expected, "Waiter is unable to close order in progress");
         }
 
+        [TearDown]
         public override void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.WaiterEmail);
