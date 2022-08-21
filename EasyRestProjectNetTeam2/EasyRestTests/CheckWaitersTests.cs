@@ -48,7 +48,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var expected = waiterPanelPage.IsConfirmationWindowExist();
             Assert.IsTrue(expected, "Waiter is unable to close order in progress");
         }
-
+        
+        [TearDown]
         public override void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.WaiterEmail);
