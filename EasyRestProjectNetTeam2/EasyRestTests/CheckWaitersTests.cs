@@ -27,8 +27,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        
-
         public void CheckWaiterIsAbleToConfirmAssignedOrder()
         {
             waiterPanelPage.WaitClickAssignedWaiterTab(dataModel.TimeToWait);
