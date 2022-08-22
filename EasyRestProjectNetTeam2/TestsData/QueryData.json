@@ -10,7 +10,7 @@
   "InsertOrderInAssignedWaiterStatus":"INSERT into orders(id, creation_time ,booked_time, status, total_price ,user_id ,waiter_id, rest_id) VALUES('1000', '1660753437', '1660753437', 'Assigned waiter', '1', '24', '31', '2');",
   "InsertOrderInProgressStatus": "INSERT into orders(id, creation_time, booked_time, status, total_price, user_id, waiter_id, rest_id) values ('1001', '1660753437', '1660753437', 'In progress', '1', '24', '31', '2');",
   "DeleteOrderInAssignedWaiterStatus": "DELETE from orders WHERE id=1000;",
-  "DeleteOrderInProgressStatus": "DELETE from orders WHERE id=1001;"
+  "DeleteOrderInProgressStatus": "DELETE from orders WHERE id=1001;",
   "DeleteFromOrderAssociationByEmail": "delete from order_associations where order_id = (select id  from orders where user_id = (select id from users where email='{0}') and status = 'Draft');",
   "DeleteFromDraftOrderByEmail": "delete from orders where user_id = (select id from users where email='{0}') and status = 'Draft';"
 }
