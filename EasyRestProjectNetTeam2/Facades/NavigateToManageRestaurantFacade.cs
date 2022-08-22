@@ -1,6 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
 
-namespace EasyRestProjectNetTeam2.FacadeClass
+namespace EasyRestProjectNetTeam2.Facades
 {
     public class NavigateToManageRestaurantFacade
     {
