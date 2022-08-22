@@ -22,7 +22,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForOwner, dataModel.PasswordForOwner);
+            signInPage.SignInWithValidData(dataModel.EmailForOwner, dataModel.PasswordBase);
             manageRestaurantsPage = GetManageRestaurantsPage();
             manageRestaurantsPage.WaitAndClickMoreButton(dataModel.TimeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(dataModel.TimeToWait);

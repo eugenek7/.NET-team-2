@@ -19,7 +19,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
             homePage.HeaderMenuComponent.ClickSignInButton();
         }
         [Test]
