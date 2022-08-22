@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.Decorator;
+using EasyRestProjectNetTeam2.EasyRestComponentsObj;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -7,8 +8,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
     public class ManageRestaurantsPage : BasePage
     {
 
+        public ManageRestaurantComponent manageResturantComponent { get; private set; }
         public ManageRestaurantsPage(IWebDriver driver) : base(driver) { }
 
+        [FindsBy(How = How.XPath, Using = "//span[(text()= 'My Restaurants')]")]
+        private IWebElement _myRestaurantsButton;
 
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'details')]/ancestor::a")]
         private IWebElement _detailsButton;
@@ -34,87 +38,59 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//button[@aria-label= 'Show more']")]
         private IWebElement _addRestaurantButton;
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
-        private IWebElement _inputRestaurantName;
-
-        [FindsBy(How = How.XPath, Using = "//input[@name='address']")]
-        private IWebElement _inputRestaurantAdress;
-
-        [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
-        private IWebElement _createRestaurantButton;
-
-        [FindsBy(How = How.XPath, Using = "//p[text()='Name is required']")]
-        private IWebElement _nameError;
-
-        [FindsBy(How = How.XPath, Using = "//p[text()='Address is required']")]
-        private IWebElement _adressError;
-
         [FindsBy(How = How.XPath, Using = "//p[text()='Restaurant was successfully created']")]
         private IWebElement _popuprestaurantAdded;
 
-        public void ClickMoreButton()
+        public ManageRestaurantsPage ClickMyresturantsButton()
+        {
+            _myRestaurantsButton.Click();
+            return this;
+        }
+
+        public ManageRestaurantsPage ClickMoreButton()
         {
             _moreButton.Click();
+            return this;
         }
 
-        public void WaitForManageAndArchiveButtons(int TimeToWait)
+        public ManageRestaurantsPage WaitForManageAndArchiveButtons(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _manageRestaurantButton);
+            WaitVisibilityOfElement(timeToWait, _manageRestaurantButton);
+            return this;
         }
 
-        public void ClickArchiveButton()
+        public ManageRestaurantsPage ClickArchiveButton()
         {
             _archiveRestaurantButton.Click();
+            return this;
         }
 
-        public void WaitForArchiveStatus(int TimeToWait)
+        public ManageRestaurantsPage WaitForArchiveStatus(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _archivedStatus);
+            WaitVisibilityOfElement(timeToWait, _archivedStatus);
+            return this;
         }
 
-        public void WaitForUnarchiveStaus(int TimeToWait)
+        public ManageRestaurantsPage WaitForUnarchiveStatus(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _unarchivedStatus);
+            WaitVisibilityOfElement(timeToWait, _unarchivedStatus);
+            return this;
         }
 
-        public void ClickAddRestaurantButton()
+        public ManageRestaurantComponent ClickAddRestaurantButton()
         {
             _addRestaurantButton.Click();
+            return new ManageRestaurantComponent(driver);
+        }                              
+
+        public void WaitAndClickManageButton(int timeToWait)
+        {
+            _manageRestaurantButton.WaitAndClick(driver, timeToWait);
         }
 
-        public void WaitForAppearanceCreatingResturantForm(int TimeToWait)
+        public void WaitAndClickMoreButton(int timeToWait)
         {
-            WaitVisibilityOfElement(TimeToWait, _inputRestaurantName);
-        }
-
-        public void SendKeysToInputRestaurantName(string name)
-        {
-            _inputRestaurantName.SendKeys(name);
-        }
-
-        public void SendKeysToInputRestaurantAdress(string adress)
-        {
-            _inputRestaurantAdress.SendKeys(adress);
-        }
-
-        public void ClickCreateRestaurantButton()
-        {
-            _createRestaurantButton.Click();
-        }
-
-        public void ClickManage()
-        {
-            _manageRestaurantButton.Click();
-        }
-
-        public void WaitAndClickManageButton(int TimeToWait)
-        {
-            _manageRestaurantButton.WaitAndClick(driver, TimeToWait);
-        }
-
-        public void WaitAndClickMoreButton(int TimeToWait)
-        {
-            _moreButton.WaitAndClick(driver, TimeToWait);
+            _moreButton.WaitAndClick(driver, timeToWait);
         }
     }
 }

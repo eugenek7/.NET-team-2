@@ -1,6 +1,7 @@
 ﻿using EasyRestProjectNetTeam2.Decorator;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
@@ -20,16 +21,28 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//span[text()='Submit order']/parent::button")]
         private IWebElement _submitOrderButton;
 
-        public void ClickRemoveItemButton() //removes first item from cart
+        [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
+        private IWebElement _itemQuantityInTheCart;       
+
+        public void WaitForItemQuantityInTheCart(int timeToWait)
         {
-            _removeItemButton.Click();
+            WaitElementIsEnable(timeToWait, _itemQuantityInTheCart);
         }
 
-        public void WaitAndClickSubmitOrderButton(int TimeToWait) //opens Order confirmation pop-up
+        public string GetValueFromItemQuantityInCart()
         {
-            _submitOrderButton.WaitAndClick(driver, TimeToWait);
+            return _itemQuantityInTheCart.GetAttribute("value");
+        }
+
+        public void WaitAndClickRemoveItemButton(int timeToWait) //removes first item from cart
+        {
+            _removeItemButton.WaitAndClick(driver, timeToWait);
+        }
+
+        public void WaitAndClickSubmitOrderButton(int timeToWait) //opens Order confirmation pop-up
+        {
+            _submitOrderButton.WaitAndClick(driver, timeToWait);
             OrderConfirmationPopUpComponent = new OrderConfirmationPopUpComponent(driver);
         }
-
     }
 }
