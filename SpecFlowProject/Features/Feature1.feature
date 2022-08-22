@@ -5,7 +5,7 @@
 
 @smoke
 Scenario: SignInAndGoTyMyProfile
-	#Given I Navigate to easyrest
+	Given I Navigate to easyrest
 	Given I click Sign in
 	And I enter my email
 	And I enter my password

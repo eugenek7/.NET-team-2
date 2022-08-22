@@ -1,27 +1,37 @@
 using EasyRestProjectNetTeam2.EasyRestPages;
-using System;
 using TechTalk.SpecFlow;
 using EasyRestProjectNetTeam2.EasyRestTests;
 using EasyRestProjectNetTeam2.Models;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using SpecFlowProject1.Drivers;
 
 namespace SpecFlowProject.StepDefinitions
 {
     [Binding]
-    public class Feature1StepDefinitions: BaseTest
+    public class Feature1StepDefinitions : BaseTest
     {
 
+        IWebDriver driver;
         HomePage homePage;
         SignInPage signInPage;
         PersonalInfoPage personalInfoPage;
-        DataModel dataModel;
-        BaseTest baseTest;
+        DataModel dataModel;      
 
-        //[Given(@"ResetSystem")]
-        //public void GivenResetSystem()
-        //{
-        //    baseTest.SetUp();
-        //}
+        private readonly ScenarioContext _scenarioContext;
+
+            public Feature1StepDefinitions(ScenarioContext scenarioContext)
+            {
+                _scenarioContext = scenarioContext;
+            }
+
+        [Given(@"I Navigate to easyrest")]
+        public void GivenINavigateToEasyrest()
+        {
+            driver = _scenarioContext.Get<Drivers>("Driver").SetUp();
+            driver.Navigate().GoToUrl(Drivers._siteUrl);
+         
+        }
 
         [Given(@"I click Sign in")]
         public void GivenIClickSignIn()
@@ -33,6 +43,7 @@ namespace SpecFlowProject.StepDefinitions
         [Given(@"I enter my email")]
         public void GivenIEnterMyEmail()
         {
+            signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
         }
 
@@ -60,6 +71,7 @@ namespace SpecFlowProject.StepDefinitions
         [Then(@"I check my email in personal info")]
         public void ThenICheckMyEmailInPersonalInfo()
         {
+            personalInfoPage = GetPersonalInfoPage();
             personalInfoPage.WaitInputEmailIsVisible(dataModel.TimeToWait);
             Assert.AreEqual(dataModel.EmailForClient, personalInfoPage.GetTextFromEmailField(), "Emails are not equals");
         }
