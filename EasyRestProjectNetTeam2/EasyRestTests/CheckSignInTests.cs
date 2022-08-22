@@ -17,7 +17,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
             signInPage.HeaderMenuComponent.ClickSignInButton();
             homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
             homePage.HeaderMenuComponent.ClickProfileIcon();
@@ -38,7 +38,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.FakeEmail);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
+            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
             signInPage.HeaderMenuComponent.ClickSignInButton();
             signInPage.WaitForWarningWindow();
             Assert.IsTrue(signInPage.GetTextFromWarningWindow().Contains(dataModel.WarningMessage), "Problems with warning window");

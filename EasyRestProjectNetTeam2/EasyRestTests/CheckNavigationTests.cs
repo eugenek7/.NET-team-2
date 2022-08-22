@@ -19,7 +19,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordForClient);
+            signInPage.SignInWithValidData(dataModel.EmailForClient, dataModel.PasswordBase);
             restaurantsPage = GetRestaurantsPage();
         }
 
