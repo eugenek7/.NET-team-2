@@ -51,10 +51,7 @@ namespace EasyRestProjectNetTeam2.Helpers
             {
                 return new NpgsqlConnection(windowsConnection);
             }
-
             return new NpgsqlConnection(macConnection);
-
         }
-
     }
 }

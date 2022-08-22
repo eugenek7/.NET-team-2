@@ -25,4 +25,29 @@
     <Folder Include="Reports\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="EasyRestTests\CheckWaiterTests.cs" />
+    <Compile Remove="EasyRestComponentsObj\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="EasyRestComponentsObj\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="EasyRestComponentsObj\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Helpers\Facades\**" />
+  </ItemGroup>
+
 </Project>
