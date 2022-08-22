@@ -1,4 +1,5 @@
 using EasyRestProjectNetTeam2.EasyRestPages;
+using OpenQA.Selenium;
 
 namespace EasyRestProjectNetTeam2.Facades
 {
