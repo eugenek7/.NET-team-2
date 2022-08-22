@@ -72,7 +72,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
             signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
-            signUpPage.SendKeysToInputPassword(dataModel.ShortPasswordForSignUp);
+            signUpPage.SendKeysToInputPassword(dataModel.ShortPassword);
             signUpPage.ClickCreateAccountButton();
             Assert.True(signUpPage.IsInvalidPasswordErrorMessageExist(),
                 "User is able to sign up with password of invalid length");
@@ -95,7 +95,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signUpPage.SendKeysToInputName(dataModel.NameForSignUp);
             signUpPage.SendKeysToInputEmail(dataModel.EmailForSignUp);
             signUpPage.SendKeysToInputPassword(dataModel.PasswordForSignUp);
-            signUpPage.SendKeysToInputConfirmPassword(dataModel.ShortPasswordForSignUp);
+            signUpPage.SendKeysToInputConfirmPassword(dataModel.ShortPassword);
             signUpPage.ClickCreateAccountButton();
             Assert.True(signUpPage.IsPasswordMismatchErrorMessageExist(), 
                 "User is able to sign up with mismatch passwords");

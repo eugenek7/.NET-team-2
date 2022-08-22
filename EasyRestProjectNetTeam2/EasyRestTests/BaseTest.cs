@@ -26,7 +26,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         protected DataModel dataModel;
         protected QueryDataModel queryDataModel;
 
-        private IWebDriver driver;
+        protected IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
 
 
@@ -148,6 +148,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public ManageMenuPage GetManageMenuPage()
         {
             return new ManageMenuPage(GetDriver());
+        }
+
+        public WaiterPanelPage GetWaiterPanelPage()
+        {
+            return new WaiterPanelPage(GetDriver());
         }
 
         public ModeratorManagePage GetModeratorManagePage()

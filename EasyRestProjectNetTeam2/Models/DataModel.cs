@@ -30,7 +30,7 @@
         public string EmailForSignUp { get; set; }
         public string PasswordForSignUp { get; set; }
         public string PhoneNumberForSignUp { get; set; }
-        public string ShortPasswordForSignUp { get; set; }
+        public string ShortPassword { get; set; }
         public string AlreadyRegisteredEmail { get; set; }
         public string BirthDateSignUp { get; set; }                       
         public string ItemAddedPopUp { get; set; }
@@ -43,5 +43,6 @@
         public string LettersInPhoneNumber { get; set; }
         public string EmailForModerator { get; set; }
         public string ShortPasswordForSignIn { get; set; }
+        public string WaiterEmail { get; set; }
     }
 }
