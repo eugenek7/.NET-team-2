@@ -1,5 +1,6 @@
 ﻿using Boa.Constrictor.Screenplay;
 using Boa.Constrictor.WebDriver;
+using System.Collections.Generic;
 
 namespace BoaConstrictorTestProject.Interactions.Questions
 {
