@@ -1,4 +1,6 @@
-﻿using AventStack.ExtentReports;
+﻿using System;
+using System.IO;
+using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
@@ -7,8 +9,6 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.IO;
 
 
 
@@ -21,7 +21,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
           + Path.DirectorySeparatorChar + "Reports"
           + Path.DirectorySeparatorChar + "Report_" + DateTime.Now.ToString("ddMMyyyy HHmmss")
           /*+ "\\index.html"*/;
-        static ExtentReports extent;
+        static ExtentReports extent = new ExtentReports();
         ExtentTest test;
         protected DataModel dataModel;
         protected QueryDataModel queryDataModel;
@@ -34,7 +34,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public static void BeforeTestRun()
         {
             ExtentHtmlReporter htmlreport = new ExtentHtmlReporter(pathToReport);
-            extent = new ExtentReports();
             extent.AttachReporter(htmlreport);
         }
 
