@@ -27,6 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(wp) Possibility to Work with waiter panel as waiter")]
         public void CheckWaiterIsAbleToConfirmAssignedOrder()
         {
             waiterPanelPage.WaitClickAssignedWaiterTab(dataModel.TimeToWait);
@@ -38,6 +39,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(wp) Possibility to Work with waiter panel as waiter")]
         public void CheckWaiterIsAbleToCloseOrderFromInProgressTab()
         {
             waiterPanelPage.WaitClickInProgressTab(dataModel.TimeToWait);

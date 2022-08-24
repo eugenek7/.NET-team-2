@@ -22,6 +22,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test, Order(1)]
+        [Category("(mm) Possibility to manage restaurants as moderator")]
         public void CheckRestoreArchivedRestaurant()
         {
             moderatorManagePage.WaitAndClickArchivedRestaurantsButton(dataModel.TimeToWait);
@@ -33,6 +34,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test, Order(2)]
+        [Category("(mm) Possibility to manage restaurants as moderator")]
         public void CheckDeleteApprovedRestaurant()
         {
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
@@ -44,6 +46,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(mm) Possibility to manage restaurants as moderator")]
         public void CheckUndoDeleteApprovedRestaurant()
         {
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
@@ -52,7 +55,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             moderatorManagePage.WaitAndClickUndoActionPopUpButton(dataModel.TimeToWait);
             moderatorManagePage.WaitAndClickApprovedRestaurantsButton(dataModel.TimeToWait);
             string firstRestaurantNameAfterDeleteAndUndo = moderatorManagePage.GetFirstRestaurantName();
-            Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo, 
+            Assert.AreEqual(firstRestaurantNameBeforeDelete, firstRestaurantNameAfterDeleteAndUndo,
                 "The restaurant did not appear in the approved tab");
         }
 

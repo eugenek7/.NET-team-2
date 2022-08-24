@@ -9,8 +9,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
     {
         HomePage homePage;
         SignUpPage signUpPage;
-        
+
         [Test]
+        [Category("(uu) Possibility to Sign up")]
         public void CheckUserIsAbleToSignUpWithLettersInPhoneNumber()
         {
             homePage = GetHomePage();
@@ -24,9 +25,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signUpPage.ClickCreateAccountButton();
             var actual = DatabaseManager.SendQuery(queryDataModel.SelectUserEmailByEmail, dataModel.EmailForSignUp);
             var expected = dataModel.EmailForSignUp;
-            Assert.AreEqual(expected, actual,"User is unable to sign up with invalid phone number");
+            Assert.AreEqual(expected, actual, "User is unable to sign up with invalid phone number");
         }
-        
+
         [TearDown]
         public override void TearDown()
         {
