@@ -35,6 +35,7 @@ namespace BoaConstrictorTestProject.Tests
 
 
         [Test, Order(1)]
+        [Category("(mu) Possibility to manage users as moderator")]
         public void CheckPossibilityBanActiveUserAsModeratorTest()
         {
             moderator.AttemptsTo(MoveForward.ByClicking(ModeratorManagePage.UsersButton));
@@ -48,6 +49,7 @@ namespace BoaConstrictorTestProject.Tests
         }
 
         [Test, Order(2)]
+        [Category("(mu) Possibility to manage users as moderator")]
         public void CheckPossibilityUnbanBannedUserAsModeratorTest()
         {
             moderator.AttemptsTo(MoveForward.ByClicking(ModeratorManagePage.UsersButton));
@@ -61,6 +63,7 @@ namespace BoaConstrictorTestProject.Tests
         }
 
         [Test, Order(3)]
+        [Category("(mo) Possibility to manage owners as moderator")]
         public void CheckPossibilityBanActiveOwnerAsModeratorTest()
         {
             moderator.AttemptsTo(MoveForward.ByClicking(ModeratorManagePage.OwnersButton));
@@ -74,6 +77,7 @@ namespace BoaConstrictorTestProject.Tests
         }
 
         [Test, Order(4)]
+        [Category("(mo) Possibility to manage owners as moderator")]
         public void CheckPossibilityUnbanBannedOwnerAsModeratorTest()
         {
             moderator.AttemptsTo(MoveForward.ByClicking(ModeratorManagePage.OwnersButton));

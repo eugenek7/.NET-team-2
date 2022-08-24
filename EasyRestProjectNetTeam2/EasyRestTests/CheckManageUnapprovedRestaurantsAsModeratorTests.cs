@@ -25,6 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(mm) Possibility to manage restaurants as moderator")]
         public void CheckDisapproveUnapprovedRestaurant()
         {
             moderatorManagePage.ClickDisapproveRestaurantButton();
@@ -34,6 +35,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(mm) Possibility to manage restaurants as moderator")]
         public void CheckApproveUnapprovedRestaurant()
         {
             moderatorManagePage.ClickApproveRestaurantButton();

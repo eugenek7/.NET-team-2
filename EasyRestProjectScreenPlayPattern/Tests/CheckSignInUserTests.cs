@@ -40,6 +40,7 @@ namespace BoaConstrictorTestProject
 
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserTrySignInWithEmptyFieldsEmailAndPasswordTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_emptyField, _emptyField));
@@ -48,6 +49,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserTrySignInWithEmailAndWithoutPasswordTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_correctEmail, _emptyField));
@@ -55,6 +57,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserTrySignInWithPasswordAndWithoutEmailTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_emptyField, _correctPassword));
@@ -62,6 +65,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserSignInTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_correctEmail, _correctPassword));
@@ -70,6 +74,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserLoginWithInvalidEmailAndValidPasswordTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_invalidEmail, _correctPassword));
@@ -77,6 +82,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserLoginWithValidEmailAndInvalidPasswordTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_correctEmail, _invalidPassword));
@@ -84,6 +90,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckEmailFieldValidationUserSideTest()
         {
             user.AttemptsTo(SignIn.WithEmailAndPassword(_incompleteEmail, _correctPassword));
@@ -91,6 +98,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckThatLoginWithGoogleButtonSendUserToGooglePageTest()
         {
             user.AttemptsTo(Click.On(HeaderMenu.SignInButton));
@@ -99,6 +107,7 @@ namespace BoaConstrictorTestProject
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckThatEnteredDataDoesNotSaveAfterRefreshOfThePageTest()
         {
             user.AttemptsTo(Click.On(HeaderMenu.SignInButton));

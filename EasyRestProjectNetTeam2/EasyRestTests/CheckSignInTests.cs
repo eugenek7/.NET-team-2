@@ -11,6 +11,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserSignInAndLogOutTest()
         {
             homePage = GetHomePage();
@@ -32,6 +33,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckUserLoginWithWrongEmailTest()
         {
             homePage = GetHomePage();
@@ -46,6 +48,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckThatLoginWithGoogleButtonSendUserToGooglePageTest()
         {
             homePage = GetHomePage();
@@ -57,6 +60,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckCreateAccountButtonTest()
         {
             homePage = GetHomePage();
@@ -67,6 +71,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         }
         [Test]
+        [Category("(uu) Possibility to Sign in")]
         public void CheckEmailFieldValidationUserSideTest()
         {
             homePage = GetHomePage();

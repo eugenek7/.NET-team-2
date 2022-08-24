@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
 
@@ -22,7 +23,9 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
             homePage.HeaderMenuComponent.ClickSignInButton();
         }
+
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckReastaurantListPagetest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -33,6 +36,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckReastaurantDetailsTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -44,6 +48,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckReastaurantMenuTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -55,6 +60,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckNavigateToBeerTagTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -66,6 +72,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckNavigateToKebabTagTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -74,6 +81,13 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var expectedUrl = dataModel.KebabTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
+        }
+
+        [TearDown]
+        public override void TearDown()
+        {
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
+            base.TearDown();
         }
     }
 }
