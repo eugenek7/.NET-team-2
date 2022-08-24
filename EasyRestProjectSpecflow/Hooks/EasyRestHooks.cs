@@ -4,11 +4,11 @@ using TechTalk.SpecFlow;
 namespace EasyRestSpecFlow.Hooks
 {
     [Binding]
-    public sealed class Hooks1
+    public sealed class EasyRestHooks
     {
 
         [BeforeScenario]
-        public void BeforeScenario(HomePage homePage)
+        public void NavigateToHomePageBeforeTest(HomePage homePage)
         {
             homePage.GoToHomePage();
         }
