@@ -1,4 +1,4 @@
-﻿using EasyRestSpecFlow.PageObject;
+﻿using EasyRestProjectSpecflow.PageObjects;
 using TechTalk.SpecFlow;
 
 namespace EasyRestProjectSpecflow.Steps
@@ -16,29 +16,14 @@ namespace EasyRestProjectSpecflow.Steps
             _signInPage = signInPage;
         }
 
-        [Given(@"I click Sign in")]
-        public void GivenIClickSignIn()
+        [Given(@"a user is signed in with '(.*)' and '(.*)'")]
+        public void GivenAUserIsSignedInWithAnd(string email, string password)
         {
             _homePage.ClickSignInButton();
-        }
-
-        [Given(@"I enter my '(.*)'")]
-        public void GivenIEnterMy(string email)
-        {
             _signInPage.SendKeysToInputEmail(email);
-        }
-
-        [Given(@"I enter my password '(.*)'")]
-        public void GivenIEnterMyPassword(string password)
-        {
             _signInPage.SendKeysToInputPassword(password);
-        }
-
-
-        [Given(@"I click Sign In Button")]
-        public void GivenIClickSignInButton()
-        {
             _signInPage.ClickSignInButton();
         }
+
     }
 }

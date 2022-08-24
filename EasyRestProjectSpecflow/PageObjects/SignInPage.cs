@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SpecFlow.Actions.Selenium;
 
-namespace EasyRestSpecFlow.PageObject
+namespace EasyRestProjectSpecflow.PageObjects
 {
     public class SignInPage
     {
@@ -12,11 +12,14 @@ namespace EasyRestSpecFlow.PageObject
             _browserInteractions = browserInteractions;
         }
 
-        private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement(By.XPath("//span[text()='Sign In']"));
+        private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement
+            (By.XPath("//span[text()='Sign In']"));
 
-        private IWebElement _inputEmail => _browserInteractions.WaitAndReturnElement(By.XPath("//input[@name='email']"));
+        private IWebElement _inputEmail => _browserInteractions.WaitAndReturnElement
+            (By.XPath("//input[@name='email']"));
 
-        private IWebElement _inputPassword => _browserInteractions.WaitAndReturnElement(By.XPath("//input[@name='password']"));
+        private IWebElement _inputPassword => _browserInteractions.WaitAndReturnElement
+            (By.XPath("//input[@name='password']"));
 
         public void SendKeysToInputEmail(string email)
         {
