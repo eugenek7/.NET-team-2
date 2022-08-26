@@ -1,25 +1,17 @@
-﻿using OpenQA.Selenium;
-using SpecFlowProject1.Drivers;
+﻿using EasyRestSpecFlow.Pages;
+using TechTalk.SpecFlow;
 
-
-[Binding]
-public sealed class Hooks1
+namespace EasyRestSpecFlow.Hooks
 {
-    private readonly ScenarioContext _scenarioContext;
-
-    public Hooks1(ScenarioContext scenarioContext) => _scenarioContext = scenarioContext;
-
-    [BeforeScenario]
-    public void BeforeScenario()
+    [Binding]
+    public sealed class Hooks1
     {
-        Drivers driver = new Drivers(_scenarioContext);
-        _scenarioContext.Set(driver, "Driver");
-    }
 
-    [AfterScenario]
-    public void AfterScenario()
-    {
-        Console.WriteLine("Driver quit");
-        _scenarioContext.Get<IWebDriver>("Webdriver").Quit();
+        [BeforeScenario]
+        public void BeforeScenario(HomePage homePage)
+        {
+            homePage.GoToHomePage();
+        }
+
     }
 }
