@@ -42,7 +42,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             signInPage.SendKeysToInputEmail(dataModel.FakeEmail);
             signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
             signInPage.HeaderMenuComponent.ClickSignInButton();
-            signInPage.WaitForWarningWindow();
+            signInPage.WaitForWarningWindow(dataModel.TimeToWait);
             Assert.IsTrue(signInPage.GetTextFromWarningWindow().Contains(dataModel.WarningMessage), "Problems with warning window");
 
         }
@@ -78,7 +78,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
             signInPage.SendKeysToInputEmail(dataModel.IncompleteEmail);
-            signInPage.WaitForLoginValidationWarningString();
+            signInPage.WaitForLoginValidationWarningString(dataModel.TimeToWait);
             Assert.AreEqual(dataModel.EmailvalidationWarningMessage, signInPage.GetTextFromValidationWarningString(), "Problems with warning message");
 
         }

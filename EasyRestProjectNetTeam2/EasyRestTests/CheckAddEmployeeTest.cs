@@ -15,9 +15,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         ManageWaitersPage manageWaitersPage;
 
         [SetUp]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
@@ -62,12 +61,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.SetPreviousAdministrator);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteUserByEmail, dataModel.EmailForNewEmployee);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForOwner);
-            base.TearDown();
         }
     }
 }

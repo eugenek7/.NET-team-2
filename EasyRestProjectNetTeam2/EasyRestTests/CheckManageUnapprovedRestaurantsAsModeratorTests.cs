@@ -12,9 +12,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         string firstRestaurantName;
 
         [SetUp]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
@@ -45,11 +44,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.SetRestaurantStatusToUnapprovedByName, firstRestaurantName);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForModerator);
-            base.TearDown();
         }
 
     }
