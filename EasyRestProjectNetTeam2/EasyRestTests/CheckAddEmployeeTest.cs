@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Facades;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
@@ -13,14 +14,16 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         ManageMenuPage manageMenuPage;
         ManageAdministratorPage manageAdministratorPage;
         ManageWaitersPage manageWaitersPage;
+        BaseSignIn baseSignIn;
 
         [SetUp]
         public void SetUp()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            base.SetUp();
             signInPage = GetSignInPage();
-            signInPage.SignInWithValidData(dataModel.EmailForOwner, dataModel.PasswordBase);
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.EmailForOwner, dataModel.PasswordBase);
             manageRestaurantsPage = GetManageRestaurantsPage();
             manageRestaurantsPage.WaitAndClickMoreButton(dataModel.TimeToWait);
             manageRestaurantsPage.WaitAndClickManageButton(dataModel.TimeToWait);

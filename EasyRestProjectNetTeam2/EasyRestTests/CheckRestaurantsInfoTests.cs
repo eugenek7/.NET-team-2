@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Facades;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
@@ -11,21 +12,22 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         RestaurantsPage restaurantsPage;
         HomePage homePage;
         SignInPage signInPage;
+        BaseSignIn baseSignIn;
 
         [SetUp]
         public void SetUp()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            base.SetUp();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.EmailForClient, dataModel.PasswordBase);
             homePage.HeaderMenuComponent.ClickSignInButton();
         }
 
         [Test]
         [Category("(cr) Possibility to navigate in restaurant list page")]
-        public void CheckReastaurantListPagetest()
+        public void CheckRestaurantListPageTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
@@ -36,7 +38,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(cr) Possibility to navigate in restaurant list page")]
-        public void CheckReastaurantDetailsTest()
+        public void CheckRestaurantDetailsTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
@@ -48,7 +50,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(cr) Possibility to navigate in restaurant list page")]
-        public void CheckReastaurantMenuTest()
+        public void CheckRestaurantMenuTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);

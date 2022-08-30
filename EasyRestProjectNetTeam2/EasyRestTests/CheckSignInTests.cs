@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Facades;
 using NUnit.Framework;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
@@ -8,18 +9,18 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         HomePage homePage;
         SignInPage signInPage;
         PersonalInfoPage personalInfoPage;
+        BaseSignIn baseSignIn;
 
 
         [Test]
         [Category("(uu) Possibility to Sign in")]
         public void CheckUserSignInAndLogOutTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
-            signInPage.HeaderMenuComponent.ClickSignInButton();
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.EmailForClient, dataModel.PasswordBase);
+            homePage.HeaderMenuComponent.ClickSignInButton();
             homePage.HeaderMenuComponent.WaitForProfileIconIsClickable();
             homePage.HeaderMenuComponent.ClickProfileIcon();
             homePage.HeaderMenuComponent.WaitRolePanelButtonIsClickable();
@@ -36,11 +37,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Category("(uu) Possibility to Sign in")]
         public void CheckUserLoginWithWrongEmailTest()
         {
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.FakeEmail);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordBase);
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.FakeEmail, dataModel.PasswordBase);
             signInPage.HeaderMenuComponent.ClickSignInButton();
             signInPage.WaitForWarningWindow(dataModel.TimeToWait);
             Assert.IsTrue(signInPage.GetTextFromWarningWindow().Contains(dataModel.WarningMessage), "Problems with warning window");
