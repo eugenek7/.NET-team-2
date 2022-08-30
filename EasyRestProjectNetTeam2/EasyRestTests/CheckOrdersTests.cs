@@ -18,7 +18,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void SetUp()
         {
-            base.SetUp();
             signInPage = GetSignInPage();
             homePage = GetHomePage();
             baseSignIn = new BaseSignIn(signInPage, homePage);

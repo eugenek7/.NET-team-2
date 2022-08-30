@@ -15,7 +15,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [SetUp]
         public void SetUp()
         {
-            base.SetUp();
             signInPage = GetSignInPage();
             homePage = GetHomePage();
             baseSignIn = new BaseSignIn(signInPage, homePage);
