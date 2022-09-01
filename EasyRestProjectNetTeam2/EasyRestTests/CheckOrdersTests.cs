@@ -16,9 +16,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [SetUp]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
             signInPage = GetSignInPage();
             homePage = GetHomePage();
             baseSignIn = new BaseSignIn(signInPage, homePage);
@@ -97,12 +96,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.DeleteFromOrderAssociationByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteFromDraftOrderByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
-            base.TearDown();
         }
     }
 }

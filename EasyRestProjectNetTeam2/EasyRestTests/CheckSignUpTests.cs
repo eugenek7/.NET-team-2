@@ -10,9 +10,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         SignUpPage signUpPage;
 
         [SetUp]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
             homePage = GetHomePage();
             homePage.HeaderMenuComponent.ClickSignUpButton();
             signUpPage = GetSignUpPage();

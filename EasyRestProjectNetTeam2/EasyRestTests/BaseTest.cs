@@ -39,7 +39,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [SetUp]
-        public virtual void SetUp()
+        public void SetUp()
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             test.Info($"Test {TestContext.CurrentContext.Test.Name} started");
@@ -51,7 +51,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [TearDown]
-        public virtual void TearDown()
+        public void TearDown()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)

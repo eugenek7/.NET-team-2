@@ -12,8 +12,6 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
 
-        private const int TimeToWait = 20;
-
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
         private IWebElement _inputEmail;
 
@@ -40,7 +38,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _inputEmail.SendKeys(email);
         }
 
-        public void WaitForLoginValidationWarningString()
+        public void WaitForLoginValidationWarningString(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _loginValidationWarningString);
         }
@@ -50,7 +48,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _inputPassword.SendKeys(password);
         }
 
-        public void WaitForWarningWindow()
+        public void WaitForWarningWindow(int TimeToWait)
         {
             WaitVisibilityOfElement(TimeToWait, _warningWindow);
         }

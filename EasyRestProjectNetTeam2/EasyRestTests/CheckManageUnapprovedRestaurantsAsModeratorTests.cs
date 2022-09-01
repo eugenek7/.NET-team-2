@@ -14,9 +14,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         BaseSignIn baseSignIn;
 
         [SetUp]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
             signInPage = GetSignInPage();
             homePage = GetHomePage();
             baseSignIn = new BaseSignIn(signInPage, homePage);
@@ -47,11 +46,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
             DatabaseManager.SendNonQuery(queryDataModel.SetRestaurantStatusToUnapprovedByName, firstRestaurantName);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForModerator);
-            base.TearDown();
         }
 
     }
