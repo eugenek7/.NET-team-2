@@ -13,5 +13,12 @@ namespace EasyRestSpecFlow.Hooks
             homePage.GoToHomePage();
         }
 
+        [AfterScenario]
+        public void LogOutAfterTest(HomePage homePage)
+        {
+            homePage.ClickProfileIcon();
+            homePage.ClickLogOutButton();
+        }
+
     }
 }
