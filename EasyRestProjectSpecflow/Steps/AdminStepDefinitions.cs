@@ -20,8 +20,7 @@ namespace EasyRestProjectSpecflow.Steps
         public void GivenNavigateToActiveUsersTab()
         {
             _adminPage.ClickActiveUsersButton();
-            firstUserName = _adminPage.GetFirstUserName();
-            
+            firstUserName = _adminPage.GetFirstUserName();  
         }
 
         [When(@"click the activate button on first user")]
