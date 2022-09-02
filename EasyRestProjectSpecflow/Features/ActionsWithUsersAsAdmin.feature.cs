@@ -75,10 +75,17 @@ namespace EasyRestProjectSpecflow.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01 Ban user")]
+        [NUnit.Framework.CategoryAttribute("sometag")]
         [NUnit.Framework.TestCaseAttribute("steveadmin@test.com", "1", null)]
         public void _01BanUser(string email, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "sometag"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("email", email);
             argumentsOfScenario.Add("password", password);
@@ -114,10 +121,17 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02 Activate user")]
+        [NUnit.Framework.CategoryAttribute("sometag")]
         [NUnit.Framework.TestCaseAttribute("steveadmin@test.com", "1", null)]
         public void _02ActivateUser(string email, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "sometag"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("email", email);
             argumentsOfScenario.Add("password", password);

@@ -1,6 +1,5 @@
 ﻿Feature: ActionsWithUsersAsAdmin
 
-
 Scenario: 01 Ban user
     Given a user is signed in with '<email>' and '<password>'
 	And navigate to active users tab
