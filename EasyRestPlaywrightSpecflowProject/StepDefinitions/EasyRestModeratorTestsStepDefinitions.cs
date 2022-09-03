@@ -44,12 +44,14 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
         }
 
         [Given(@"I go to Active tab")]
+        [When(@"I go to Active tab")]
         public async Task GivenIGoToActiveTab()
         {
             await _moderatorManagePage.ClickActiveButton();
         }
 
         [When(@"I ban first active user")]
+        [When(@"I unban first active user")]
         public async Task WhenIBanFirstActiveUser()
         {
             var personsNames = await _moderatorManagePage.GetAllNames();
@@ -57,6 +59,7 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
             await _moderatorManagePage.BanOrUnbanFirstPerson();
         }
 
+        [Given(@"I go to Banned tab")]
         [When(@"I go to Banned tab")]
         public async Task WhenIGoToBannedTab()
         {
@@ -64,6 +67,7 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
         }
 
         [Then(@"I check that same user appears in banned tab")]
+        [Then(@"I check that same user appears in active tab")]
         public async Task ThenICheckThatSameUserAppearsInBannedTab()
         {
             var personsNames = await _moderatorManagePage.GetAllNames();
