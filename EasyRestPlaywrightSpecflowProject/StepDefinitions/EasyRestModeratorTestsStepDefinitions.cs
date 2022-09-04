@@ -1,5 +1,7 @@
 using EasyRestPlaywrightSpecFlow.Pages;
 using EasyRestPlaywrightSpecflowProject.Drivers;
+using FluentAssertions;
+using TechTalk.SpecFlow;
 
 namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
 {
@@ -18,6 +20,7 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
             _driver = driver;
         }
 
+
         [Given(@"I go to Easy rest page")]
         public void GivenIGoToEasyRestPage()
         {
@@ -35,7 +38,6 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
             await _signInPage.ClickSignInButton();
         }
 
-
         [Given(@"I go to Users tab")]
         public async Task GivenIGoToUsersTab()
         {
@@ -49,7 +51,6 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
             _moderatorManagePage = new ModeratorManagePage(_driver.Page);
             await _moderatorManagePage.ClickOwnersButton();
         }
-
 
         [Given(@"I go to Active tab")]
         [When(@"I go to Active tab")]

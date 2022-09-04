@@ -37,6 +37,7 @@ namespace EasyRestPlaywrightSpecFlow.Pages
                 UrlString = "**/owners"
             });
         }
+
         public async Task ClickActiveButton()
         {
             await _activeButton.ClickAsync();
@@ -58,10 +59,10 @@ namespace EasyRestPlaywrightSpecFlow.Pages
             await _bannedButton.ClickAsync();
         }
 
-        public async Task<bool> IsSearchWordPresentInList(IReadOnlyList<string> objectsList, string searchWord)
+        public async Task<bool> IsSearchWordPresentInList(IReadOnlyList<string> objectsList, string searchWord) //ASK!!!!!!
         {
+            await Task.Delay(0);
             return objectsList.Any(word => word.Equals(searchWord));
-
         }
     }
 }

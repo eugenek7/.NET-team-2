@@ -5,6 +5,7 @@ namespace EasyRestPlaywrightSpecFlow.Pages
     public class SignInPage
     {
         private IPage _page;
+
         private ILocator _inputEmail => _page.Locator("//input[@name='email']");
         private ILocator _inputPassword => _page.Locator("//input[@name='password']");
         private ILocator _signInButton => _page.Locator("//span[text()='Sign In']");
