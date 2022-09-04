@@ -27,6 +27,16 @@ namespace EasyRestPlaywrightSpecFlow.Pages
             });
         }
 
+        public async Task ClickOwnersButton()
+        {
+            await _page.RunAndWaitForNavigationAsync(async () =>
+            {
+                await _ownersButton.ClickAsync();
+            }, new PageRunAndWaitForNavigationOptions
+            {
+                UrlString = "**/owners"
+            });
+        }
         public async Task ClickActiveButton()
         {
             await _activeButton.ClickAsync();

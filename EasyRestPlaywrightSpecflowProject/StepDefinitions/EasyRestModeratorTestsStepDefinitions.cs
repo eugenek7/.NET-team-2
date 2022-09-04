@@ -43,6 +43,14 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
             await _moderatorManagePage.ClickUsersButton();
         }
 
+        [Given(@"I go to Owners tab")]
+        public async void GivenIGoToOwnersTab()
+        {
+            _moderatorManagePage = new ModeratorManagePage(_driver.Page);
+            await _moderatorManagePage.ClickOwnersButton();
+        }
+
+
         [Given(@"I go to Active tab")]
         [When(@"I go to Active tab")]
         public async Task GivenIGoToActiveTab()
@@ -52,6 +60,8 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
 
         [When(@"I ban first active user")]
         [When(@"I unban first active user")]
+        [When(@"I ban first active owner")]
+        [When(@"I unban first active owner")]
         public async Task WhenIBanFirstActiveUser()
         {
             var personsNames = await _moderatorManagePage.GetAllNames();
@@ -68,6 +78,8 @@ namespace EasyRestPlaywrightSpecflowProject.StepDefinitions
 
         [Then(@"I check that same user appears in banned tab")]
         [Then(@"I check that same user appears in active tab")]
+        [Then(@"I check that same owner appears in banned tab")]
+        [Then(@"I check that same owner appears in active tab")]
         public async Task ThenICheckThatSameUserAppearsInBannedTab()
         {
             var personsNames = await _moderatorManagePage.GetAllNames();
