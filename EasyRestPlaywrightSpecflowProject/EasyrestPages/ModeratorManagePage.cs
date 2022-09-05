@@ -59,7 +59,7 @@ namespace EasyRestPlaywrightSpecFlow.Pages
             await _bannedButton.ClickAsync();
         }
 
-        public async Task<bool> IsSearchWordPresentInList(IReadOnlyList<string> objectsList, string searchWord) //ASK!!!!!!
+        public async Task<bool> IsSearchWordPresentInList(IReadOnlyList<string> objectsList, string searchWord)
         {
             await Task.Delay(0);
             return objectsList.Any(word => word.Equals(searchWord));

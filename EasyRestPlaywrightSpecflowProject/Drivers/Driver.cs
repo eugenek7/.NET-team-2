@@ -26,6 +26,5 @@ namespace EasyRestPlaywrightSpecflowProject.Drivers
         }
 
         public void Dispose() => _browser?.CloseAsync();
-
     }
 }
