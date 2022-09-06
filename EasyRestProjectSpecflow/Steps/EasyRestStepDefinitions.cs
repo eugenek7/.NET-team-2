@@ -6,7 +6,6 @@ namespace EasyRestProjectSpecflow.Steps
     [Binding]
     public sealed class EasyRestStepDefinitions
     {
-
         private readonly HomePage _homePage;
         private readonly SignInPage _signInPage;
 
@@ -15,7 +14,8 @@ namespace EasyRestProjectSpecflow.Steps
             _homePage = homePage;
             _signInPage = signInPage;
         }
-
+        
+        [Given(@"I sign in as a client with '([^']*)' and '([^']*)'")]
         [Given(@"a user is signed in with '(.*)' and '(.*)'")]
         public void GivenAUserIsSignedInWithAnd(string email, string password)
         {

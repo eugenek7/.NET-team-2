@@ -35,6 +35,5 @@ namespace EasyRestProjectSpecflow.PageObjects
         {
             _signInButton.Click();
         }
-
     }
 }

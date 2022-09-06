@@ -14,11 +14,12 @@ namespace EasyRestProjectSpecflow.PageObjects
 
         private static string pageUrl => "http://localhost:3000/";
 
+       
         private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[text()='Sign In']"));
 
         private IWebElement _profileIcon => _browserInteractions.WaitAndReturnElement
-            (By.XPath("//span[contains(@class, 'MuiIconButton-label')]"));
+            (By.XPath("//div[contains(@class, 'MuiAvatar-root')]"));
 
         private IWebElement _rolePanelButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//a[@role='menuitem']"));
@@ -49,6 +50,5 @@ namespace EasyRestProjectSpecflow.PageObjects
         {
             _logOutButton.Click();
         }
-
     }
 }
