@@ -23,7 +23,7 @@ namespace EasyRestProjectSpecflow.PageObjects
         private IWebElement _BannedUsersButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[contains(text(), 'Banned')]"));
 
-        private IList<IWebElement> _listOfUsersNames => (IList<IWebElement>)_browserInteractions.WaitAndReturnElement
+        private IList<IWebElement> _listOfUsersNames => (IList<IWebElement>)_browserInteractions.WaitAndReturnElements
             (By.XPath("//th[contains(@class, 'body')]"));
 
         public void ClickBanOrActivateButton()

@@ -23,6 +23,9 @@ namespace EasyRestProjectSpecflow.PageObjects
         private IWebElement _rolePanelButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//a[@role='menuitem']"));
 
+        private IWebElement _logOutButton => _browserInteractions.WaitAndReturnElement
+            (By.XPath("//li[text()='Log Out']"));
+
         public void GoToHomePage()
         {
             _browserInteractions.GoToUrl(pageUrl);
@@ -41,6 +44,10 @@ namespace EasyRestProjectSpecflow.PageObjects
         public void ClickRolePanelButton()
         {
             _rolePanelButton.Click();
+        }
+        public void ClickLogOutButton()
+        {
+            _logOutButton.Click();
         }
 
     }
