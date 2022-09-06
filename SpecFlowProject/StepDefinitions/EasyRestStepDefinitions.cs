@@ -1,5 +1,5 @@
 ﻿using EasyRestSpecFlow.Pages;
-using TechTalk.SpecFlow;
+
 
 namespace EasyRestProjectSpecflow.Steps
 {
@@ -25,5 +25,13 @@ namespace EasyRestProjectSpecflow.Steps
             _signInPage.ClickSignInButton();
         }
 
+        [Given(@"I sign in as a client with '([^']*)' and '([^']*)'")]
+        public void GivenISignInAsAClientWithAnd(string email, string password)
+        {
+            _homePage.ClickSignInButton();
+            _signInPage.SendKeysToInputEmail(email);
+            _signInPage.SendKeysToInputPassword(password);
+            _signInPage.ClickSignInButton();
+        }
     }
 }

@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
 using SpecFlow.Actions.Selenium;
 
-
 namespace SpecFlowProject.Pages
 {
-    public class CurrentOrdersPage 
+    public class CurrentOrdersPage
     {
         
         private readonly IBrowserInteractions _browserInteractions;
@@ -17,8 +16,8 @@ namespace SpecFlowProject.Pages
 
         private IWebElement _waitingforconfirm => _browserInteractions.WaitAndReturnElement(By.XPath("//span[contains(text(), 'Waiting for confirm')]"));
 
-        private IList<IWebElement> _listOfOrders => (IList<IWebElement>)_browserInteractions.WaitAndReturnElements(By.XPath("//div[contains(@class, 'OrderListPage-root')]"));
-
+        private IWebElement _firstOrder => _browserInteractions.WaitAndReturnElement(By.XPath("(//div[contains(@class, 'MuiButtonBase-root')]) [1]"));
+                
         public void ClickCurrentOrdersButton()
         {
             _currentOrdersButton.Click();
@@ -28,9 +27,9 @@ namespace SpecFlowProject.Pages
             _waitingforconfirm.Click();
         }
 
-        public bool CheckThatOrserAppears(string orderid)
+        public string GetPrice()
         {
-            return _listOfOrders.Any(orderElement => orderElement.Text.Equals(orderid));
+            return _firstOrder.Text;
         }
     } 
 }

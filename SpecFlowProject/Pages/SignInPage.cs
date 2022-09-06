@@ -11,7 +11,6 @@ namespace EasyRestSpecFlow.Pages
         {
             _browserInteractions = browserInteractions;
         }
-
         private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement(By.XPath("//span[text()='Sign In']"));
 
         private IWebElement _inputEmail => _browserInteractions.WaitAndReturnElement(By.XPath("//input[@name='email']"));
@@ -32,6 +31,5 @@ namespace EasyRestSpecFlow.Pages
         {
             _signInButton.Click();
         }
-
     }
 }

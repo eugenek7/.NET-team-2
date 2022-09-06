@@ -7,58 +7,61 @@ Possibility to make reorder from history and customize it
 
 @tag1
 Scenario: Make reorder with same values from history
-    Given a user is signed in with '<email>' and '<password>'
+   Given I sign in as a client with '<email>' and '<password>'
 	And I navigate to my profile
 	And I navigate to order history
 	And I click reorder
 	When I click submit reorder
 	And I navigate to current orders
-	Then I check that order appears in waiting to confirm
+	Then I check that order with '<price>' appears in waiting to confirm
+
 	Examples: 
-	| email                  | password   |
-	| stevenhall@test.com    | 1111       | 
+	| email               | password | price |
+	| stevenhall@test.com | 1111     | 488.70        |
 
 	@tag2
 
 	Scenario: Make reorder with increased values of dishes
-	Given a user is signed in with '<email>' and '<password>'
+	Given I sign in as a client with '<email>' and '<password>'
 	And I navigate to my profile
 	And I navigate to order history
 	And I click reorder	
 	When I increase dish quantity 
 	And I click submit reorder
 	And I navigate to current orders
-	Then I check that order appears in waiting to confirm
+	Then I check that order with '<price>' appears in waiting to confirm
+
 	Examples: 
-	| email               | password | order id |
-	| stevenhall@test.com | 1111     | №151     |
+	| email               | password | price  |
+	| stevenhall@test.com | 1111     | 521.50 |
 
 	@tag3
 	
 	Scenario: Make reorder with deleting some dish from list
-	Given a user is signed in with '<email>' and '<password>'
+	Given I sign in as a client with '<email>' and '<password>'
 	Given I navigate to my profile
 	And I navigate to order history
 	And I click reorder
 	When I remove from the order list
 	And I click submit reorder
 	And I navigate to current orders
-	Then I check that order appears in waiting to confirm
+	Then I check that order with '<price>' appears in waiting to confirm
+
 	Examples: 
-	| email                  | password   |
-	| stevenhall@test.com    | 1111       | 
+	| email               | password | price  |
+	| stevenhall@test.com | 1111     | 455.90 |
 
 	@tag4
 
 	Scenario: Make reorder with changing values to -1
-	Given a user is signed in with '<email>' and '<password>'
+	Given I sign in as a client with '<email>' and '<password>'
 	Given I navigate to my profile
 	And I navigate to order history
 	And I click reorder
 	When I changing values to '<negativevalue>'
-	Then I check that quantity of dish remained in the amount of one
+	Then I check that '<quantitypopup>' appears in popup
 	
 
 	Examples: 
-	| email               | password | negativevalue |
-	| stevenhall@test.com | 1111     | -1            |
+	| email               | password | negativevalue | quantitypopup          |
+	| stevenhall@test.com | 1111     | -1            | Quantity changed to 11 |

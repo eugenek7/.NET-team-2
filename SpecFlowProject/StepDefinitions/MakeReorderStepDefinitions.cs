@@ -1,14 +1,13 @@
 using EasyRestSpecFlow.Pages;
 using NUnit.Framework;
 using SpecFlowProject.Pages;
-using TechTalk.SpecFlow;
+
 
 namespace SpecFlowProject.StepDefinitions
 {
     [Binding]
     public sealed class MakeReorderStepDefinitions
     { 
-
         private readonly HomePage _homePage;
         private readonly OrderHistoryPage _orderHistoryPage;
         private readonly CurrentOrdersPage _currentOrdersPage;
@@ -21,10 +20,8 @@ namespace SpecFlowProject.StepDefinitions
       
         [Given(@"I navigate to my profile")]
         public void GivenINavigateToMyProfile()
-        {
-            Thread.Sleep(2000);
-            _homePage.ClickProfileIcon();
-            Thread.Sleep(2000);
+        {           
+            _homePage.ClickProfileIcon();           
             _homePage.ClickRolePanelButton();
         }
 
@@ -38,21 +35,22 @@ namespace SpecFlowProject.StepDefinitions
         public void WhenIClickReorder()
         {
             _orderHistoryPage.ClickDropDownButton();
-            Thread.Sleep(2000);
+            _orderHistoryPage.WaitForReorderButton();
             _orderHistoryPage.ClickReorderButton();            
         }
 
         [When(@"I click submit reorder")]
         public void WhenIClickSubmitReorder()
-        {
-            Thread.Sleep(2000);
+        {          
             _orderHistoryPage.ClickSubmitButton();
         }              
 
         [When(@"I changing values to '([^']*)'")]
         public void WhenIChangingValuesTo(string negativevalue)
         {
+            _orderHistoryPage.ClearInputItemQuantity();
             _orderHistoryPage.SendKeysToInputItemQuantity(negativevalue);
+            _orderHistoryPage.ClickCancelOrderButton();
         }
 
         [When(@"I remove from the order list")]
@@ -69,26 +67,33 @@ namespace SpecFlowProject.StepDefinitions
 
         [When(@"I navigate to current orders")]
         public void WhenINavigateToCurrentOrders()
-        {
-            Thread.Sleep(2000);
+        {           
             _currentOrdersPage.ClickCurrentOrdersButton();
         }
-                
-        [Then(@"I check that order appears in waiting to confirm")]
-        public void ThenOrderAppearsInWaitingToConfirm()
-        {
-            _currentOrdersPage.ClickWaitingforconfirmButton();
-            Thread.Sleep(2000);
-            var ifOrderInTheList = _currentOrdersPage.CheckThatOrserAppears ("151");
-            Assert.IsTrue(ifOrderInTheList, "The order doesn't appear in the list of orders.");
-        }
 
-        [Then(@"I check that quantity of dish remained in the amount of one")]
-        public void ThenQuantityOfDishRemainedInTheAmountOfOne()
+        [Then(@"I check that '([^']*)' of dish remained in the amount of one")]
+        public void ThenICheckThatOfDishRemainedInTheAmountOfOne(string quantity)
         {
-            var expectQuantity = "1";
+            var expectQuantity = quantity;
             var actualQuantity = _orderHistoryPage.GetItemQuantity();
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
+        }
+
+        [Then(@"I check that order with '([^']*)' appears in waiting to confirm")]
+        public void ThenICheckThatOrderWithAppearsInWaitingToConfirm(string price)
+        {
+            _currentOrdersPage.ClickWaitingforconfirmButton();           
+            var actualorderId = _currentOrdersPage.GetPrice();
+            var expectedorderId = price;
+            StringAssert.Contains(expectedorderId, actualorderId, "Problems with Order");
+        }
+
+        [Then(@"I check that '([^']*)' appears in popup")]
+        public void ThenICheckThatAppearsInPopup(string quantitypopup)
+        {
+            var expectPopUp = quantitypopup;
+            var actualPopUp = _orderHistoryPage.GetPopup();
+            StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
         }
     }
 }
