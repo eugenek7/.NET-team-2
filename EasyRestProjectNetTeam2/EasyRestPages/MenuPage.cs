@@ -10,6 +10,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public DatePickerComponent DatePickerComponent { get; private set; }
         public TimePickerComponent TimePickerComponent { get; private set; }
         public MenuOrderItemsListComponent MenuOrderItemsListComponent { get; private set; }
+        public HeaderMenuComponent HeaderMenuComponent { get; private set; }
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
@@ -39,22 +40,24 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//input[contains (@class,'MuiInputBase-input')]) [11]")]
         private IWebElement _itemQuantityInTheCart;
 
-              
-        public void WaitForitemAddedPopUp(int timeToWait)
+        [FindsBy(How = How.XPath, Using = "//p[text()='Order status changed to Waiting for confirm']")]
+        private IWebElement _orderStatusConfirmPopUp;
+
+        public void WaitForItemAddedPopUp(int timeToWait)
         {
             WaitElementIsEnable(timeToWait, _itemAddedPopUp);
-        }                    
+        }
 
         public void ClearInputItemQuantity()
         {
-            _inputItemQuantity.Clear(); 
+            _inputItemQuantity.Clear();
         }
 
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
         }
-        
+
         public void IncreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowUp);
@@ -63,7 +66,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void DecreaseItemQuantity()
         {
             _inputItemQuantity.SendKeys(Keys.ArrowDown);
-        }       
+        }
 
         public void WaitAndClickAddToCartButton(int timeToWait)
         {
@@ -104,16 +107,21 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public string GetErrorPopupText()
         {
             return _errorPopUp.Text;
-        }     
+        }
 
         public string GetTextFromItemAddedPopUp()
         {
             return _itemAddedPopUp.Text;
-        }        
+        }
 
         public void WaitForInputItemQuantity(int timeToWait)
         {
             WaitElementIsClickable(timeToWait, _inputItemQuantity);
-        }              
+        }
+
+        public bool WaitAndCheckIfDisplayedOrderStatusConfirmPopUp(int timeTowait)
+        {
+            return _orderStatusConfirmPopUp.WaitElementAndCheckIfDisplayed(driver, timeTowait);
+        }
     }
 }
