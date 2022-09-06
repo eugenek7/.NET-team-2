@@ -1,4 +1,5 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Facades;
 using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
@@ -10,27 +11,27 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         HomePage homePage;
         SignInPage signInPage;
         MenuPage menuPage;
-        RestaurantsPage restaurantsPage;       
+        RestaurantsPage restaurantsPage;
+        BaseSignIn baseSignIn;
 
         [SetUp]
-        public override void SetUp()
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
+        public void SetUp()
         {
-            base.SetUp();
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
-            homePage.HeaderMenuComponent.ClickSignInButton();
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.EmailForClient, dataModel.PasswordBase);
             restaurantsPage = GetRestaurantsPage();
-            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);           
-            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);            
+            restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
+            restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);
             menuPage = GetMenuPage();
         }
 
-        [Test, Order (1)]
+        [Test]
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void CheckPosibilityToMakeOrder()
-        {                     
+        {
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
             menuPage.WaitForitemAddedPopUp(dataModel.TimeToWait);
             var expectPopUp = dataModel.ItemAddedPopUp;
@@ -38,23 +39,25 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
         }
 
-        [Test, Order(2)]
+        [Test]
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void CheckPosibilityToBuyNegativeNumberDish()
-        {            
-            menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);      
+        {
+            menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
             menuPage.SendKeysToInputItemQuantity(dataModel.InputNegativeQuantity);
-            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);                     
+            menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
             menuPage.MenuOrderItemsListComponent.WaitForItemQuantityInTheCart(dataModel.TimeToWait);
             var expectQuantity = dataModel.ItemQuantity11;
             var actualQuantity = menuPage.MenuOrderItemsListComponent.GetValueFromItemQuantityInCart();
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test, Order(3)]
+        [Test]
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void CheckPosibilityToWriteSymbolsInNumberDish()
-        {           
-            menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);        
+        {
+            menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
             menuPage.SendKeysToInputItemQuantity(dataModel.InputSymblosInQuantity);
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
@@ -64,7 +67,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test, Order(4)]
+        [Test]
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void CheckPosibilityIncraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
@@ -74,10 +78,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.MenuOrderItemsListComponent.WaitForItemQuantityInTheCart(dataModel.TimeToWait);
             var expectQuantity = dataModel.ItemQuantity2;
             var actualQuantity = menuPage.MenuOrderItemsListComponent.GetValueFromItemQuantityInCart();
-            StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");           
+            StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-        [Test, Order(5)]
+        [Test]
+        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void CheckPosibilityDecraseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
@@ -90,13 +95,12 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             StringAssert.Contains(expectQuantity, actualQuantity, "Problems with ItemQuantity");
         }
 
-         [TearDown]
-         public override void TearDown()
-        {              
+        [TearDown]
+        public void TearDown()
+        {
             DatabaseManager.SendNonQuery(queryDataModel.DeleteFromOrderAssociationByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteFromDraftOrderByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
-            base.TearDown();                  
         }
     }
 }

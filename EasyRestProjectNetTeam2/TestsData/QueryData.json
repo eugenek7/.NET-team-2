@@ -6,6 +6,11 @@
   "InsertInDBWaiterForDeleting": "insert into users(name, email, phone_number, birth_date, password, role_id, restaurant_id, is_active) values ('Spok', 'Spock@enterprise.vu', '888999777', '1777-07-30', '$pbkdf2-sha256$29000$5vx/D0EoJWRMKaWU8p5TSg$.1ams5oEycnMhuP2qYomYyaOjZvCSxXcXwpMEPJWxPc', '6', '8', '1');",
   "InsertInDBAdministratorForDeleting": "insert into users(name, email, phone_number, birth_date, password, role_id, restaurant_id, is_active) values ('Spok', 'Spock2@enterprise.vu', '888999777', '1777-07-30', '$pbkdf2-sha256$29000$5vx/D0EoJWRMKaWU8p5TSg$.1ams5oEycnMhuP2qYomYyaOjZvCSxXcXwpMEPJWxPc', '5', '8', '1');",
   "SetTempAdministrator": "UPDATE restaurants SET administrator_id = (select id from users where email='Spock2@enterprise.vu') where id = 8;",
+  "SetRestaurantStatusToUnapprovedByName": "UPDATE restaurants SET status = 0 WHERE name = '{0}'",
+  "InsertOrderInAssignedWaiterStatus":"INSERT into orders(id, creation_time ,booked_time, status, total_price ,user_id ,waiter_id, rest_id) VALUES('1000', '1660753437', '1660753437', 'Assigned waiter', '1', '24', '31', '2');",
+  "InsertOrderInProgressStatus": "INSERT into orders(id, creation_time, booked_time, status, total_price, user_id, waiter_id, rest_id) values ('1001', '1660753437', '1660753437', 'In progress', '1', '24', '31', '2');",
+  "DeleteOrderInAssignedWaiterStatus": "DELETE from orders WHERE id=1000;",
+  "DeleteOrderInProgressStatus": "DELETE from orders WHERE id=1001;",
   "DeleteFromOrderAssociationByEmail": "delete from order_associations where order_id = (select id  from orders where user_id = (select id from users where email='{0}') and status = 'Draft');",
   "DeleteFromDraftOrderByEmail": "delete from orders where user_id = (select id from users where email='{0}') and status = 'Draft';"
 }

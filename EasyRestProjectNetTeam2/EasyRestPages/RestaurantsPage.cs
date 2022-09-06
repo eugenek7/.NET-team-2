@@ -25,8 +25,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/restaurant/2/menu/3']/..")]
         private IWebElement _johnsonMenu;
-
-
+        
         public void WaitAndClickJonsonDetails(int timeToWait)
         {
             _johnsonDetails.WaitAndClick(driver, timeToWait);
@@ -36,7 +35,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             _johnsonMenu.WaitAndClick(driver, timeToWait);
         }
-
+        
         public void WaitAndClickResturantList(int timeToWait)
         {
             _restaurantsList.WaitAndClick(driver, timeToWait);

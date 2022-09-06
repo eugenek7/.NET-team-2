@@ -1,4 +1,6 @@
-﻿using AventStack.ExtentReports;
+﻿using System;
+using System.IO;
+using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Helpers;
@@ -7,8 +9,6 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.IO;
 
 
 
@@ -21,12 +21,12 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
           + Path.DirectorySeparatorChar + "Reports"
           + Path.DirectorySeparatorChar + "Report_" + DateTime.Now.ToString("ddMMyyyy HHmmss")
           /*+ "\\index.html"*/;
-        static ExtentReports extent;
+        static ExtentReports extent = new ExtentReports();
         ExtentTest test;
         protected DataModel dataModel;
         protected QueryDataModel queryDataModel;
 
-        private IWebDriver driver;
+        protected IWebDriver driver;
         private const string _siteUrl = "http://localhost:3000/";
 
 
@@ -34,13 +34,12 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public static void BeforeTestRun()
         {
             ExtentHtmlReporter htmlreport = new ExtentHtmlReporter(pathToReport);
-            extent = new ExtentReports();
             extent.AttachReporter(htmlreport);
         }
 
 
         [SetUp]
-        public virtual void SetUp()
+        public void SetUp()
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             test.Info($"Test {TestContext.CurrentContext.Test.Name} started");
@@ -52,7 +51,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
 
         [TearDown]
-        public virtual void TearDown()
+        public void TearDown()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
@@ -148,6 +147,16 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public ManageMenuPage GetManageMenuPage()
         {
             return new ManageMenuPage(GetDriver());
+        }
+
+        public WaiterPanelPage GetWaiterPanelPage()
+        {
+            return new WaiterPanelPage(GetDriver());
+        }
+
+        public ModeratorManagePage GetModeratorManagePage()
+        {
+            return new ModeratorManagePage(GetDriver());
         }
     }
 }

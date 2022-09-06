@@ -1,4 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
+using EasyRestProjectNetTeam2.Facades;
+using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
 
@@ -10,20 +12,21 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         RestaurantsPage restaurantsPage;
         HomePage homePage;
         SignInPage signInPage;
+        BaseSignIn baseSignIn;
 
         [SetUp]
-        public override void SetUp()
+        public void SetUp()
         {
-            base.SetUp();
-            homePage = GetHomePage();
-            homePage.HeaderMenuComponent.ClickSignInButton();
             signInPage = GetSignInPage();
-            signInPage.SendKeysToInputEmail(dataModel.EmailForClient);
-            signInPage.SendKeysToInputPassword(dataModel.PasswordForClient);
+            homePage = GetHomePage();
+            baseSignIn = new BaseSignIn(signInPage, homePage);
+            baseSignIn.SignIn(dataModel.EmailForClient, dataModel.PasswordBase);
             homePage.HeaderMenuComponent.ClickSignInButton();
         }
+
         [Test]
-        public void CheckReastaurantListPagetest()
+        [Category("(cr) Possibility to navigate in restaurant list page")]
+        public void CheckRestaurantListPageTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
@@ -33,7 +36,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void CheckReastaurantDetailsTest()
+        [Category("(cr) Possibility to navigate in restaurant list page")]
+        public void CheckRestaurantDetailsTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
@@ -44,7 +48,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
-        public void CheckReastaurantMenuTest()
+        [Category("(cr) Possibility to navigate in restaurant list page")]
+        public void CheckRestaurantMenuTest()
         {
             restaurantsPage = GetRestaurantsPage();
             restaurantsPage.WaitAndClickResturantList(dataModel.TimeToWait);
@@ -55,6 +60,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckNavigateToBeerTagTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -66,6 +72,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         }
 
         [Test]
+        [Category("(cr) Possibility to navigate in restaurant list page")]
         public void CheckNavigateToKebabTagTest()
         {
             restaurantsPage = GetRestaurantsPage();
@@ -74,6 +81,12 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             var expectedUrl = dataModel.KebabTagUrl;
             var actualUrl = restaurantsPage.GetPageUrl();
             StringAssert.Contains(expectedUrl, actualUrl, "Search word is absent for menu URL");
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
         }
     }
 }

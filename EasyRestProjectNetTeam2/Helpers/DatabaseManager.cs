@@ -43,8 +43,15 @@ namespace EasyRestProjectNetTeam2.Helpers
 
         private static NpgsqlConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost;Port=5432;User Id=admin;Password=12345678;database=easyrest;");
+            OperatingSystem os = Environment.OSVersion;
+            string windowsConnection = @"Server=localhost;Port=5432;User Id=admin;Password=12345678;database=easyrest;";
+            string macConnection = @"Server=localhost;Port=6544;User Id=admin;Password=12345678;database=easyrest;";
+            
+            if (os.Platform.ToString().Equals("Win32NT"))
+            {
+                return new NpgsqlConnection(windowsConnection);
+            }
+            return new NpgsqlConnection(macConnection);
         }
-
     }
 }
