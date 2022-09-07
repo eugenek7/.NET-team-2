@@ -15,7 +15,7 @@ namespace SpecFlowProject.Pages
         private IWebElement _currentOrdersButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[contains(text(), 'Current Orders')]"));
 
-        private IWebElement _waitingforconfirm => _browserInteractions.WaitAndReturnElement
+        private IWebElement _waitingForConfirm => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[contains(text(), 'Waiting for confirm')]"));
 
         private IWebElement _firstOrder => _browserInteractions.WaitAndReturnElement
@@ -25,9 +25,9 @@ namespace SpecFlowProject.Pages
         {
             _currentOrdersButton.Click();
         }
-        public void ClickWaitingforconfirmButton()
+        public void ClickWaitingForConfirmButton()
         {
-            _waitingforconfirm.Click();
+            _waitingForConfirm.Click();
         }
 
         public string GetPrice()

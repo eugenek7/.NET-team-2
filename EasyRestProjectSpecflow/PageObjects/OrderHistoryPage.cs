@@ -12,6 +12,7 @@ namespace SpecFlowProject.Pages
 
         private IWebElement _orderHistoryButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[contains(text(), 'Order History')]"));
+
         private IWebElement _allOrdersButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("//span[contains(text(), 'All')]"));
 
@@ -42,7 +43,7 @@ namespace SpecFlowProject.Pages
         private IWebElement _removeItemButton => _browserInteractions.WaitAndReturnElement
             (By.XPath("(//td//button[@aria-label = 'Remove item'])[1]"));
 
-        private IWebElement _changedQuantityPopup => _browserInteractions.WaitAndReturnElement
+        private IWebElement _changeQuantityPopUp => _browserInteractions.WaitAndReturnElement
             (By.XPath("//p[contains(text(), 'Quantity changed to 11')]"));
 
         private IWebElement _cancelOrderButton => _browserInteractions.WaitAndReturnElement
@@ -125,9 +126,9 @@ namespace SpecFlowProject.Pages
             _orderHistoryButton.Click();
         }
 
-        public string GetPopup()
+        public string GetPopUp()
         {
-            return _changedQuantityPopup.Text;
+            return _changeQuantityPopUp.Text;
         }
     }
 }

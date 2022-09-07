@@ -11,6 +11,7 @@ namespace SpecFlowProject.StepDefinitions
         private readonly HomePage _homePage;
         private readonly OrderHistoryPage _orderHistoryPage;
         private readonly CurrentOrdersPage _currentOrdersPage;
+
         public MakeReorderStepDefinitions(HomePage homePage, OrderHistoryPage orderHistoryPage, CurrentOrdersPage currentOrdersPage)
         {
             _homePage = homePage;
@@ -74,7 +75,7 @@ namespace SpecFlowProject.StepDefinitions
         [Then(@"I check that order with '([^']*)' appears in waiting to confirm")]
         public void ThenICheckThatOrderWithAppearsInWaitingToConfirm(string price)
         {
-            _currentOrdersPage.ClickWaitingforconfirmButton();
+            _currentOrdersPage.ClickWaitingForConfirmButton();
             var actualPrice = _currentOrdersPage.GetPrice();
             var expectedPrice = price;
             StringAssert.Contains(expectedPrice, actualPrice, "Problems with Order");
@@ -84,7 +85,7 @@ namespace SpecFlowProject.StepDefinitions
         public void ThenICheckThatAppears(string quantitypopup)
         {
             var expectPopUp = quantitypopup;
-            var actualPopUp = _orderHistoryPage.GetPopup();
+            var actualPopUp = _orderHistoryPage.GetPopUp();
             StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
         }
     }
