@@ -33,7 +33,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         public void CheckPosibilityToMakeOrder()
         {
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
-            menuPage.WaitForitemAddedPopUp(dataModel.TimeToWait);
+            menuPage.WaitForItemAddedPopUp(dataModel.TimeToWait);
             var expectPopUp = dataModel.ItemAddedPopUp;
             var actualPopUp = menuPage.GetTextFromItemAddedPopUp();
             StringAssert.Contains(expectPopUp, actualPopUp, "Problems with ItemAddedPopUp");
