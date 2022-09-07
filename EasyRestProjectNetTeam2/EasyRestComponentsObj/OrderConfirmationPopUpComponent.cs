@@ -30,6 +30,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//span[text()='Submit']/parent::button")]
         private IWebElement _submitButton;
 
+        [FindsBy(How = How.XPath, Using = "//td[text()='Total:']/following-sibling::td")]
+        private IWebElement _totalSum;
+
         public void SendKeysToInputItemQuantity(string quantity)
         {
             _inputItemQuantity.SendKeys(quantity);
@@ -72,5 +75,11 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _removeItemButton.Click();
         }
 
+        public string WaitAndGetTextFromTotalSumOfLastOrder(int timeToWait)
+        {
+            string sum = _totalSum.WaitAndGetText(driver, timeToWait);
+            sum = sum.Remove(sum.Length - 1, 1);
+            return sum;
+        }
     }
 }

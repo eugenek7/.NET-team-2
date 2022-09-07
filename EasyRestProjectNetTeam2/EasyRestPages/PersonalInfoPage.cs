@@ -10,7 +10,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public PersonalInfoPage(IWebDriver driver) : base(driver)
         {
             HeaderMenuComponent = new HeaderMenuComponent(driver);
-        }              
+        }
 
         [FindsBy(How = How.XPath, Using = "//th[contains(text(), 'Email:')]/following-sibling::td")]
         private IWebElement _inputEmail;
@@ -26,6 +26,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'Personal Info')]")]
         private IWebElement _personalInfoButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()='Current Orders']/parent::span")]
+        private IWebElement _currentOrdersButton;
+
         public string GetTextFromEmailField()
         {
             return _inputEmail.Text;
@@ -69,6 +73,11 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         public void ClickPersonalInfoButton()
         {
             _personalInfoButton.Click();
+        }
+
+        public void ClickCurrentOrdersButton()
+        {
+            _currentOrdersButton.Click();
         }
     }
 }
