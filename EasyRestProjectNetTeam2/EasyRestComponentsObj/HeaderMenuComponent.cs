@@ -29,7 +29,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         private IWebElement _logOutButton;
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Easy-rest']/parent::div")]
-        private IWebElement _homeButton;
+        private IWebElement _easyrestButton;
 
         public void ClickProfileIcon()
         {
@@ -71,7 +71,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
 
         public void ClickEasyrestButton()
         {
-            _homeButton.Click();
+            _easyrestButton.Click();
         }
     }
 }
