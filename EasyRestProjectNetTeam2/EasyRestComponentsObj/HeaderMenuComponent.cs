@@ -28,6 +28,9 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         [FindsBy(How = How.XPath, Using = "//li[text()='Log Out']")]
         private IWebElement _logOutButton;
 
+        [FindsBy(How = How.XPath, Using = "//a[text()='Easy-rest']/parent::div")]
+        private IWebElement _homeButton;
+
         public void ClickProfileIcon()
         {
             try
@@ -64,6 +67,11 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
         public void ClickRolePanelButton()
         {
             _rolePanelButton.Click();
+        }
+
+        public void ClickEasyrestButton()
+        {
+            _homeButton.Click();
         }
     }
 }

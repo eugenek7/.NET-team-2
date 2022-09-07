@@ -14,6 +14,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public MenuPage(IWebDriver driver) : base(driver)
         {
+            HeaderMenuComponent = new HeaderMenuComponent(driver);
         }
 
         [FindsBy(How = How.XPath, Using = "(//input[@id='quantity'][not(@disabled)])[1]")]

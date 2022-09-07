@@ -35,8 +35,10 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.MenuOrderItemsListComponent.OrderConfirmationPopUpComponent.WaitAndClickSubmitButton(dataModel.TimeToWait);
             var ifOrderConfirmationPopUpDisplayed = menuPage.WaitAndCheckIfDisplayedOrderStatusConfirmPopUp(dataModel.TimeToWait);
             Assert.IsTrue(ifOrderConfirmationPopUpDisplayed, "Pop up for order confirmation not displayed");
+            menuPage.HeaderMenuComponent.ClickEasyrestButton();
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickRolePanelButton();
+
 
 
 
