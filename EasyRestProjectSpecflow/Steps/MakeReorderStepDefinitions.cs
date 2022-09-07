@@ -80,8 +80,8 @@ namespace SpecFlowProject.StepDefinitions
             StringAssert.Contains(expectedPrice, actualPrice, "Problems with Order");
         }
 
-        [Then(@"I check that '([^']*)' appears in popup")]
-        public void ThenICheckThatAppearsInPopup(string quantitypopup)
+        [Then(@"I check that '([^']*)' appears")]
+        public void ThenICheckThatAppears(string quantitypopup)
         {
             var expectPopUp = quantitypopup;
             var actualPopUp = _orderHistoryPage.GetPopup();

@@ -59,12 +59,7 @@ namespace SpecFlowProject.Pages
         {
             _cancelOrderButton.Click();
         }
-
-        public string GetItemQuantity()
-        {
-            return _inputItemQuantity.GetAttribute("value");
-        }
-
+        
         public void ClickRemoveItemButton()
         {
             _removeItemButton.Click();
