@@ -75,7 +75,7 @@ namespace EasyRestProjectNetTeam2.EasyRestComponentsObj
             _removeItemButton.Click();
         }
 
-        public string GetTextFromTotalSumOfOrder(int timeToWait)
+        public string WaitAndGetTextFromTotalSumOfLastOrder(int timeToWait)
         {
             string sum = _totalSum.WaitAndGetText(driver, timeToWait);
             sum = sum.Remove(sum.Length - 1, 1);

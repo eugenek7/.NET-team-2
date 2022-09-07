@@ -14,7 +14,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//div[contains(@class, 'MuiGrid-grid-xs-2')]/p)[1]")]
         private IWebElement _sumOfOrder;
 
-        public string WaitAndGetSumFromlastOrder(int timeToWait)
+        public string WaitAndGetSumFromLastOrder(int timeToWait)
         {
             return _sumOfOrder.WaitAndGetText(driver, timeToWait);
         }
