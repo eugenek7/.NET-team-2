@@ -1,11 +1,12 @@
-﻿using EasyRestProjectSpecflow.PageObjects;
-using TechTalk.SpecFlow;
+﻿using EasyRestSpecFlow.Pages;
+
 
 namespace EasyRestProjectSpecflow.Steps
 {
     [Binding]
     public sealed class EasyRestStepDefinitions
     {
+
         private readonly HomePage _homePage;
         private readonly SignInPage _signInPage;
 
@@ -14,8 +15,7 @@ namespace EasyRestProjectSpecflow.Steps
             _homePage = homePage;
             _signInPage = signInPage;
         }
-        
-        [Given(@"I sign in as a client with '([^']*)' and '([^']*)'")]
+
         [Given(@"a user is signed in with '(.*)' and '(.*)'")]
         public void GivenAUserIsSignedInWithAnd(string email, string password)
         {
@@ -25,5 +25,13 @@ namespace EasyRestProjectSpecflow.Steps
             _signInPage.ClickSignInButton();
         }
 
+        [Given(@"I sign in as a client with '([^']*)' and '([^']*)'")]
+        public void GivenISignInAsAClientWithAnd(string email, string password)
+        {
+            _homePage.ClickSignInButton();
+            _signInPage.SendKeysToInputEmail(email);
+            _signInPage.SendKeysToInputPassword(password);
+            _signInPage.ClickSignInButton();
+        }
     }
 }
