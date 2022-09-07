@@ -34,7 +34,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage = GetMenuPage();
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
             menuPage.MenuOrderItemsListComponent.WaitAndClickSubmitOrderButton(dataModel.TimeToWait);
-            var totalSum = menuPage.MenuOrderItemsListComponent.OrderConfirmationPopUpComponent.GetTextFromTotalSum(dataModel.TimeToWait);
+            var totalSum = menuPage.MenuOrderItemsListComponent.OrderConfirmationPopUpComponent.GetTextFromTotalSumOfOrder(dataModel.TimeToWait);
             menuPage.MenuOrderItemsListComponent.OrderConfirmationPopUpComponent.WaitAndClickSubmitButton(dataModel.TimeToWait);
             var ifOrderConfirmationPopUpDisplayed = menuPage.WaitAndCheckIfDisplayedOrderStatusConfirmPopUp(dataModel.TimeToWait);
             Assert.IsTrue(ifOrderConfirmationPopUpDisplayed, "Pop up for order confirmation not displayed");
@@ -42,7 +42,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickRolePanelButton();
             personalInfoPage = GetPersonalInfoPage();
-            personalInfoPage.ClickCurrentOrders();
+            personalInfoPage.ClickCurrentOrdersButton();
             currentOrdersPage = GetCurrentOrdersPage();
             var totalSumOfLastOrder = currentOrdersPage.WaitAndGetSumFromlastOrder(dataModel.TimeToWait);
             StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is non expected sum.");

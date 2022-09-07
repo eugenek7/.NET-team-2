@@ -75,7 +75,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _personalInfoButton.Click();
         }
 
-        public void ClickCurrentOrders()
+        public void ClickCurrentOrdersButton()
         {
             _currentOrdersButton.Click();
         }
