@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EasyRestProjectNetTeam2.Decorator;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace EasyRestProjectNetTeam2.EasyRestPages
@@ -13,10 +14,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "(//div[contains(@class, 'MuiGrid-grid-xs-2')]/p)[1]")]
         private IWebElement _sumOfOrder;
 
-        public string GetSumFromOrder()
+        public string WaitAndGetSumFromlastOrder(int timeToWait)
         {
-            var sumOfOrder = _sumOfOrder.Text;
-
+            var sumOfOrder = _sumOfOrder.WaitAndGetText(driver, timeToWait);
             return sumOfOrder;
         }
     }

@@ -11,6 +11,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         BaseSignIn baseSignIn;
         RestaurantsPage restaurantsPage;
         MenuPage menuPage;
+        PersonalInfoPage personalInfoPage;
+        CurrentOrdersPage currentOrdersPage;
 
         [SetUp]
         public void SetUp()
@@ -38,8 +40,11 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             menuPage.HeaderMenuComponent.ClickEasyrestButton();
             menuPage.HeaderMenuComponent.ClickProfileIcon();
             menuPage.HeaderMenuComponent.ClickRolePanelButton();
-
-
+            personalInfoPage = GetPersonalInfoPage();
+            personalInfoPage.ClickCurrentOrders();
+            currentOrdersPage = GetCurrentOrdersPage();
+            var totalSumOfLastOrder = currentOrdersPage.WaitAndGetSumFromlastOrder(dataModel.TimeToWait);
+            StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is non expected sum.");
 
 
         }

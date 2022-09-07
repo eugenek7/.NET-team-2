@@ -27,6 +27,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         [FindsBy(How = How.XPath, Using = "//span[(text()= 'Personal Info')]")]
         private IWebElement _personalInfoButton;
 
+        [FindsBy(How = How.XPath, Using = "//span[text()='Current Orders']/parent::span")]
+        private IWebElement _currentOrdersButton;
+
         public string GetTextFromEmailField()
         {
             return _inputEmail.Text;
@@ -72,5 +75,9 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
             _personalInfoButton.Click();
         }
 
+        public void ClickCurrentOrders()
+        {
+            _currentOrdersButton.Click();
+        }
     }
 }
