@@ -45,7 +45,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             personalInfoPage.ClickCurrentOrdersButton();
             currentOrdersPage = GetCurrentOrdersPage();
             var totalSumOfLastOrder = currentOrdersPage.WaitAndGetSumFromLastOrder(dataModel.TimeToWait);
-            StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is non expected sum.");
+            StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is no expected sum.");
         }
 
         [TearDown]
