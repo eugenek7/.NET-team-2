@@ -16,8 +16,7 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
 
         public string WaitAndGetSumFromlastOrder(int timeToWait)
         {
-            var sumOfOrder = _sumOfOrder.WaitAndGetText(driver, timeToWait);
-            return sumOfOrder;
+            return _sumOfOrder.WaitAndGetText(driver, timeToWait);
         }
     }
 }
