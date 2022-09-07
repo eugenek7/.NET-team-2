@@ -1,5 +1,6 @@
 ﻿using EasyRestProjectNetTeam2.EasyRestPages;
 using EasyRestProjectNetTeam2.Facades;
+using EasyRestProjectNetTeam2.Helpers;
 using NUnit.Framework;
 
 namespace EasyRestProjectNetTeam2.EasyRestTests
@@ -45,29 +46,14 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             currentOrdersPage = GetCurrentOrdersPage();
             var totalSumOfLastOrder = currentOrdersPage.WaitAndGetSumFromlastOrder(dataModel.TimeToWait);
             StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is non expected sum.");
-
-
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        [TearDown]
+        public void TearDown()
+        {
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrderAssociationsByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrdersByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
+        }
     }
 }
