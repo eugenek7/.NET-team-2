@@ -33,7 +33,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         {
             DatabaseManager.SendNonQuery(queryDataModel.DeleteUserByEmail, dataModel.EmailForSignUp);
         }
-
     }
 }
 

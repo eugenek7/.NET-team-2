@@ -26,6 +26,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(cn) Possibility to navigate menu of restaurant page")]
+        [Category("Smoke")]
         public void CheckNavigationToMenuCategoryHot()
         {
             restaurantsPage.WaitAndClickJonsonMenu(dataModel.TimeToWait);

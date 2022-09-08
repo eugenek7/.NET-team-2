@@ -14,6 +14,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(uu) Possibility to Sign in")]
+        [Category("Smoke")]
         public void CheckUserSignInAndLogOutTest()
         {
             signInPage = GetSignInPage();

@@ -27,6 +27,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(wp) Possibility to Work with waiter panel as waiter")]
+        [Category("Smoke")]
         public void CheckWaiterIsAbleToConfirmAssignedOrder()
         {
             waiterPanelPage.WaitClickAssignedWaiterTab(dataModel.TimeToWait);

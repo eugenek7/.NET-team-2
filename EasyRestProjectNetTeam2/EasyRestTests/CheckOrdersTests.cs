@@ -15,7 +15,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         BaseSignIn baseSignIn;
 
         [SetUp]
-        [Category("(ca) Possibility to add product in the cart from restaurant menu")]
         public void SetUp()
         {
             signInPage = GetSignInPage();
@@ -30,7 +29,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPossibilityToMakeOrder()
+        [Category("Smoke")]
+        public void CheckPosibilityToMakeOrder()
         {
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
             menuPage.WaitForItemAddedPopUp(dataModel.TimeToWait);
