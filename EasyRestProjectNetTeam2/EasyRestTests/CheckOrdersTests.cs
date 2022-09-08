@@ -30,7 +30,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityToMakeOrder()
+        public void CheckPossibilityToMakeOrder()
         {
             menuPage.WaitAndClickAddToCartButton(dataModel.TimeToWait);
             menuPage.WaitForItemAddedPopUp(dataModel.TimeToWait);
@@ -41,7 +41,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityToBuyNegativeNumberDish()
+        public void CheckPossibilityToBuyNegativeNumberDish()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -55,7 +55,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityToWriteSymbolsInNumberDish()
+        public void CheckPossibilityToWriteSymbolsInNumberDish()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -69,7 +69,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityIncraseQuantity()
+        public void CheckPossibilityIncreaseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -83,7 +83,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityDecraseQuantity()
+        public void CheckPossibilityDecreaseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
