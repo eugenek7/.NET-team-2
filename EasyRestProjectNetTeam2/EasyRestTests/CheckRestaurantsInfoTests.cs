@@ -37,6 +37,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(cr) Possibility to navigate in restaurant list page")]
+        [Category("Smoke")]
         public void CheckRestaurantDetailsTest()
         {
             restaurantsPage = GetRestaurantsPage();
