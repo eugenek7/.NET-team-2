@@ -44,6 +44,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
             personalInfoPage = GetPersonalInfoPage();
             personalInfoPage.ClickCurrentOrdersButton();
             currentOrdersPage = GetCurrentOrdersPage();
+            var ifOrderDisplayed = currentOrdersPage.WaitAndCheckIfOrderDisplayed(dataModel.TimeToWait);
+            Assert.IsTrue(ifOrderDisplayed, "There is no order displayed");
             var totalSumOfLastOrder = currentOrdersPage.WaitAndGetSumFromLastOrder(dataModel.TimeToWait);
             StringAssert.Contains(totalSum, totalSumOfLastOrder, "In last order there is no expected sum.");
         }

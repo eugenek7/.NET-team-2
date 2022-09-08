@@ -18,5 +18,10 @@ namespace EasyRestProjectNetTeam2.EasyRestPages
         {
             return _sumOfOrder.WaitAndGetText(driver, timeToWait);
         }
+
+        public bool WaitAndCheckIfOrderDisplayed(int timeTowait)
+        {
+            return _sumOfOrder.WaitElementAndCheckIfDisplayed(driver, timeTowait);
+        }
     }
 }
