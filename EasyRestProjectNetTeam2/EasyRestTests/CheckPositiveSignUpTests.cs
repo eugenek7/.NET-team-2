@@ -12,7 +12,6 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(uu) Possibility to Sign up")]
-        [Category("Smoke")]
         public void CheckUserIsAbleToSignUpWithLettersInPhoneNumber()
         {
             homePage = GetHomePage();
