@@ -98,8 +98,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [TearDown]
         public void TearDown()
         {
-            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromOrderAssociationByEmail, dataModel.EmailForClient);
-            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromDraftOrderByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrderAssociationsByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrdersByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
         }
     }
