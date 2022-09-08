@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
 using SpecFlow.Actions.Selenium;
 
-namespace EasyRestProjectSpecflow.PageObjects
+namespace EasyRestSpecFlow.Pages
 {
     public class HomePage
     {
+      
         private readonly IBrowserInteractions _browserInteractions;
 
         public HomePage(IBrowserInteractions browserInteractions)
@@ -14,19 +15,14 @@ namespace EasyRestProjectSpecflow.PageObjects
 
         private static string pageUrl => "http://localhost:3000/";
 
-       
-        private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement
-            (By.XPath("//span[text()='Sign In']"));
+        private IWebElement _signInButton => _browserInteractions.WaitAndReturnElement(By.XPath("//span[text()='Sign In']"));
 
-        private IWebElement _profileIcon => _browserInteractions.WaitAndReturnElement
-            (By.XPath("//div[contains(@class, 'MuiAvatar-root')]"));
+        private IWebElement _profileIcon => _browserInteractions.WaitAndReturnElement(By.XPath("//div[contains(@class, 'MuiAvatar-root')]"));
 
-        private IWebElement _rolePanelButton => _browserInteractions.WaitAndReturnElement
-            (By.XPath("//a[@role='menuitem']"));
+        private IWebElement _rolePanelButton => _browserInteractions.WaitAndReturnElement(By.XPath("//a[@role='menuitem']"));
 
-        private IWebElement _logOutButton => _browserInteractions.WaitAndReturnElement
-            (By.XPath("//li[text()='Log Out']"));
-
+        private IWebElement _logOutButton => _browserInteractions.WaitAndReturnElement(By.XPath("//li[text()='Log Out']"));               
+     
         public void GoToHomePage()
         {
             _browserInteractions.GoToUrl(pageUrl);
@@ -38,8 +34,8 @@ namespace EasyRestProjectSpecflow.PageObjects
         }
 
         public void ClickProfileIcon()
-        {
-            _profileIcon.ClickWithRetry();
+        {           
+            _profileIcon.Click();
         }
 
         public void ClickRolePanelButton()
