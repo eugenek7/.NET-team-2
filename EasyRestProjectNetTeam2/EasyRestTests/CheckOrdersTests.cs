@@ -41,7 +41,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityToBuyNegativeNumberDish()
+        public void CheckPossibilityToBuyNegativeNumberDish()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -55,7 +55,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityToWriteSymbolsInNumberDish()
+        public void CheckPossibilityToWriteSymbolsInNumberDish()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -69,7 +69,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityIncraseQuantity()
+        public void CheckPossibilityIncreaseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -83,7 +83,7 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
 
         [Test]
         [Category("(ca) Possibility to add product in the cart from restaurant menu")]
-        public void CheckPosibilityDecraseQuantity()
+        public void CheckPossibilityDecreaseQuantity()
         {
             menuPage.WaitForInputItemQuantity(dataModel.TimeToWait);
             menuPage.ClearInputItemQuantity();
@@ -98,8 +98,8 @@ namespace EasyRestProjectNetTeam2.EasyRestTests
         [TearDown]
         public void TearDown()
         {
-            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromOrderAssociationByEmail, dataModel.EmailForClient);
-            DatabaseManager.SendNonQuery(queryDataModel.DeleteFromDraftOrderByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrderAssociationsByEmail, dataModel.EmailForClient);
+            DatabaseManager.SendNonQuery(queryDataModel.DeleteLastFromOrdersByEmail, dataModel.EmailForClient);
             DatabaseManager.SendNonQuery(queryDataModel.DeleteTokenByEmail, dataModel.EmailForClient);
         }
     }
